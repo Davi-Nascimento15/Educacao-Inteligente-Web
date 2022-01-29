@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ControllerUsuario</display-name>
+    <servlet-name>ControllerUsuario</servlet-name>
+    <servlet-class>com.educacaointeligente.servlets.ControllerUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerUsuario</servlet-name>
+    <url-pattern>/ControllerUsuario</url-pattern>
+  </servlet-mapping>
 </web-app>
