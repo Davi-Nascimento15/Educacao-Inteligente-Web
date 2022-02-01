@@ -12,7 +12,7 @@
  <label>Nome</label>
  <input type="text" name= nome>
  </br>
-  <label>Senha</label>
+  <label>Senha </label>
  <input type="password" name= senha>
  </br>
 <select name="Tipo" id="tipo">
