@@ -26,7 +26,7 @@ public class ControllerUsuario extends HttpServlet {
 	    	UsuarioDao usuarioDao = new UsuarioDao();
 	    	Usuario delUsuario = usuarioDao.get(UsuarioId);
 	    	usuarioDao.delete(delUsuario);
-	    	response.sendRedirect("usuariocon.jsp?id="+request.getParameter("id")+"");
+	    	response.sendRedirect("usuariocon.jsp");
 	}
 }
 
@@ -58,6 +58,6 @@ public class ControllerUsuario extends HttpServlet {
 						
 			usuarioDao.save(usuario);	
 		}
-		response.sendRedirect("usuariocon.jsp?id="+request.getParameter("user")+"");
-}
+		response.sendRedirect("usuariocon.jsp");
+	}
 }
