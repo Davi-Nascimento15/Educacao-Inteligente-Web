@@ -6,14 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.educacaointeligente.Enum.TipoUsuario;
 import com.educacaointeligente.dao.ProfessorDao;
-import com.educacaointeligente.dao.UsuarioDao;
 import com.educacaointeligente.model.Professor;
-import com.educacaointeligente.model.Usuario;
 
-@WebServlet({"/ControllerUsuario","/controllerusuario"})
+@WebServlet({"/ControllerProfessor","/controllerprofessor"})
 public class ControllerProfessor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,7 +26,7 @@ public class ControllerProfessor extends HttpServlet {
 	    	ProfessorDao professorDao = new ProfessorDao();
 	    	Professor delProfessor = professorDao.get(ProfessorId);
 	    	professorDao.delete(delProfessor);
-	    	response.sendRedirect("professorcon.jsp?id="+request.getParameter("id")+"");
+	    	response.sendRedirect("professorcon.jsp?");
 	}
 	}
 
@@ -65,6 +61,6 @@ public class ControllerProfessor extends HttpServlet {
 			professorDao.save(professor);
 		}
 		
-		response.sendRedirect("professorcon.jsp");
+		response.sendRedirect("professorcon.jsp?");
 }
 	}

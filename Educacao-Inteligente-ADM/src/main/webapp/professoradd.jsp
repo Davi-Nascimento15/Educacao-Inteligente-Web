@@ -8,7 +8,7 @@
 <title>Adicionar Novo Professor</title>
 </head>
 <body>
-  <form action="ControllerUsuario" method="post">
+  <form action="ControllerProfessor" method="post">
  <label>Nome</label>
  <input type="text" name= nome>
  </br>
