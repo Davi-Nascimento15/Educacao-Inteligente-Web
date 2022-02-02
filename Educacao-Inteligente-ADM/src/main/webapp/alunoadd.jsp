@@ -34,7 +34,7 @@
 </select>
  </br>
  <select name="ano" id="Ano">
-  <option value="<%=Ano.primeiro.name()%>">1º ano</option>
+  <option value="<%=Ano.primeiro.name()%>">1º ano </option>
   <option value="<%=Ano.segundo.name()%>">2º ano</option>
   <option value="<%=Ano.terceiro.name()%>">3º ano</option>
   <option value="<%=Ano.quarto.name()%>">4º ano</option>
