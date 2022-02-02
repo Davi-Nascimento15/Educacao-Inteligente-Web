@@ -30,7 +30,6 @@ public class ControllerUsuario extends HttpServlet {
 	}
 }
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		UsuarioDao usuarioDao=  new UsuarioDao();
