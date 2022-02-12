@@ -58,5 +58,5 @@ public class ControllerUsuario extends HttpServlet {
 			usuarioDao.save(usuario);	
 		}
 		response.sendRedirect("usuariocon.jsp?id="+request.getParameter("user")+"");
-}
+	}
 }
