@@ -25,7 +25,7 @@
  <input type="text" name= formacao>
  </br>
  
- <input type="submit" value="Salvar">
- </form>
+<input type="submit" value="Salvar">
+</form>
 </body>
 </html>
