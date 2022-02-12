@@ -12,7 +12,7 @@
 <body>
      <%
 	  DisciplinaDao daoDisciplina = new DisciplinaDao();
-      List<Disciplina> ListadeDisciplina = daoDisciplina.getAll();
+      List<Disciplina>ListadeDisciplina = daoDisciplina.getAll();
 	%>
 	<a href="disciplinaadd.jsp">Nova Disciplina</a>
 	

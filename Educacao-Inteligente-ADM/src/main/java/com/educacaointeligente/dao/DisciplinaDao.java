@@ -34,7 +34,7 @@ public class DisciplinaDao implements Dao<Disciplina> {
 
 	@Override
 	public List<Disciplina> getAll() {
-		return em.createQuery("From 'Disciplina'",Disciplina.class).getResultList();
+		return em.createQuery("From Disciplina",Disciplina.class).getResultList();
 	}
 	
 	@Override
