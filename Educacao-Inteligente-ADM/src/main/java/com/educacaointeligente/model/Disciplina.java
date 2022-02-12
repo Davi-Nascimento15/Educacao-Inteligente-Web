@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -15,7 +16,9 @@ public class Disciplina {
     String nome;
     @NotNull
     String descricao;
-
+    @OneToOne
+    private Professor professor;
+    
 	public Disciplina() {
 		super();
 	}
@@ -51,5 +54,14 @@ public class Disciplina {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	} 
+	}
+	
+	public Professor getProfessor() {
+		return professor;
+	}
+
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
 }

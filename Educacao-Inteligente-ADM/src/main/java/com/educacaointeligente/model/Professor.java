@@ -4,28 +4,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 import com.sun.istack.NotNull;
 
 @Entity
 public class Professor {
 	   @Id
 	   @GeneratedValue(strategy = GenerationType.IDENTITY)
-       int idprofessor;
-	   
+       int idprofessor;	   
 	   @NotNull
-       String nome;
-	   
+       String nome;	   
        @NotNull
-       String endereco;
-       
+       String endereco;      
        @NotNull
-       String formacao;
-       
+       String formacao;    
        @NotNull
        String telefone;
+       @OneToOne
+       Disciplina disciplina;
 
        
-   	public Professor() {
+	public Professor() {
 		super();
 	}
    	     
@@ -39,54 +39,51 @@ public class Professor {
 	}
 
 
-
 	public int getIdprofessor() {
 		return idprofessor;
 	}
-
 
 	public void setIdprofessor(int idprofessor) {
 		this.idprofessor = idprofessor;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
-
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-
 	public String getEndereco() {
 		return endereco;
 	}
-
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 
-
 	public String getFormacao() {
 		return formacao;
 	}
-
 
 	public void setFormacao(String formacao) {
 		this.formacao = formacao;
 	}
 
-
 	public String getTelefone() {
 		return telefone;
 	}
 
-
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	
+
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}	
 }

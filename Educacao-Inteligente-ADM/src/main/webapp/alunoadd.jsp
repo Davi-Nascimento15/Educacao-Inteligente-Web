@@ -1,3 +1,7 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="com.educacaointeligente.model.Usuario"%>
+<%@page import="java.util.List"%>
+<%@page import="com.educacaointeligente.dao.UsuarioDao"%>
 <%@page import="com.educacaointeligente.Enum.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -44,6 +48,21 @@
   <option value="<%=Ano.oitavo.name()%>">8º ano</option>
   <option value="<%=Ano.nono.name()%>">9º ano</option>
 </select>
+
+<%
+UsuarioDao usuariodao = new UsuarioDao(); 
+List<Usuario>ListaUsuario = usuariodao.getAll();
+%>
+</br>
+<select name="usuarioID" id="Usuario">
+<%
+  for(Usuario U:ListaUsuario){
+%>
+  <option value="<%=U.getIdusuario()%>"><%=U.getNome()%></option>
+<%} %>
+</select>
+</br>
+
  <input type="submit" value="Salvar">
  </form>
 </body>

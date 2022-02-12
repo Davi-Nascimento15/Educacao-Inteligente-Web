@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import com.educacaointeligente.Enum.*;
 import com.sun.istack.NotNull;
 
@@ -22,12 +24,14 @@ public class Aluno {
     String endereco;
     @NotNull
     String telefone;
-    @NotNull
+	@NotNull
     String turma;
     @NotNull
     Turno turno;
     @NotNull
     Ano ano;
+    @ManyToOne
+    Usuario usuario;
 
 	public Aluno() {
 		super();
@@ -117,5 +121,13 @@ public class Aluno {
 
 	public void setAno(Ano ano) {
 		this.ano = ano;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

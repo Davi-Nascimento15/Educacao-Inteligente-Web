@@ -1,9 +1,12 @@
 package com.educacaointeligente.model;
 
 import javax.persistence.Entity;
+import java.util.List;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import com.educacaointeligente.Enum.TipoUsuario;
 import com.sun.istack.NotNull;
 
@@ -18,6 +21,8 @@ public class Usuario {
 	   TipoUsuario tipo;
        @NotNull
        String senha;
+       @OneToMany(mappedBy = "usuario")
+       private List<Aluno> aluno;
        
 	public Usuario() {
 		super();

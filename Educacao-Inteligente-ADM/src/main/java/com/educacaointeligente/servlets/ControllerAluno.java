@@ -48,6 +48,8 @@ public class ControllerAluno extends HttpServlet {
 			aluno.setTurno(Turno.valueOf(request.getParameter("turno")));
 			aluno.setAno(Ano.valueOf(request.getParameter("ano")));
 			
+			UsuarioDao usuarioDao = new UsuarioDao();
+			aluno.setUsuario(usuarioDao.get(Integer.parseInt(request.getParameter("usuarioID"))));
 			alunoDao.update(aluno);
 				
 		}else 
@@ -62,6 +64,9 @@ public class ControllerAluno extends HttpServlet {
 			aluno.setTurma(request.getParameter("turma"));
 			aluno.setTurno(Turno.valueOf(request.getParameter("turno")));
 			aluno.setAno(Ano.valueOf(request.getParameter("ano")));
+			
+			UsuarioDao usuarioDao = new UsuarioDao();
+			aluno.setUsuario(usuarioDao.get(Integer.parseInt(request.getParameter("usuarioID"))));
 						
 			alunoDao.save(aluno);	
 		}

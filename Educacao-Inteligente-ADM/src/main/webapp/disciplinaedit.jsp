@@ -1,5 +1,8 @@
 <%@page import="com.educacaointeligente.dao.DisciplinaDao"%>
 <%@page import="com.educacaointeligente.model.Disciplina"%>
+<%@page import="com.educacaointeligente.model.Professor"%>
+<%@page import="com.educacaointeligente.dao.ProfessorDao"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -26,7 +29,21 @@
   <label>Descrição</label>
  	<input type="text" name=descricao value=<%=disciplina.getDescricao() %>>
  </br>
-  
+
+<%
+ProfessorDao professordao = new ProfessorDao(); 
+List<Professor>ListaProfessor = professordao.getAll();
+%>
+</br>
+<select name="professorID" id="Professor">
+<%
+  for(Professor P:ListaProfessor){
+%>
+  <option value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
+<%} %>
+</select>
+</br>
+
  <input type="submit" value="Salvar">
  
 </form>

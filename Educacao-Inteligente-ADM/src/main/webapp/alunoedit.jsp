@@ -61,6 +61,21 @@
   <option value="<%=Ano.nono.name()%>">9º ano</option>
 </select>
 </br>
+
+<%
+UsuarioDao usuariodao = new UsuarioDao(); 
+List<Usuario>ListaUsuario = usuariodao.getAll();
+%>
+</br>
+<select name="usuarioID" id="Usuario">
+<%
+  for(Usuario U:ListaUsuario){
+%>
+  <option value="<%=U.getIdusuario()%>"><%=U.getNome()%></option>
+<%} %>
+</select>
+</br>
+
 <input type="submit" value="Salvar">
 </form>
 </body>
