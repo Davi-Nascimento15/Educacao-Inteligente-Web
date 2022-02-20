@@ -1,9 +1,13 @@
 package com.educacaointeligente.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import com.sun.istack.NotNull;
 
 @Entity
@@ -21,12 +25,15 @@ public class Escola {
 	String email;
 	@NotNull
 	String endereco;
-	   
+	@OneToMany
+	List<Turma> turma;
+	
 	public Escola() {
 		super();
 	}
 
-	public Escola(int idEscola, String cnpj, String nome, String telefone, String email, String endereco) {
+	public Escola(int idEscola, String cnpj, String nome, String telefone, String email, String endereco,
+			List<Turma> turma) {
 		super();
 		this.idEscola = idEscola;
 		this.cnpj = cnpj;
@@ -34,6 +41,7 @@ public class Escola {
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
+		this.turma = turma;
 	}
 
 	public int getIdEscola() {
@@ -83,4 +91,13 @@ public class Escola {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+
+	public List<Turma> getTurma() {
+		return turma;
+	}
+
+	public void setTurma(List<Turma> turma) {
+		this.turma = turma;
+	}
+	
 }

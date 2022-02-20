@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.educacaointeligente.dao.DisciplinaDao;
-import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.dao.TurmaDao;
 import com.educacaointeligente.model.Disciplina;
-import com.educacaointeligente.model.Escola;
 import com.educacaointeligente.model.Turma;
 
 @WebServlet("/ControllerTurma")
