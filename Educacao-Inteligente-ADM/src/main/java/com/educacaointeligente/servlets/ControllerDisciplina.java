@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.educacaointeligente.dao.DisciplinaDao;
 import com.educacaointeligente.dao.ProfessorDao;
-import com.educacaointeligente.dao.UsuarioDao;
 import com.educacaointeligente.model.Disciplina;
 
 @WebServlet({"/ControllerDisciplina","/controllerdisciplina"})
