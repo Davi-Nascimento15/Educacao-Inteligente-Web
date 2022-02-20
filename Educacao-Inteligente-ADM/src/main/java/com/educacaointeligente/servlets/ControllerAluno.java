@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.educacaointeligente.Enum.Ano;
 import com.educacaointeligente.Enum.Turno;
 import com.educacaointeligente.dao.AlunoDao;
+import com.educacaointeligente.dao.TurmaDao;
 import com.educacaointeligente.dao.UsuarioDao;
 import com.educacaointeligente.model.Aluno;
-import com.educacaointeligente.model.Usuario;
 
 @WebServlet("/ControllerAluno")
 
@@ -44,12 +44,15 @@ public class ControllerAluno extends HttpServlet {
 			aluno.setNomeMae(request.getParameter("nomemae"));
 			aluno.setTelefone(request.getParameter("telefone"));
 			aluno.setEndereco(request.getParameter("endereco"));
-			aluno.setTurma(request.getParameter("turma"));
 			aluno.setTurno(Turno.valueOf(request.getParameter("turno")));
 			aluno.setAno(Ano.valueOf(request.getParameter("ano")));
 			
 			UsuarioDao usuarioDao = new UsuarioDao();
 			aluno.setUsuario(usuarioDao.get(Integer.parseInt(request.getParameter("usuarioID"))));
+			
+			TurmaDao turmaDao = new TurmaDao();
+			aluno.setTurma(turmaDao.get(Integer.parseInt(request.getParameter("turmaID"))));
+			
 			alunoDao.update(aluno);
 				
 		}else 
@@ -61,12 +64,14 @@ public class ControllerAluno extends HttpServlet {
 			aluno.setNomeMae(request.getParameter("nomemae"));
 			aluno.setTelefone(request.getParameter("telefone"));
 			aluno.setEndereco(request.getParameter("endereco"));
-			aluno.setTurma(request.getParameter("turma"));
 			aluno.setTurno(Turno.valueOf(request.getParameter("turno")));
 			aluno.setAno(Ano.valueOf(request.getParameter("ano")));
 			
 			UsuarioDao usuarioDao = new UsuarioDao();
 			aluno.setUsuario(usuarioDao.get(Integer.parseInt(request.getParameter("usuarioID"))));
+			
+			TurmaDao turmaDao = new TurmaDao();
+			aluno.setTurma(turmaDao.get(Integer.parseInt(request.getParameter("turmaID"))));
 						
 			alunoDao.save(aluno);	
 		}
