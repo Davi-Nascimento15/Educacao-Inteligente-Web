@@ -27,7 +27,6 @@
 				<th>Nome da Mãe</th>
 				<th>Telefone</th>
 				<th>Endereço</th>
-				<th>Turma</th>
 				<th>Turno</th>
 				<th>Ano</th>
 			</tr>
@@ -40,8 +39,10 @@
 			  <td><%= A.getNomeMae() %></td>
 			  <td><%= A.getTelefone() %></td>
 			  <td><%= A.getEndereco() %></td>
-			  <td><%= A.getTurma() %></td>
 			  <td><%= A.getTurno() %></td>
+			  <td><%= A.getAno() %></td>
+			  <td><%= A.getTurma().getNome()%></td>
+			  <td><%= A.getUsuario().getNome()%></td>
 			  <td><%= A.getAno() %></td>
 			  <td><a href="alunoedit.jsp?AlunoID=<%=A.getIdaluno()%>">Editar</a>
 			      <a href="<%= request.getContextPath() %>/ControllerAluno?action=del&AlunoID=<%=A.getIdaluno()%>">Excluir</a>

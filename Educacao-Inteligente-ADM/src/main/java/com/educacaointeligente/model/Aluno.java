@@ -24,21 +24,21 @@ public class Aluno {
     String endereco;
     @NotNull
     String telefone;
-	@NotNull
-    String turma;
     @NotNull
     Turno turno;
     @NotNull
     Ano ano;
     @ManyToOne
     Usuario usuario;
-
+    @ManyToOne
+    Turma turma;
+    
 	public Aluno() {
 		super();
 	}
-
-	public Aluno(int idaluno, int matricula, String nome, String nomeMae, String endereco, String telefone,
-			String turma, Turno turno, Ano ano) {
+	
+	public Aluno(int idaluno, int matricula, String nome, String nomeMae, String endereco, String telefone, Turno turno,
+			Ano ano, Usuario usuario, Turma turma) {
 		super();
 		this.idaluno = idaluno;
 		this.matricula = matricula;
@@ -46,10 +46,13 @@ public class Aluno {
 		this.nomeMae = nomeMae;
 		this.endereco = endereco;
 		this.telefone = telefone;
-		this.turma = turma;
 		this.turno = turno;
 		this.ano = ano;
+		this.usuario = usuario;
+		this.turma = turma;
 	}
+
+
 
 	public int getIdaluno() {
 		return idaluno;
@@ -98,15 +101,7 @@ public class Aluno {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
-	public String getTurma() {
-		return turma;
-	}
-
-	public void setTurma(String turma) {
-		this.turma = turma;
-	}
-
+	
 	public Turno getTurno() {
 		return turno;
 	}
@@ -129,5 +124,13 @@ public class Aluno {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 }

@@ -76,6 +76,20 @@ List<Usuario>ListaUsuario = usuariodao.getAll();
 </select>
 </br>
 
+<%
+TurmaDao turmadao = new TurmaDao(); 
+List<Turma>ListaTurma = turmadao.getAll();
+%>
+</br>
+<select name="turmaID" id="Turma">
+<%
+  for(Turma T:ListaTurma){
+%>
+  <option value="<%=T.getIdTurma()%>"><%=T.getNome()%></option>
+<%} %>
+</select>
+</br>
+
 <input type="submit" value="Salvar">
 </form>
 </body>
