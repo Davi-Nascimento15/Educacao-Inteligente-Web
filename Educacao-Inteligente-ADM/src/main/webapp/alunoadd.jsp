@@ -1,7 +1,9 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
+<%@page import="com.educacaointeligente.model.Turma"%>
 <%@page import="java.util.List"%>
 <%@page import="com.educacaointeligente.dao.UsuarioDao"%>
+<%@page import="com.educacaointeligente.dao.TurmaDao"%>
 <%@page import="com.educacaointeligente.Enum.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -28,9 +30,7 @@
   <label>Endereço</label>
  <input type="text" name= endereco>
  </br>
-  <label>Turma</label>
- <input type="text" name= turma>
- </br>
+
  <select name="turno" id="Turno">
   <option value="<%=Turno.Matutino.name()%>">Matutino</option>
   <option value="<%=Turno.Vespertino.name()%>">Vespertino</option>
@@ -59,6 +59,20 @@ List<Usuario>ListaUsuario = usuariodao.getAll();
   for(Usuario U:ListaUsuario){
 %>
   <option value="<%=U.getIdusuario()%>"><%=U.getNome()%></option>
+<%} %>
+</select>
+</br>
+
+<%
+TurmaDao turmadao = new TurmaDao(); 
+List<Turma>ListaTurma = turmadao.getAll();
+%>
+</br>
+<select name="turmaID" id="Turma">
+<%
+  for(Turma T:ListaTurma){
+%>
+  <option value="<%=T.getIdTurma()%>"><%=T.getNome()%></option>
 <%} %>
 </select>
 </br>
