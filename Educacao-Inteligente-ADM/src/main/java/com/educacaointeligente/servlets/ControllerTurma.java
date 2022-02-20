@@ -32,7 +32,7 @@ public class ControllerTurma extends HttpServlet {
 
 		TurmaDao turmaDao=  new TurmaDao();
 		int idTurma=0;
-		
+		 
 		if(!(request.getParameter("TurmaID")==null)) {
 			
 			idTurma = Integer.parseInt(request.getParameter("TurmaID"));
