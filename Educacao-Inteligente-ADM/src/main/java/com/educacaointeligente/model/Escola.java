@@ -25,7 +25,7 @@ public class Escola {
 	String email;
 	@NotNull
 	String endereco;
-	@OneToMany
+	@OneToMany(mappedBy = "escola")
 	List<Turma> turma;
 	
 	public Escola() {

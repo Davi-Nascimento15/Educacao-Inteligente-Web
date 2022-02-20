@@ -24,6 +24,34 @@
  <label>Ano:</label>
  <input type="text" name= ano value=<%=turma.getAno()%>>
  </br>
+ 
+  <%
+DisciplinaDao disciplinadao = new DisciplinaDao(); 
+List<Disciplina>Lista = disciplinadao.getAll();
+%>
+</br>
+<select name="disciplina" id="Disciplina">
+<%
+  for(Disciplina D:Lista){
+%>
+  <option value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
+<%} %>
+</select>
+</br>
+
+<%
+EscolaDao escoladao = new EscolaDao(); 
+List<Escola>ListaEscola = escoladao.getAll();
+%>
+</br>
+<select name="escolaID" id="Escola">
+<%
+  for(Escola E:ListaEscola){
+%>
+  <option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+<%} %>
+</select>
+</br>
  <input type="submit" value="Salvar">
 </form>
 </body>

@@ -2,6 +2,8 @@
 <%@page import="java.util.List"%>
 <%@page import="com.educacaointeligente.dao.DisciplinaDao"%>
 <%@page import="com.educacaointeligente.Enum.*"%>
+<%@page import="com.educacaointeligente.model.Escola"%>
+<%@page import="com.educacaointeligente.dao.EscolaDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -30,7 +32,22 @@ List<Disciplina>Lista = disciplinadao.getAll();
   <option value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
 <%} %>
 </select>
-</br> 
+</br>
+
+<%
+EscolaDao escoladao = new EscolaDao(); 
+List<Escola>ListaEscola = escoladao.getAll();
+%>
+</br>
+<select name="escolaID" id="Escola">
+<%
+  for(Escola E:ListaEscola){
+%>
+  <option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+<%} %>
+</select>
+</br>
+
  <input type="submit" value="Salvar">
  </form>
 

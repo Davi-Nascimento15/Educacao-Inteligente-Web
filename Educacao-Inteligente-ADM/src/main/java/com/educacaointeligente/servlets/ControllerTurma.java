@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.educacaointeligente.dao.DisciplinaDao;
+import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.dao.TurmaDao;
 import com.educacaointeligente.model.Disciplina;
 import com.educacaointeligente.model.Turma;
@@ -42,7 +43,10 @@ public class ControllerTurma extends HttpServlet {
 			
 			DisciplinaDao disciplinaDao = new DisciplinaDao();
 			List<Disciplina>D = disciplinaDao.getAllWhere(Integer.parseInt(request.getParameter("disciplina")));
-			turma.setListaDisciplina(D);
+			turma.setListadisciplina(D);
+			
+			EscolaDao escolaDao = new EscolaDao();
+			turma.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
 			
 			turmaDao.update(turma);
 				
@@ -55,7 +59,10 @@ public class ControllerTurma extends HttpServlet {
 			
 			DisciplinaDao disciplinaDao = new DisciplinaDao();
 			List<Disciplina>D = disciplinaDao.getAllWhere(Integer.parseInt(request.getParameter("disciplina")));
-			turma.setListaDisciplina(D);
+			turma.setListadisciplina(D);
+			
+			EscolaDao escolaDao = new EscolaDao();
+			turma.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
 			
 			turmaDao.save(turma);	
 		}

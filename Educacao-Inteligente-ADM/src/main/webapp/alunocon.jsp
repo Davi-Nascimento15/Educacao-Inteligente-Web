@@ -29,6 +29,8 @@
 				<th>Endereço</th>
 				<th>Turno</th>
 				<th>Ano</th>
+				<th>Responsável</th>
+				<th>Escola</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -43,7 +45,6 @@
 			  <td><%= A.getAno() %></td>
 			  <td><%= A.getTurma().getNome()%></td>
 			  <td><%= A.getUsuario().getNome()%></td>
-			  <td><%= A.getAno() %></td>
 			  <td><a href="alunoedit.jsp?AlunoID=<%=A.getIdaluno()%>">Editar</a>
 			      <a href="<%= request.getContextPath() %>/ControllerAluno?action=del&AlunoID=<%=A.getIdaluno()%>">Excluir</a>
 			  </td>

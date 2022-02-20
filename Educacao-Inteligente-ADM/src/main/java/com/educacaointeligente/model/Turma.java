@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.sun.istack.NotNull;
 
@@ -26,17 +28,24 @@ public class Turma {
     @JoinColumn(name="disciplina_id"), inverseJoinColumns=
     @JoinColumn(name="turma_id"))
     private List<Disciplina> listadisciplina;
-	
+    @ManyToOne
+    private Escola escola;
+    @OneToMany(mappedBy = "turma")
+    private List<Aluno> aluno;
+    	
 	public Turma() {
 		super();
 	}
 
-	public Turma(int idTurma, String nome, int ano, List<Disciplina> disciplina) {
+	public Turma(int idTurma, String nome, int ano, List<Disciplina> listadisciplina, Escola escola,
+			List<Aluno> aluno) {
 		super();
 		this.idTurma = idTurma;
 		this.nome = nome;
 		Ano = ano;
-		this.listadisciplina = disciplina;
+		this.listadisciplina = listadisciplina;
+		this.escola = escola;
+		this.aluno = aluno;
 	}
 
 	public int getIdTurma() {
@@ -62,12 +71,28 @@ public class Turma {
 	public void setAno(int ano) {
 		Ano = ano;
 	}
-
-	public List<Disciplina> getListaDisciplina() {
+	
+	public List<Disciplina> getListadisciplina() {
 		return listadisciplina;
 	}
 
-	public void setListaDisciplina(List<Disciplina> disciplina) {
-		this.listadisciplina = disciplina;
+	public void setListadisciplina(List<Disciplina> listadisciplina) {
+		this.listadisciplina = listadisciplina;
+	}
+
+	public Escola getEscola() {
+		return escola;
+	}
+
+	public void setEscola(Escola escola) {
+		this.escola = escola;
+	}
+	
+	public List<Aluno> getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(List<Aluno> aluno) {
+		this.aluno = aluno;
 	}
 }

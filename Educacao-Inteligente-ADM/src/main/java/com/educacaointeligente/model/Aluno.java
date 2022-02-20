@@ -53,7 +53,6 @@ public class Aluno {
 	}
 
 
-
 	public int getIdaluno() {
 		return idaluno;
 	}
