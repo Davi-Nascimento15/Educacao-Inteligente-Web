@@ -44,7 +44,7 @@ public class ControllerTurma extends HttpServlet {
 			
 			DisciplinaDao disciplinaDao = new DisciplinaDao();
 			List<Disciplina>D = disciplinaDao.getAllWhere(Integer.parseInt(request.getParameter("disciplina")));
-			turma.setDisciplina(D);
+			turma.setListaDisciplina(D);
 			
 			turmaDao.update(turma);
 				
@@ -57,7 +57,7 @@ public class ControllerTurma extends HttpServlet {
 			
 			DisciplinaDao disciplinaDao = new DisciplinaDao();
 			List<Disciplina>D = disciplinaDao.getAllWhere(Integer.parseInt(request.getParameter("disciplina")));
-			turma.setDisciplina(D);
+			turma.setListaDisciplina(D);
 			
 			turmaDao.save(turma);	
 		}

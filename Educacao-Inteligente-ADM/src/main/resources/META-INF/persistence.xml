@@ -6,7 +6,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
 			<property name="javax.persistence.jdbc.driver"	value="com.mysql.cj.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/EducacaoInteligente?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=false" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/educacaointeligente?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=false" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="12345" />
 			<property name="hibernate.hbm2ddl.auto" value="create" />

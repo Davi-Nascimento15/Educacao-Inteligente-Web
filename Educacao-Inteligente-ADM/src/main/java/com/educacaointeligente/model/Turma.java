@@ -6,6 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.sun.istack.NotNull;
@@ -19,8 +23,11 @@ public class Turma {
     String nome;
     @NotNull
     int Ano;
-    @OneToMany(mappedBy = "turma")
-    private List<Disciplina> disciplina;
+    @ManyToMany
+    @JoinTable(name="turma_disciplina", joinColumns=
+    @JoinColumn(name="disciplina_id"), inverseJoinColumns=
+    @JoinColumn(name="turma_id"))
+    private List<Disciplina> listadisciplina;
 	
 	public Turma() {
 		super();
@@ -31,7 +38,7 @@ public class Turma {
 		this.idTurma = idTurma;
 		this.nome = nome;
 		Ano = ano;
-		this.disciplina = disciplina;
+		this.listadisciplina = disciplina;
 	}
 
 	public int getIdTurma() {
@@ -58,11 +65,11 @@ public class Turma {
 		Ano = ano;
 	}
 
-	public List<Disciplina> getDisciplina() {
-		return disciplina;
+	public List<Disciplina> getListaDisciplina() {
+		return listadisciplina;
 	}
 
-	public void setDisciplina(List<Disciplina> disciplina) {
-		this.disciplina = disciplina;
+	public void setListaDisciplina(List<Disciplina> disciplina) {
+		this.listadisciplina = disciplina;
 	}
 }

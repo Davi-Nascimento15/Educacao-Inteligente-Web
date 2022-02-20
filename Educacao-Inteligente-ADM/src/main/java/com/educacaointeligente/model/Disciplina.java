@@ -1,9 +1,12 @@
 package com.educacaointeligente.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import com.sun.istack.NotNull;
@@ -19,20 +22,21 @@ public class Disciplina {
     String descricao;
     @OneToOne
     private Professor professor;
-    @ManyToOne
-    Turma turma;
+    @ManyToMany (mappedBy = "listadisciplina")
+    List<Turma> listadisciplina;
     
 	public Disciplina() {
 		super();
 	}
 
-	public Disciplina(int iddisciplina, String nome, String descricao, Professor professor, Turma turma) {
+	public Disciplina(int iddisciplina, String nome, String descricao, Professor professor,
+			List<Turma> listadisciplina) {
 		super();
 		this.iddisciplina = iddisciplina;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.professor = professor;
-		this.turma = turma;
+		this.listadisciplina = listadisciplina;
 	}
 
 	public int getIddisciplina() {
@@ -67,12 +71,12 @@ public class Disciplina {
 		this.professor = professor;
 	}
 
-	public Turma getTurma() {
-		return turma;
+	public List<Turma> getListadisciplina() {
+		return listadisciplina;
 	}
 
-	public void setTurma(Turma turma) {
-		this.turma = turma;
+	public void setListadisciplina(List<Turma> listadisciplina) {
+		this.listadisciplina = listadisciplina;
 	}
-
+	
 }
