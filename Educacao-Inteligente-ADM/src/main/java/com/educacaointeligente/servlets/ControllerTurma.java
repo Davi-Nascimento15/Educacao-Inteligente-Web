@@ -1,14 +1,18 @@
 package com.educacaointeligente.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.educacaointeligente.dao.DisciplinaDao;
 import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.dao.TurmaDao;
+import com.educacaointeligente.model.Disciplina;
 import com.educacaointeligente.model.Escola;
 import com.educacaointeligente.model.Turma;
 
@@ -38,6 +42,10 @@ public class ControllerTurma extends HttpServlet {
 			turma.setAno(Integer.parseInt(request.getParameter("ano")));
 			turma.setNome(request.getParameter("nome"));
 			
+			DisciplinaDao disciplinaDao = new DisciplinaDao();
+			List<Disciplina>D = disciplinaDao.getAllWhere(Integer.parseInt(request.getParameter("disciplina")));
+			turma.setDisciplina(D);
+			
 			turmaDao.update(turma);
 				
 		}else 
@@ -46,6 +54,10 @@ public class ControllerTurma extends HttpServlet {
 			
 			turma.setAno(Integer.parseInt(request.getParameter("ano")));
 			turma.setNome(request.getParameter("nome"));
+			
+			DisciplinaDao disciplinaDao = new DisciplinaDao();
+			List<Disciplina>D = disciplinaDao.getAllWhere(Integer.parseInt(request.getParameter("disciplina")));
+			turma.setDisciplina(D);
 			
 			turmaDao.save(turma);	
 		}

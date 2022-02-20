@@ -1,3 +1,6 @@
+<%@page import="com.educacaointeligente.model.Disciplina"%>
+<%@page import="java.util.List"%>
+<%@page import="com.educacaointeligente.dao.DisciplinaDao"%>
 <%@page import="com.educacaointeligente.Enum.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -14,8 +17,22 @@
  </br>
  <label>Ano:</label>
 <input type="number" name= ano>
- </br>
+ </br> 
+ <%
+DisciplinaDao disciplinadao = new DisciplinaDao(); 
+List<Disciplina>Lista = disciplinadao.getAll();
+%>
+</br>
+<select name="disciplina" id="Disciplina">
+<%
+  for(Disciplina D:Lista){
+%>
+  <option value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
+<%} %>
+</select>
+</br> 
  <input type="submit" value="Salvar">
  </form>
+
 </body>
 </html>

@@ -40,7 +40,7 @@ public class DisciplinaDao implements Dao<Disciplina> {
 	@Override
 	public List<Disciplina> getAllWhere(int id) {
 		
-		return em.createQuery("From Disciplina Where usuario_id="+id,Disciplina.class).getResultList();
+		return em.createQuery("From Disciplina Where iddisciplina="+id,Disciplina.class).getResultList();
 	}
 	
 	@Override
