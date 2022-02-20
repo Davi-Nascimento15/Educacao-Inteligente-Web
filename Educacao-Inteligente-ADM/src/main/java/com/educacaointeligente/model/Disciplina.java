@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import com.sun.istack.NotNull;
 
@@ -18,19 +19,21 @@ public class Disciplina {
     String descricao;
     @OneToOne
     private Professor professor;
+    @ManyToOne
+    Turma turma;
     
 	public Disciplina() {
 		super();
 	}
-	
-	
-	public Disciplina(int iddisciplina, String nome, String descricao) {
+
+	public Disciplina(int iddisciplina, String nome, String descricao, Professor professor, Turma turma) {
 		super();
 		this.iddisciplina = iddisciplina;
 		this.nome = nome;
 		this.descricao = descricao;
+		this.professor = professor;
+		this.turma = turma;
 	}
-
 
 	public int getIddisciplina() {
 		return iddisciplina;
@@ -60,8 +63,16 @@ public class Disciplina {
 		return professor;
 	}
 
-
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
+
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
+	}
+
 }

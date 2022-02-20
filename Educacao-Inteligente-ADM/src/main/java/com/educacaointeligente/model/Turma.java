@@ -1,9 +1,12 @@
 package com.educacaointeligente.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.sun.istack.NotNull;
 
@@ -16,16 +19,19 @@ public class Turma {
     String nome;
     @NotNull
     int Ano;
+    @OneToMany(mappedBy = "turma")
+    private List<Disciplina> disciplina;
 	
 	public Turma() {
 		super();
 	}
 
-	public Turma(int idTurma, String nome, int ano) {
+	public Turma(int idTurma, String nome, int ano, List<Disciplina> disciplina) {
 		super();
 		this.idTurma = idTurma;
 		this.nome = nome;
 		Ano = ano;
+		this.disciplina = disciplina;
 	}
 
 	public int getIdTurma() {
@@ -50,5 +56,13 @@ public class Turma {
 
 	public void setAno(int ano) {
 		Ano = ano;
+	}
+
+	public List<Disciplina> getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(List<Disciplina> disciplina) {
+		this.disciplina = disciplina;
 	}
 }
