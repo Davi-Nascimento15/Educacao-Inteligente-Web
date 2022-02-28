@@ -57,5 +57,11 @@ public class DisciplinaDao implements Dao<Disciplina> {
 	public void delete(Disciplina objeto) {
 		ExecuteInsideTrasaction(em->em.remove(objeto));
 	}
+
+	@Override
+	public List<Disciplina> getNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

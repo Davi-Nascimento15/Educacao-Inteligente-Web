@@ -57,4 +57,12 @@ public class AlunoDao implements Dao<Aluno> {
 	public void delete(Aluno objeto) {
 		ExecuteInsideTrasaction(em->em.remove(objeto));
 	}
+
+	@Override
+	public List<Aluno> getNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

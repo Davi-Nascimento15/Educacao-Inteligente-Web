@@ -10,6 +10,12 @@
 <title>Turmas Cadastradas</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
      <%
 	  TurmaDao daoTurma = new TurmaDao();
       List<Turma> ListadeTurmas = daoTurma.getAll();

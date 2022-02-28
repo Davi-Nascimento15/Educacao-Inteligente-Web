@@ -55,5 +55,13 @@ public class ModeloDao implements Dao<Object> {
 	public void delete(Object objeto) {
 		ExecuteInsideTrasaction(em->em.remove(objeto));
 	}
+
+	@Override
+	public List<Object> getNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }
 

@@ -1,3 +1,4 @@
+<%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.model.Professor"%>
 <%@page import="com.educacaointeligente.dao.ProfessorDao"%>
 <%@page import="java.util.List"%>
@@ -10,6 +11,13 @@
 <title>Adicionar Nova Disciplina</title>
 </head>
 <body>
+
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
   <form action="ControllerDisciplina" method="post">
  <label>Nome</label>
  <input type="text" name= nome>

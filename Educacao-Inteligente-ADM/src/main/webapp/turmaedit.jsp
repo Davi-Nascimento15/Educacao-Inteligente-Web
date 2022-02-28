@@ -12,6 +12,12 @@
 <title>Editar Turma</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
 <% int TurmaID = Integer.parseInt(request.getParameter("TurmaID"));
    TurmaDao turmaDao = new TurmaDao();
    Turma turma = turmaDao.get(TurmaID);

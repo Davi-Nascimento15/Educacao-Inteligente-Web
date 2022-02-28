@@ -13,8 +13,7 @@ import com.sun.istack.NotNull;
 @Entity
 public class Usuario {
 	   @Id
-	   @GeneratedValue(strategy = GenerationType.IDENTITY)
-       int idusuario;
+       int idmatricula;
 	   @NotNull
        String nome;
        @NotNull
@@ -28,20 +27,21 @@ public class Usuario {
 		super();
 	}
 	
-	public Usuario(int idusuario, String nome, TipoUsuario tipo, String senha) {
+	public Usuario(int idmatricula, String nome, TipoUsuario tipo, String senha, List<Aluno> aluno) {
 		super();
-		this.idusuario = idusuario;
+		this.idmatricula = idmatricula;
 		this.nome = nome;
 		this.tipo = tipo;
 		this.senha = senha;
+		this.aluno = aluno;
 	}
 
-	public int getIdusuario() {
-		return idusuario;
+	public int getIdmatricula() {
+		return idmatricula;
 	}
 
-	public void setIdusuario(int idusuario) {
-		this.idusuario = idusuario;
+	public void setIdmatricula(int idmatricula) {
+		this.idmatricula = idmatricula;
 	}
 
 	public String getNome() {

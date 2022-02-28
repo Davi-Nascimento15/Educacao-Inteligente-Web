@@ -10,6 +10,13 @@
 <title>Escolas Cadastradas</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
+
      <%
 	  EscolaDao daoEscola = new EscolaDao();
       List<Escola> ListadeEscolas = daoEscola.getAll();

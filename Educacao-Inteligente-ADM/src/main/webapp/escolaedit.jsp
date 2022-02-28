@@ -12,6 +12,12 @@
 <title>Editar Escola</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
 <% int EscolaID = Integer.parseInt(request.getParameter("EscolaID"));
    EscolaDao escolaDao = new EscolaDao();
    Escola escola = escolaDao.get(EscolaID);

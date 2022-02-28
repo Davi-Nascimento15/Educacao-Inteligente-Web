@@ -57,4 +57,11 @@ public class TurmaDao implements Dao<Turma> {
 	public void delete(Turma objeto) {
 		ExecuteInsideTrasaction(em->em.remove(objeto));
 	}
+
+	@Override
+	public List<Turma> getNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

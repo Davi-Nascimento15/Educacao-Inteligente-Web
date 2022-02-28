@@ -10,6 +10,13 @@
 <title>Usuarios Cadastrados</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
+
      <%
 	  UsuarioDao daoUsuario = new UsuarioDao();
       List<Usuario> ListadeUsuarios = daoUsuario.getAll();
@@ -22,6 +29,7 @@
 	<table>
 		<thead>
 			<tr>
+				<th>Matricula</th>
 				<th>Nome</th>
 				<th>Senha</th>
 				<th>Tipo</th>
@@ -30,11 +38,12 @@
 		<tbody>
 		<% for(Usuario U:ListadeUsuarios){ %>
 			<tr>
+			  <td><%=U.getIdmatricula()%>
 			  <td><%= U.getNome() %></td>
 			  <td><%= U.getSenha() %></td>
 			  <td><%= U.getTipo() %></td>
-			  <td><a href="usuarioedit.jsp?UsuarioID=<%=U.getIdusuario()%>">Editar</a>
-			      <a href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdusuario()%>">Excluir</a>
+			  <td><a href="usuarioedit.jsp?UsuarioID=<%=U.getIdmatricula()%>">Editar</a>
+			      <a href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%} %>

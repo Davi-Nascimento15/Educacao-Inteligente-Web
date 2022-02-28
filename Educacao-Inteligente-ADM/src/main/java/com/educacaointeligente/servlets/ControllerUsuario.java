@@ -51,6 +51,7 @@ public class ControllerUsuario extends HttpServlet {
 		{
 
 			Usuario usuario = new Usuario();
+			usuario.setIdmatricula(Integer.parseInt(request.getParameter("matricula")));
 			usuario.setNome(request.getParameter("nome"));
 			usuario.setSenha(request.getParameter("senha"));
 			usuario.setTipo(TipoUsuario.valueOf(request.getParameter("Tipo")));

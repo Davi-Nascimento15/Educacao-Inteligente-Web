@@ -1,3 +1,4 @@
+<%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.model.Professor"%>
 <%@page import="java.util.List"%>
 <%@page import="com.educacaointeligente.dao.ProfessorDao"%>
@@ -10,6 +11,13 @@
 <title>Professores Cadastrados</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
+
      <%
 	  ProfessorDao daoProfessor = new ProfessorDao();
       List<Professor> ListadeProfessores = daoProfessor.getAll();

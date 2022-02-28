@@ -57,5 +57,12 @@ public class ProfessorDao implements Dao<Professor> {
 	public void delete(Professor objeto) {
 		ExecuteInsideTrasaction(em->em.remove(objeto));
 	}
+
+	@Override
+	public List<Professor> getNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 

@@ -1,3 +1,4 @@
+<%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.Enum.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -8,6 +9,13 @@
 <title>Adicionar Nova Escola</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
+
   <form action="ControllerEscola" method="post">
  <label>CNPJ:</label>
  <input type="text" name= cnpj>

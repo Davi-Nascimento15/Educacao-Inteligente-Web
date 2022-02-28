@@ -12,6 +12,13 @@
 <title>Editar Aluno</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
+
 <% int AlunoID = Integer.parseInt(request.getParameter("AlunoID"));
    AlunoDao alunoDao =new AlunoDao();
    Aluno aluno = alunoDao.get(AlunoID);
@@ -71,7 +78,7 @@ List<Usuario>ListaUsuario = usuariodao.getAll();
 <%
   for(Usuario U:ListaUsuario){
 %>
-  <option value="<%=U.getIdusuario()%>"><%=U.getNome()%></option>
+  <option value="<%=U.getIdmatricula()%>"><%=U.getNome()%></option>
 <%} %>
 </select>
 </br>

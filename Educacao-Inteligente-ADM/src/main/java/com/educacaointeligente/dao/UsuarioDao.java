@@ -36,7 +36,7 @@ public class UsuarioDao implements Dao<Usuario> {
 	public List<Usuario> getAll() {
 		return em.createQuery("From Usuario",Usuario.class).getResultList();
 	}
-	
+		
 	@Override
 	public List<Usuario> getAllWhere(int id) {
 		
@@ -56,6 +56,12 @@ public class UsuarioDao implements Dao<Usuario> {
 	@Override
 	public void delete(Usuario objeto) {
 		ExecuteInsideTrasaction(em->em.remove(objeto));
+	}
+
+	@Override
+	public List<Usuario> getNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 

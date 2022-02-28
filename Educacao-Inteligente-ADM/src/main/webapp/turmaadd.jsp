@@ -1,3 +1,4 @@
+<%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.model.Disciplina"%>
 <%@page import="java.util.List"%>
 <%@page import="com.educacaointeligente.dao.DisciplinaDao"%>
@@ -13,6 +14,12 @@
 <title>Adicionar Nova Turma</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
   <form action="ControllerTurma" method="post">
  <label>Nome:</label>
  <input type="text" name= nome>

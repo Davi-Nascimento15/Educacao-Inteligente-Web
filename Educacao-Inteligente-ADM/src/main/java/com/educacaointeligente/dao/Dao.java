@@ -10,6 +10,8 @@ public interface Dao<T> {
       
       List<T>getAllWhere(int id);
       
+      List<T> getNome(String objeto);
+      
       void save(T objeto);
       
       void update(T objeto);

@@ -1,3 +1,4 @@
+<%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.dao.DisciplinaDao"%>
 <%@page import="com.educacaointeligente.model.Disciplina"%>
 <%@page import="com.educacaointeligente.model.Professor"%>
@@ -14,6 +15,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
+
 <% int DisciplinaID = Integer.parseInt(request.getParameter("DisciplinaID"));
    DisciplinaDao disciplinaDao = new DisciplinaDao();
    Disciplina disciplina = disciplinaDao.get(DisciplinaID);

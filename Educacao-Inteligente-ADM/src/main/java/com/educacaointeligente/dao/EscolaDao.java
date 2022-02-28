@@ -57,4 +57,12 @@ public class EscolaDao implements Dao<Escola> {
 	public void delete(Escola objeto) {
 		ExecuteInsideTrasaction(em->em.remove(objeto));
 	}
+
+	@Override
+	public List<Escola> getNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

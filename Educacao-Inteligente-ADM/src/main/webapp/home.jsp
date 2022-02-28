@@ -1,3 +1,4 @@
+<%@page import="com.educacaointeligente.model.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,6 +8,13 @@
 <title>Tela Inicial here</title>
 </head>
 <body>
+<% 
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
+
       <a href="alunocon.jsp">
         <input type="button" value="Gerenciar Alunos">
     </a>
@@ -24,6 +32,9 @@
     </a>
       <a href="turmacon.jsp">
         <input type="button" value="Gerenciar Turmas">
+    </a>
+       <a href="logout.jsp">
+        <input type="button" value="Sair">
     </a>
 </body>
 </html>
