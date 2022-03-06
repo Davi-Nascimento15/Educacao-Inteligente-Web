@@ -30,6 +30,8 @@ public class Turma {
     private List<Disciplina> listadisciplina;
     @ManyToOne
     private Escola escola;
+    @OneToMany(mappedBy="turma")
+    private List<Avisos> aviso;
     @OneToMany(mappedBy = "turma")
     private List<Aluno> aluno;
     	
@@ -94,5 +96,13 @@ public class Turma {
 
 	public void setAluno(List<Aluno> aluno) {
 		this.aluno = aluno;
+	}
+
+	public List<Avisos> getAviso() {
+		return aviso;
+	}
+
+	public void setAviso(List<Avisos> aviso) {
+		this.aviso = aviso;
 	}
 }

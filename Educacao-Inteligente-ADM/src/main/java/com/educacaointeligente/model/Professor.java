@@ -1,9 +1,12 @@
 package com.educacaointeligente.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.sun.istack.NotNull;
@@ -23,6 +26,8 @@ public class Professor {
        String telefone;
        @OneToOne
        Disciplina disciplina;
+       @OneToMany(mappedBy="professor")
+       private List<Avisos> aviso;
 
        
 	public Professor() {
@@ -85,5 +90,13 @@ public class Professor {
 
 	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
-	}	
+	}
+
+	public List<Avisos> getAviso() {
+		return aviso;
+	}
+
+	public void setAviso(List<Avisos> aviso) {
+		this.aviso = aviso;
+	}
 }
