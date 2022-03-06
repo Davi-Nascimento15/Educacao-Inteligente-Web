@@ -6,12 +6,12 @@ import java.util.function.Consumer;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import com.educacaointeligente.model.Professor;
+import com.educacaointeligente.model.Nota;
 
-public class ProfessorDao implements Dao<Professor> {
+public class NotaDao implements Dao<Nota> {
 	private EntityManager em;
     
-    public ProfessorDao(){
+    public NotaDao(){
     	em = JPAUtil.getEntityManagerFactory().createEntityManager();
     }
    
@@ -28,41 +28,40 @@ public class ProfessorDao implements Dao<Professor> {
     }
     
 	@Override
-	public Professor get(int id) {	
-		return em.find(Professor.class,id);
+	public Nota get(int id) {	
+		return em.find(Nota.class,id);
 	}
 
 	@Override
-	public List<Professor> getAll() {
-		return em.createQuery("From Professor",Professor.class).getResultList();
+	public List<Nota> getAll() {
+		return em.createQuery("From Nota",Nota.class).getResultList();
 	}
 	
 	@Override
-	public List<Professor> getAllWhere(int id) {
+	public List<Nota> getAllWhere(int id) {
 		
-		return em.createQuery("From Professor Where professor_id="+id,Professor.class).getResultList();
+		return em.createQuery("From Nota Where nota_id="+id,Nota.class).getResultList();
 	}
 	
 	@Override
-	public void save (Professor objeto) {
+	public void save (Nota objeto) {
 		ExecuteInsideTrasaction(em->em.persist(objeto));
 	}
 
 	@Override
-	public void update(Professor objeto) {
+	public void update(Nota objeto) {
 		ExecuteInsideTrasaction(em->em.merge(objeto));
 	}
 
 	@Override
-	public void delete(Professor objeto) {
+	public void delete(Nota objeto) {
 		ExecuteInsideTrasaction(em->em.remove(objeto));
 	}
 
 	@Override
-	public List<Professor> getNome(String objeto) {
+	public List<Nota> getNome(String objeto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
 
