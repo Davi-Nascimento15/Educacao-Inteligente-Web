@@ -1,10 +1,13 @@
 package com.educacaointeligente.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.educacaointeligente.Enum.*;
 import com.sun.istack.NotNull;
@@ -32,6 +35,8 @@ public class Aluno {
     Usuario usuario;
     @ManyToOne
     Turma turma;
+    @OneToMany(mappedBy="aluno")
+    private List<Presenca> presenca ;
     
 	public Aluno() {
 		super();
@@ -131,5 +136,13 @@ public class Aluno {
 
 	public void setTurma(Turma turma) {
 		this.turma = turma;
+	}
+
+	public List<Presenca> getPresenca() {
+		return presenca;
+	}
+
+	public void setPresenca(List<Presenca> presenca) {
+		this.presenca = presenca;
 	}
 }
