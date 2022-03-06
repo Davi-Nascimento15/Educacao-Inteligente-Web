@@ -40,13 +40,7 @@ public class ControllerPresenca extends HttpServlet {
 			idPresenca = Integer.parseInt(request.getParameter("PresencaID"));
            
 			Presenca presenca = presencaDao.get(idPresenca);
-           
-			if((!(request.getParameter("falta")==null)) && (request.getParameter("falta").equals("true"))){
-				presenca.setFalta(true);		
-			}else
-			{
-				presenca.setFalta(false);
-			}
+			presenca.setFalta(Boolean.getBoolean(request.getParameter("falta")));
 			presenca.setData(request.getParameter("data"));
 			
 			AlunoDao alunoDao = new AlunoDao();
@@ -58,14 +52,7 @@ public class ControllerPresenca extends HttpServlet {
 		{	
 			Presenca presenca = new Presenca();
 			
-			if((!(request.getParameter("falta")==null)) && (request.getParameter("true").equals("true"))){
-				presenca.setFalta(true);		
-			}else
-			{
-				presenca.setFalta(false);
-			}
-		
-			//presenca.setFalta(Boolean.getBoolean(request.getParameter("falta")));
+		    presenca.setFalta(Boolean.getBoolean(request.getParameter("falta")));
 			presenca.setData(request.getParameter("data"));
 			
 			AlunoDao alunoDao = new AlunoDao();
