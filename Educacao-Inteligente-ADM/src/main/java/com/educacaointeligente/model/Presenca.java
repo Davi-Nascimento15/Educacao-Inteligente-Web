@@ -18,6 +18,7 @@ public class Presenca {
 	String Data;
 	@ManyToOne
 	Aluno aluno;
+	
 	public Presenca() {
 		super();
 	}
