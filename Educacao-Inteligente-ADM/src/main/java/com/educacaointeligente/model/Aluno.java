@@ -37,6 +37,9 @@ public class Aluno {
     Turma turma;
     @OneToMany(mappedBy="aluno")
     private List<Presenca> presenca ;
+    @OneToMany(mappedBy="aluno")
+    private List<Nota> nota ;
+    
     
 	public Aluno() {
 		super();
@@ -145,4 +148,13 @@ public class Aluno {
 	public void setPresenca(List<Presenca> presenca) {
 		this.presenca = presenca;
 	}
+
+	public List<Nota> getNota() {
+		return nota;
+	}
+
+	public void setNota(List<Nota> nota) {
+		this.nota = nota;
+	}
+	
 }

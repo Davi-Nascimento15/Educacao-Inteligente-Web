@@ -26,6 +26,8 @@ public class Disciplina {
     List<Turma> listadisciplina;
     @OneToMany(mappedBy="disciplina")
     private List<Avisos> aviso;
+    @OneToMany(mappedBy="disciplina")
+    private List<Nota> nota ;
     
 	public Disciplina() {
 		super();
@@ -88,4 +90,13 @@ public class Disciplina {
 	public void setAviso(List<Avisos> aviso) {
 		this.aviso = aviso;
 	}
+
+	public List<Nota> getNota() {
+		return nota;
+	}
+
+	public void setNota(List<Nota> nota) {
+		this.nota = nota;
+	}
+	
 }
