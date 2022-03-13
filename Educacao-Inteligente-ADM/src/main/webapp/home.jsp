@@ -32,7 +32,7 @@
 
 <div class="col text-center">  
 	<div class="card" style="width: 20rem;">
-	 	<img src="Usuario.png" alt="Imagem de capa do card" width="268" height="180">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Usuario.png" width="180" height="180">
       	<div class="card-body">
 	    	<h3 class="card-title">Gerenciar Usuários</h3>
 	        <p class="card-text">....</p>
@@ -43,7 +43,7 @@
 
 <div class="col text-center">  
 	<div class="card" style="width: 20rem;">
-	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="https://cdn-icons.flaticon.com/png/512/1665/premium/1665680.png?token=exp=1638307707~hmac=39812a4e2e42d9e6990646b101df8ce3" alt="Imagem de capa do card">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Aluno.png" width="180" height="180">
       	<div class="card-body">
 	    	<h3 class="card-title">Gerenciar Alunos</h3>
 	        <p class="card-text">....</p>
@@ -54,7 +54,7 @@
 
 <div class="col text-center">  
 	<div class="card" style="width: 20rem;">
-	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="https://cdn-icons.flaticon.com/png/512/1665/premium/1665680.png?token=exp=1638307707~hmac=39812a4e2e42d9e6990646b101df8ce3" alt="Imagem de capa do card">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Professor.png" width="180" height="180">
       	<div class="card-body">
 	    	<h3 class="card-title">Gerenciar Professores</h3>
 	        <p class="card-text">....</p>
@@ -65,7 +65,7 @@
 
 <div class="col text-center">  
 	<div class="card" style="width: 20rem;">
-	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="https://cdn-icons.flaticon.com/png/512/1665/premium/1665680.png?token=exp=1638307707~hmac=39812a4e2e42d9e6990646b101df8ce3" alt="Imagem de capa do card">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Disciplina.png" width="180" height="180">
       	<div class="card-body">
 	    	<h3 class="card-title">Gerenciar Disciplinas</h3>
 	        <p class="card-text">....</p>
@@ -76,11 +76,55 @@
 
 <div class="col text-center">  
 	<div class="card" style="width: 20rem;">
-	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="https://cdn-icons.flaticon.com/png/512/1665/premium/1665680.png?token=exp=1638307707~hmac=39812a4e2e42d9e6990646b101df8ce3" alt="Imagem de capa do card">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Turma.png" width="180" height="180">
       	<div class="card-body">
 	    	<h3 class="card-title">Gerenciar Turmas</h3>
 	        <p class="card-text">....</p>
     		<a href="turmacon.jsp" class="btn btn-primary">Acessar</a>
+  		</div>
+   	</div>
+</div>
+
+<div class="col text-center">  
+	<div class="card" style="width: 20rem;">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Nota.png" width="180" height="180">
+      	<div class="card-body">
+	    	<h3 class="card-title">Gerenciar Notas</h3>
+	        <p class="card-text">....</p>
+    		<a href="notacon.jsp" class="btn btn-primary">Acessar</a>
+  		</div>
+   	</div>
+</div>
+
+<div class="col text-center">  
+	<div class="card" style="width: 20rem;">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Aviso.png" width="180" height="180">
+      	<div class="card-body">
+	    	<h3 class="card-title">Gerenciar Avisos</h3>
+	        <p class="card-text">....</p>
+    		<a href="avisocon.jsp" class="btn btn-primary">Acessar</a>
+  		</div>
+   	</div>
+</div>
+
+<div class="col text-center">  
+	<div class="card" style="width: 20rem;">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Presenca.png" width="180" height="180">
+      	<div class="card-body">
+	    	<h3 class="card-title">Gerenciar Faltas</h3>
+	        <p class="card-text">....</p>
+    		<a href="presencacon.jsp" class="btn btn-primary">Acessar</a>
+  		</div>
+   	</div>
+</div>
+
+<div class="col text-center">  
+	<div class="card" style="width: 20rem;">
+	 <img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Escola.png" width="180" height="180">
+      	<div class="card-body">
+	    	<h3 class="card-title">Gerenciar Escolas</h3>
+	        <p class="card-text">....</p>
+    		<a href="escolacon.jsp" class="btn btn-primary">Acessar</a>
   		</div>
    	</div>
 </div>
