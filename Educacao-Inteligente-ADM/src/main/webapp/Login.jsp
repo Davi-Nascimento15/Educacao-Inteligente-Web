@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="Login.css" type="text/css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Login</title>
@@ -15,8 +16,9 @@
 <body>
 <div class="sidenav">
          <div class="login-main-text">
-            <h2>Educação Inteligente<br>Página de Login</h2>
-            <p>Insira a matricula e a senha fornecida pelo administrador para entrar</p>
+            <h2>Educação Inteligente<br></h2>
+            <img class="img" src="logo.png" alt="some text" width=300 height=150>
+            <p class="text">Insira a matricula e a senha fornecida pelo administrador para entrar</p>
          </div>
       </div>
       <div class="main">
@@ -28,10 +30,10 @@
                      <input type="number" class="form-control" placeholder="Matricula" name="Matricula">
                   </div>
                   <div class="form-group">
-                     <label>Password</label>
+                     <label>Senha</label>
                      <input type="password" class="form-control" placeholder="Senha" name="Senha">
                   </div>
-                  <button type="submit" class="btn btn-black">Login</button>
+                  <button type="submit" class="btn btn-black">Entrar</button>
                </form>
             </div>
          </div>
