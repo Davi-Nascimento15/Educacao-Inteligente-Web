@@ -7,19 +7,35 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Login</title>
 </head>
 <body>
-<form action="Login.jsp" method="post">
-<label>Matricula</label>
-</br>
-<input type="number" name=Matricula>
-<label>Senha</label>
-</br>
-<input type= "password" name="Senha">
-</br>
-<input type="submit" value ="Entrar"/>
-</form>
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Educação Inteligente<br>Página de Login</h2>
+            <p>Insira a matricula e a senha fornecida pelo administrador para entrar</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form action="Login.jsp" method="post">
+                  <div class="form-group">
+                     <label>Matrícula</label>
+                     <input type="number" class="form-control" placeholder="Matricula" name="Matricula">
+                  </div>
+                  <div class="form-group">
+                     <label>Password</label>
+                     <input type="password" class="form-control" placeholder="Senha" name="Senha">
+                  </div>
+                  <button type="submit" class="btn btn-black">Login</button>
+               </form>
+            </div>
+         </div>
+      </div>
 <%
 int auxMatricula=0;
 
@@ -38,3 +54,5 @@ Usuario usuario = usuarioDao.get(auxMatricula);
 %>
 </body>
 </html>
+
+
