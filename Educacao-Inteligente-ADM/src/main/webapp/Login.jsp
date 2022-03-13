@@ -55,6 +55,6 @@ Usuario usuario = usuarioDao.get(auxMatricula);
 	}	
 %>
 </body>
-</html>
+</html> 
 
 
