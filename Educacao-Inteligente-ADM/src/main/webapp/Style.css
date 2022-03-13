@@ -64,6 +64,20 @@ align-items: center;
     }
 }
 
+.espaco{
+	margin-top:1%;
+}
+.cabecario{
+	 background-color: #240046;
+	 color: #fff;
+	 display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.corpo{
+	background-color: #3C096C;
+}
 
 .img{
      margin: auto;
@@ -95,6 +109,13 @@ align-items: center;
 }
 
 .btn-black{
-    background-color: #240046 !important;
+    background-color: #240046;
     color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-black:hover {
+    background-color: #7B2CBF;
+    color: #fff;
+    display: inline-block;
 }
