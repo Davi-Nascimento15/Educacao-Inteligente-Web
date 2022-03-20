@@ -5,7 +5,7 @@
 <%@page import="com.educacaointeligente.dao.UsuarioDao"%>
 <%@page import="com.educacaointeligente.dao.TurmaDao"%>
 <%@page import="com.educacaointeligente.Enum.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1 "
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
