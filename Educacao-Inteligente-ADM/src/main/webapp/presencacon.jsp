@@ -45,7 +45,7 @@
 			  <td><%= P.isFalta()%></td>
 			  <td><%= P.getData()%></td>
 			  <td><%= P.getAluno().getNome()%></td>
-			  <td><a href="presencaedit.jsp?PresencaID=<%=P.getIdPresenca()%>">Editar</a>
+			  <td>
 			      <a href="<%= request.getContextPath() %>/ControllerPresenca?action=del&PresencaID=<%=P.getIdPresenca()%>">Excluir</a>
 			  </td>
 			</tr>

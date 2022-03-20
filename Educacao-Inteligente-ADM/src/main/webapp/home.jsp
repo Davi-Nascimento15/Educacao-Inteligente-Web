@@ -100,7 +100,7 @@
       	<div class="card-body">
 	    	<h3 class="card-title">Gerenciar Avisos</h3>
 	        <p class="card-text">....</p>
-    		<a href="avisocon.jsp" class="btn btn-black">Acessar</a>
+    		<a href="avisoscon.jsp" class="btn btn-black">Acessar</a>
   		</div>
    	</div>
 </div>

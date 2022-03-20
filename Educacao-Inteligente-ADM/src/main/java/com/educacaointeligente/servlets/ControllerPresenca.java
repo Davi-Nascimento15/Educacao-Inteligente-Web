@@ -51,9 +51,11 @@ public class ControllerPresenca extends HttpServlet {
 		}else 
 		{	
 			Presenca presenca = new Presenca();
-			
-		    presenca.setFalta(Boolean.getBoolean(request.getParameter("falta")));
-			presenca.setData(request.getParameter("data"));
+			if(request.getParameter("falta").equals("V"))
+		    	presenca.setFalta(true);
+		    else
+		    	presenca.setFalta(false);
+		    presenca.setData(request.getParameter("data"));
 			
 			AlunoDao alunoDao = new AlunoDao();
 			presenca.setAluno(alunoDao.get(Integer.parseInt(request.getParameter("aluno"))));
