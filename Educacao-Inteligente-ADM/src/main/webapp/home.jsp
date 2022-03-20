@@ -34,7 +34,7 @@
       	<div class="card-body">
 	    	<h3 class="card-title">Gerenciar Usuários</h3>
 	        <p class="card-text">....</p>
-	        <a href="usuarioscon.jsp" class="btn btn-black" style="text-decoration:none hover:{color: #fff}">Acessar</a>
+	        <a href="usuariocon.jsp" class="btn btn-black" style="text-decoration:none hover:{color: #fff}">Acessar</a>
   		</div>
    	</div>
 </div>
