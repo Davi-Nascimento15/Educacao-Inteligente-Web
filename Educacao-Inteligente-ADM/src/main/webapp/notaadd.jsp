@@ -13,6 +13,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="Style.css" type="text/css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Adicionar Nova Nota</title>
 </head>
 <body>
@@ -22,6 +26,11 @@
 	   response.sendRedirect("Login.jsp");
    }
 %>
+<div class="card cabecario">
+  <div class="card-header">
+      <h1 class="cabecario">Nova Nota</h1>
+   </div>
+</div>
 
 <form action="ControllerNota" method="post">
 
@@ -29,42 +38,57 @@
 AlunoDao alunodao = new AlunoDao(); 
 List<Aluno>ListaAluno = alunodao.getAll();
 %>
-</br>
-<select name="alunoID" id="Aluno">
+<div class="row form-select col-md-3 offset-md-1 pt-5"> 
+ <label>Aluno</label>
+	<select name="alunoID" id="Aluno" class="form-control">
 <%
   for(Aluno A:ListaAluno){
 %>
-  <option value="<%=A.getIdaluno()%>"><%=A.getNome()%></option>
+  <option class="form-select-option" value="<%=A.getIdaluno()%>"><%=A.getNome()%></option>
 <%} %>
 </select>
-</br>
+</div>
 
 <%
 DisciplinaDao disciplinadao = new DisciplinaDao(); 
 List<Disciplina>ListaDisciplina = disciplinadao.getAll();
 %>
-</br>
-<select name="disciplinaID" id="Disciplina">
+<div class="row form-select col-md-3 offset-md-1 pt-3"> 
+ <label>Disciplina</label>
+	<select name="disciplinaID" id="Disciplina" class="form-control">
 <%
   for(Disciplina D:ListaDisciplina){
 %>
-  <option value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
+  <option class="form-select-option" value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
 <%} %>
 </select>
-</br>
+</div>
 
- <label>Nota</label>
- <input type="text" name=nota>
- </br>
- <label>Ano Letivo</label>
- <input type="text" name= anoletivo>
- </br>
-
- <select name="bimestre" id="Bimestre">
-  <option value="<%=Bimestre.Bimestre_01.name()%>">1° Bimestre</option>
-  <option value="<%=Bimestre.Bimestre_02.name()%>">2° Bimestre</option>
-
- <input type="submit" value="Salvar">
- </form>
+  <div class="form-group row col-md-3 offset-md-1 pt-3">
+    <label >Nota</label>
+    <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= nota>
+  </div>
+  
+  <div class="form-group row col-md-3 offset-md-1">
+    <label >Ano Letivo</label>
+    <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= anoletivo>
+  </div>
+  
+    <div class="row form-select col-md-3 offset-md-1">
+   	 <label>Bimestre</label>
+ 		<select name="bimestre" id="Bimestre" class="form-control">
+  			<option class="form-select-option" value="<%=Bimestre.Bimestre_01.name()%>">1° Bimestre</option>
+  			<option class="form-select-option" value="<%=Bimestre.Bimestre_02.name()%>">2° Bimestre</option>
+  			<option class="form-select-option" value="<%=Bimestre.Bimestre_03.name()%>">3° Bimestre</option>
+  			<option class="form-select-option" value="<%=Bimestre.Bimestre_04.name()%>">4° Bimestre</option>
+  	</select>
+  </div>
+  
+  <div class="col-md-3 offset-md-1 pt-4">
+  	<button type="submit" class="btn btn-primary ">Adicionar</button>
+    <a href="home.jsp" class="btn btn-danger">Cancelar</a>
+  </div>
+  
+</form>
 </body>
 </html>

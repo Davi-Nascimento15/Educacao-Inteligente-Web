@@ -46,6 +46,7 @@ public class ControllerProfessor extends HttpServlet {
 			professor.setFormacao(request.getParameter("formacao"));
 			professor.setEndereco(request.getParameter("endereco"));
 			professor.setTelefone(request.getParameter("telefone"));
+			professor.setEmail(request.getParameter("email"));
 						
 			professorDao.update(professor);
 				
@@ -57,6 +58,7 @@ public class ControllerProfessor extends HttpServlet {
 			professor.setFormacao(request.getParameter("formacao"));
 			professor.setEndereco(request.getParameter("endereco"));
 			professor.setTelefone(request.getParameter("telefone"));
+			professor.setEmail(request.getParameter("email"));
 						
 			professorDao.save(professor);
 		}

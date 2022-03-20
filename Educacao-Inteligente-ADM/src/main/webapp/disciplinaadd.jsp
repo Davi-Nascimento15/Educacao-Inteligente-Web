@@ -8,39 +8,58 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="Style.css" type="text/css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Adicionar Nova Disciplina</title>
 </head>
 <body>
-
 <% 
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
 %>
-  <form action="ControllerDisciplina" method="post">
- <label>Nome</label>
- <input type="text" name= nome>
- </br>
-  <label>Descrição </label>
- <input type="text" name= descricao>
- </br>
+<div class="card cabecario">
+  <div class="card-header">
+      <h1 class="cabecario">Nova Disciplina</h1>
+   </div>
+</div>
+
+<form action="ControllerDisciplina" method="post">
+
+  <div class="form-group row col-md-3 offset-md-1 pt-5">
+    <label >Nome</label>
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= nome>
+  </div>
+  
+  <div class="form-group row col-md-3 offset-md-1">
+    <label >Descrição</label>
+    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descricao" name= descricao>
+  </div>
  
  <%
 ProfessorDao professordao = new ProfessorDao(); 
 List<Professor>ListaProfessor = professordao.getAll();
 %>
-</br>
-<select name="professorID" id="Professor">
+<div class="row form-select col-md-3 offset-md-1">
+ <label>Professor</label>
+   <select name="professorID" id="Professor" class="form-control">
 <%
   for(Professor P:ListaProfessor){
 %>
-  <option value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
+  <option class="form-select-option" value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
+
 <%} %>
 </select>
-</br>
+</div>
 
-	<input type="submit" value="Salvar">
+  <div class="col-md-3 offset-md-1 pt-4">
+  	<button type="submit" class="btn btn-primary ">Adicionar</button>
+    <a href="home.jsp" class="btn btn-danger">Cancelar</a>
+  </div>
+  
 </form>
 </body>
 </html>
