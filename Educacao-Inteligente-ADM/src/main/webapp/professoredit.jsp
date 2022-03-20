@@ -39,6 +39,10 @@
  <input type="text" name= telefone value=<%=professor.getTelefone()%>>
  </br>
  
+  <label>Email</label>
+ <input type="email" name= email value=<%=professor.getEmail()%>>
+ </br
+ 
  <label>Formação</label>
  <input type="text" name= formacao value=<%=professor.getFormacao()%>>
  </br>

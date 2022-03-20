@@ -33,6 +33,7 @@
 				<th>Nome</th>
 				<th>Endereço</th>
 				<th>Telefone</th>
+				<th>Email</th>
 				<th>Formação</th>
 			</tr>
 		</thead>
@@ -42,6 +43,7 @@
 			  <td><%= P.getNome() %></td>
 			  <td><%= P.getEndereco() %></td>
 			  <td><%= P.getTelefone() %></td>
+			  <td><%= P.getEmail() %></td>
 			  <td><%= P.getFormacao() %></td>
 			  <td><a href="professoredit.jsp?ProfessorID=<%=P.getIdprofessor()%>">Editar</a>
 			      <a href="<%= request.getContextPath() %>/ControllerProfessor?action=del&ProfessorID=<%=P.getIdprofessor()%>">Excluir</a>
