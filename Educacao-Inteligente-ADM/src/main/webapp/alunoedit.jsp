@@ -23,6 +23,11 @@
 	   response.sendRedirect("Login.jsp");
    }
 %>
+<div class="card cabecario">
+  <div class="card-header">
+      <h1 class="cabecario">Editar Aluno</h1>
+   </div>
+</div>
 
 <% int AlunoID = Integer.parseInt(request.getParameter("AlunoID"));
    AlunoDao alunoDao =new AlunoDao();
@@ -113,11 +118,10 @@ List<Turma>ListaTurma = turmadao.getAll();
  	</select>
   </div>
      
-  <div class="col-md-3 offset-md-1 pt-4">
+  <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="alunocon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
- 
  </form>
 </body>
 </html>

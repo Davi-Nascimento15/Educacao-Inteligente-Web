@@ -114,7 +114,7 @@ List<Turma>ListaTurma = turmadao.getAll();
  	</select>
   </div>
      
-  <div class="col-md-3 offset-md-1 pt-4">
+  <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
      <a href="alunocon.jsp" class="btn btn-danger">Cancelar</a>
   </div>

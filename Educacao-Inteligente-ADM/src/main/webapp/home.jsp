@@ -17,7 +17,7 @@
 
 <div class="card cabecario">
   <div class="card-header">
-      <h1 class="cabecario">Educação Inteligênte</h1>
+      <h1 class="cabecario">Educação Inteligente</h1>
    </div>
   </div> 
 <% 

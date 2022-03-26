@@ -8,7 +8,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Alunos Cadastrados</title>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link rel="stylesheet" href="Style.css" type="text/css">
+
+<title>Alunos</title>
 </head>
 <body>
 <% 
@@ -17,28 +22,35 @@
 	   response.sendRedirect("Login.jsp");
    }
 %>
+<div class="card cabecario">
+  <div class="card-header">
+      <h1 class="cabecario">Alunos</h1>
+   </div>
+</div>
 
      <%
 	  AlunoDao daoAluno = new AlunoDao();
       List<Aluno> ListadeAlunos = daoAluno.getAll();
 	%>
-	<a href="alunoadd.jsp">Novo Aluno</a>
 	
 	<%
 	if(!ListadeAlunos.isEmpty()){
 	%>
-	<table>
+	<table class="table">
 		<thead>
 			<tr>
-			    <th>Matricula</th>
-				<th>Nome</th>
-				<th>Nome da Mãe</th>
-				<th>Telefone</th>
-				<th>Endereço</th>
-				<th>Turno</th>
-				<th>Ano</th>
-				<th>Responsável</th>
-				<th>Escola</th>
+			    <th scope="col">Matrícula</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Nome da Mãe</th>
+				<th scope="col">Telefone</th>
+				<th scope="col">Endereço</th>
+				<th scope="col">Turno</th>
+				<th scope="col">Ano</th>
+				<th scope="col">Responsável</th>
+				<th scope="col">Escola</th>
+				
+				<!-- bug NÃO MEXA -->
+				<th scope="col">  </th>
 			</tr>
 		</thead>
 		<tbody>
@@ -53,15 +65,22 @@
 			  <td><%= A.getAno() %></td>
 			  <td><%= A.getTurma().getNome()%></td>
 			  <td><%= A.getUsuario().getNome()%></td>
-			  <td><a href="alunoedit.jsp?AlunoID=<%=A.getIdaluno()%>">Editar</a>
-			      <a href="<%= request.getContextPath() %>/ControllerAluno?action=del&AlunoID=<%=A.getIdaluno()%>">Excluir</a>
+			  
+			  <td> <a class="btn btn-secondary" href="alunoedit.jsp?AlunoID=<%=A.getIdaluno()%>">Editar</a>
+			       <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerAluno?action=del&AlunoID=<%=A.getIdaluno()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%} %>
 		</tbody>
 	</table>
+	
 	<%}else{%>
 	<p>Não há alunos cadastrados</p>
 	<%}%>
+	
+	<div class="col-lg-12" style="text-align: left;">
+	  <a class="btn btn-secondary" style="width: 5%" href="home.jsp">Home</a>
+	  <a class="btn btn-primary" style="width: 10%" href="alunoadd.jsp">Novo</a>
+	</div>
 </body>
 </html>
