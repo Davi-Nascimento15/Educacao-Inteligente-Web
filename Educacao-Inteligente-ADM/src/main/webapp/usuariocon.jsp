@@ -63,7 +63,6 @@
 		<%} %>
 		</tbody>
 	</table>
-	
 	<div class="col-lg-12" style="text-align: left;">
 	  <a class="btn btn-secondary" style="width: 5%" href="home.jsp">Home</a>
 	  <a class="btn btn-primary" style="width: 10%" href="usuarioadd.jsp">Novo</a>
