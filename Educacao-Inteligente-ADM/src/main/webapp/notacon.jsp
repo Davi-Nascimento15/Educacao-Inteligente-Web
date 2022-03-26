@@ -70,7 +70,7 @@
 			  <td><a href="notaedit.jsp?NotaID=<%=N.getIdNota()%>">Editar</a>
 			      <a href="<%= request.getContextPath() %>/ControllerNota?action=del&NotaID=<%=N.getIdNota()%>">Excluir</a>
 			  </td>
-			</tr>
+			</tr> 
 		<%} %>
 		</tbody>
 	</table>
