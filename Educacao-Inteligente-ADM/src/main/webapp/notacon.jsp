@@ -15,6 +15,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link rel="stylesheet" href="Style.css" type="text/css">
+
 <title>Adicionar Nova Nota</title>
 </head>
 <body>
@@ -30,20 +35,27 @@
 	List<Nota> ListaNotas = daoNota.getAll();
 %>
 
-	<a href="notaadd.jsp">Novo Nota</a>
+<div class="card cabecario">
+  <div class="card-header">
+      <h1 class="cabecario">Notas</h1>
+   </div>
+</div>
 	
 	<%
 	if(!ListaNotas.isEmpty()){
 	%>
-	<table>
+	<table class="table">
 		<thead>
 			<tr>
-				<th>Aluno</th>
-				<th>Disciplina</th>
-				<th>Bimestre</th>
-				<th>Nota</th>
-				<th>Turma</th>
-				<th>Ano</th>
+				<th scope="col">Aluno</th>
+				<th scope="col">Disciplina</th>
+				<th scope="col">Bimestre</th>
+				<th scope="col">Nota</th>
+				<th scope="col">Turma</th>
+				<th scope="col">Ano</th>
+				
+				<!-- bug NÃO MEXA -->
+				<th scope="col">  </th>
 			</tr>
 		</thead>
 		<tbody>
@@ -58,12 +70,17 @@
 			  <td><a href="notaedit.jsp?NotaID=<%=N.getIdNota()%>">Editar</a>
 			      <a href="<%= request.getContextPath() %>/ControllerNota?action=del&NotaID=<%=N.getIdNota()%>">Excluir</a>
 			  </td>
-			</tr>
+			</tr> 
 		<%} %>
 		</tbody>
 	</table>
+	
 	<%}else{%>
-	<p>Não há alunos cadastrados</p>
+	<p>Não há notas cadastradas!</p>
 	<%}%>
+	<div class="col-lg-12" style="text-align: left;">
+	  <a class="btn btn-secondary" style="width: 5%" href="home.jsp">Home</a>
+	  <a class="btn btn-primary" style="width: 10%" href="notaadd.jsp">Novo</a>
+	</div>
 </body>
 </html>
