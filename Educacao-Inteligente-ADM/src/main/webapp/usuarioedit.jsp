@@ -2,6 +2,8 @@
 <%@page import="com.educacaointeligente.Enum.TipoUsuario"%>
 <%@page import="com.educacaointeligente.dao.UsuarioDao"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -48,16 +50,24 @@
       <label>Senha</label>
       <input type="password" class="form-control"  placeholder="Insira a senha" name= "senha" value="<%=usuario.getSenha()%>">
     </div> 
+
+<%
+   List<TipoUsuario>Tipoadd = Arrays.asList(TipoUsuario.values());
+%>
   
   <div class="row form-select col-md-3 offset-md-1">
    <label>Tipo</label>
    	<select  name="Tipo" id="tipo" class="form-control">
-    	<option class="form-select-option" value="<%=TipoUsuario.Admin.name()%>">Administrador</option>
-  		<option class="form-select-option" value="<%=TipoUsuario.User.name()%>">Usuário</option>
-  		<option class="form-select-option" value="<%=TipoUsuario.Prof.name()%>">Professor</option>
-  	</select>
-  </div>
-  
+   	<%for (int i = 0; i < Tipoadd.size(); i++){
+   	   		if(Tipoadd.get(i).name().equals(usuario.getTipo().name())){%>
+  				<option selected value="<%=Tipoadd.get(i).name()%>"><%=Tipoadd.get(i).name()%></option>
+		<%}else{%>
+ 	    	<option value="<%=Tipoadd.get(i).name()%>"><%=Tipoadd.get(i).name()%></option>
+     	<%}	
+   		}%>     
+   	</select>
+</div>
+
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="usuariocon.jsp" class="btn btn-danger">Cancelar</a>

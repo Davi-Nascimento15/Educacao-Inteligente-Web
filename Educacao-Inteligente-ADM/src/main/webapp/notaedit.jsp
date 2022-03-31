@@ -9,6 +9,9 @@
 <%@page import="com.educacaointeligente.dao.DisciplinaDao"%>
 <%@page import="com.educacaointeligente.dao.NotaDao"%>
 <%@page import="com.educacaointeligente.Enum.*"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -94,15 +97,22 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
     <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= "anoletivo" value="<%=nota.getAnoLetivo()%>">
   </div>
   
+<%
+   List<Bimestre>Bimestreadd = Arrays.asList(Bimestre.values());
+%>
+  
     <div class="row form-select col-md-3 offset-md-1">
    	 <label>Bimestre</label>
  		<select name="bimestre" id="Bimestre" class="form-control">
-  			<option class="form-select-option" value="<%=Bimestre.Bimestre_01.name()%>">1° Bimestre</option>
-  			<option class="form-select-option" value="<%=Bimestre.Bimestre_02.name()%>">2° Bimestre</option>
-  			<option class="form-select-option" value="<%=Bimestre.Bimestre_03.name()%>">3° Bimestre</option>
-  			<option class="form-select-option" value="<%=Bimestre.Bimestre_04.name()%>">4° Bimestre</option>
-  	</select>
-  </div>
+ 		<%for (int i = 0; i < Bimestreadd.size(); i++){
+   	   		if(Bimestreadd.get(i).name().equals(nota.getBimestre().name())){%>
+  				<option selected value="<%=Bimestreadd.get(i).name()%>"><%=(i+1) + "° Bimestre" %></option>
+		<%}else{%>
+ 	    	<option value="<%=Bimestreadd.get(i).name()%>"> <%=(i+1) + "° Bimestre" %></option>
+     	<%}	
+   		}%>     
+   	</select>
+   </div>
   
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Salvar</button>

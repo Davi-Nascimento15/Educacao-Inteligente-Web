@@ -1,5 +1,5 @@
 package com.educacaointeligente.Enum;
 
 public enum TipoUsuario {
-     Admin,User,Prof; 
+     Administrador,Usuario,Professor; 
 }
