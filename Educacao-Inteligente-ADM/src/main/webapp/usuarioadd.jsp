@@ -45,7 +45,9 @@
   <div class="row form-select col-md-3 offset-md-1">
    <label>Tipo</label>
    	<select  name="Tipo" id="tipo" class="form-control">
+   		<%if (sessao.getTipo().name().equals("SuperUsuario")){%>
     	<option class="form-select-option" value="<%=TipoUsuario.Administrador.name()%>">Administrador</option>
+  	<%} %>
   		<option class="form-select-option" value="<%=TipoUsuario.Usuario.name()%>">Usuário</option>
   		<option class="form-select-option" value="<%=TipoUsuario.Professor.name()%>">Professor</option>
   		<%if (sessao.getTipo().name().equals("SuperUsuario")){%>
