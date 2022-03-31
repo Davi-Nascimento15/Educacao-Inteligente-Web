@@ -16,8 +16,8 @@
 </head>
 <body>
 <% 
-   Usuario usuario = (Usuario)session.getAttribute("usuario");
-   if(usuario==null){
+   Usuario sessao = (Usuario)session.getAttribute("usuario");
+   if(sessao==null){
 	   response.sendRedirect("Login.jsp");
    }
 %>
@@ -49,6 +49,7 @@
 		</thead>
 		<tbody>
 		<% for(Usuario U:ListadeUsuarios){ %>
+		<%if(U.getTipo().name().equals("SuperUsuario")&&(sessao.getTipo().name().equals("SuperUsuario"))){%>
 			<tr>
 			  <td><%= U.getIdmatricula()%>
 			  <td><%= U.getNome() %></td>
@@ -59,10 +60,21 @@
 			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
 			  </td>
 			</tr>
+			<%}else if(!U.getTipo().name().equals("SuperUsuario")){ %>
+			<tr>
+			  <td><%= U.getIdmatricula()%>
+			  <td><%= U.getNome() %></td>
+			  <td><%= U.getSenha() %></td>
+			  <td><%= U.getTipo() %></td>
+				<td>
+			  	  <a class="btn btn-secondary" href="usuarioedit.jsp?UsuarioID=<%=U.getIdmatricula()%>">Editar</a>
+			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
+			  </td>
+			</tr>
+			<%} %>
 		<%} %>
 		</tbody>
 	</table>
-
 	<%}else{%>
 	<p>Não há usuarios cadastrados</p>
 	<%}%>
