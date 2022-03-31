@@ -40,9 +40,13 @@ List<Aluno>ListaAluno = alunodao.getAll();
 <select name="aluno" id="Aluno">
 <%
   for(Aluno A:ListaAluno){
+	  if(A.getIdaluno()==presenca.getAluno().getIdaluno()){
 %>
+  <option selected value="<%=A.getIdaluno()%>"><%=A.getNome()%></option>
+<%}else{ %>
   <option value="<%=A.getIdaluno()%>"><%=A.getNome()%></option>
-<%} %>
+<%  }
+  } %>
 </select>
 </br>
 <input type="submit" value="Salvar">

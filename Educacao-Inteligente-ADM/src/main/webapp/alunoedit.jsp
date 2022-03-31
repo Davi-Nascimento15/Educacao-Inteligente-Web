@@ -1,3 +1,6 @@
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.educacaointeligente.model.*"%>
 <%@page import="com.educacaointeligente.Enum.*"%>
 <%@page import="com.educacaointeligente.dao.*"%>
@@ -61,29 +64,37 @@
     <label >Endereço</label>
     <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= "endereco" value="<%=aluno.getEndereco()%>">
   </div>
-   
+  
+<%
+   List<Turno>Turnoadd = Arrays.asList(Turno.values());
+%>
+ 
   <div class="row form-select col-md-3 offset-md-1">
    <label>Turno</label>
    	<select  name="turno" id="Turno" class="form-control">
- 	    <option value="<%=Turno.Matutino.name()%>">Matutino</option>
-  		<option value="<%=Turno.Vespertino.name()%>">Vespertino</option>
-        <option value="<%=Turno.Noturno.name()%>">Noturno</option>
+   	   <%for (int i = 0; i < Turnoadd.size(); i++){
+   	   if(Turnoadd.get(i).name().equals(aluno.getTurno().name())){%>
+   	    	<option selected value="<%=Turnoadd.get(i).name()%>"><%=Turnoadd.get(i).name()%></option>
+ 	    <%}else{%>
+ 	    <option value="<%=Turnoadd.get(i).name()%>"><%=Turnoadd.get(i).name()%></option>
+     <%}
+   } %>     
    	</select>
    </div>
 
+<%
+   List<Ano>Anoadd = Arrays.asList(Ano.values());
+%>
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Ano</label>
    	<select  name="ano" id="Ano" class="form-control">
-  		<option value="<%=Ano.primeiro.name()%>">1º ano </option>
-  		<option value="<%=Ano.segundo.name()%>">2º ano</option>
-  		<option value="<%=Ano.terceiro.name()%>">3º ano</option>
-  		<option value="<%=Ano.quarto.name()%>">4º ano</option>
-  		<option value="<%=Ano.quinto.name()%>">5º ano</option>
-  		<option value="<%=Ano.sexto.name()%>">6º ano</option>
-  		<option value="<%=Ano.setimo.name()%>">7º ano</option>
-  		<option value="<%=Ano.oitavo.name()%>">8º ano</option>
-  		<option value="<%=Ano.nono.name()%>">9º ano</option>
-  	</select>
+     <%for (int i = 0; i < Anoadd.size(); i++){
+   	   if(Anoadd.get(i).name().equals(aluno.getAno().name())){%>
+   	    	<option selected value="<%=Anoadd.get(i).name()%>"><%=Anoadd.get(i).name()%></option>
+ 	    <%}else{%>
+ 	    <option value="<%=Anoadd.get(i).name()%>"><%=Anoadd.get(i).name()%></option>
+     <%}
+   } %>	</select>
    </div>
 
 <%
@@ -96,12 +107,15 @@ List<Usuario>ListaUsuario = usuariodao.getAll();
    	<select  name="usuarioID" id="Usuario" class="form-control">
 	<%
   	for(Usuario U:ListaUsuario){
+	 if(U.getIdmatricula()==aluno.getUsuario().getIdmatricula()){
 	%>
-  		<option value="<%=U.getIdmatricula()%>"><%=U.getNome()%></option>
-	<%} %>
+  		<option selected value="<%=U.getIdmatricula()%>"><%=U.getNome()%></option>
+	<%}else{%>
+		<option value="<%=U.getIdmatricula()%>"><%=U.getNome()%></option>
+	<%}
+  } %>
   	</select>
   </div>
-
 <%
 TurmaDao turmadao = new TurmaDao(); 
 List<Turma>ListaTurma = turmadao.getAll();
@@ -112,9 +126,13 @@ List<Turma>ListaTurma = turmadao.getAll();
    	<select  name="turmaID" id="Turma" class="form-control">
 	<%
   	for(Turma T:ListaTurma){
+  		if(T.getIdTurma()==aluno.getTurma().getIdTurma()){
 	%>
-  		<option value="<%=T.getIdTurma()%>"><%=T.getNome()%></option>
-	<%} %> 
+  		<option selected value="<%=T.getIdTurma()%>"><%=T.getNome()%></option>
+	<%}else{ %>
+		<option value="<%=T.getIdTurma()%>"><%=T.getNome()%></option>
+	<%}
+   } %> 
  	</select>
   </div>
      
