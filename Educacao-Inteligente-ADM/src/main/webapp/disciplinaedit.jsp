@@ -57,13 +57,17 @@ List<Professor>ListaProfessor = professordao.getAll();
    <select name="professorID" id="Professor" class="form-control">
 <%
   for(Professor P:ListaProfessor){
+	  if (disciplina.getProfessor().getIdprofessor()== P.getIdprofessor()){
 %>
-  <option class="form-select-option" value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
-
-<%} %>
-</select>
-</div>
-
+  <option selected value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
+  	<%}
+  			else{%>
+  				<option value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
+  			<%}
+  			}%> 			
+  	</select>
+  </div>
+  
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="disciplinacon.jsp" class="btn btn-danger">Cancelar</a>

@@ -57,12 +57,16 @@ List<Turma>ListaTurma = turmadao.getAll();
    	<select  name="turma" id="Turma" class="form-control">
 	<%
   		for(Turma T:ListaTurma){
+  			if (aviso.getTurma().getIdTurma()== T.getIdTurma()){
 	%>
-  		<option value="<%=T.getIdTurma()%>"><%=T.getNome()%></option>
-	<%} %>
+  		<option selected value="<%=T.getIdTurma()%>"><%=T.getNome()%></option>
+  	<%}
+  			else{%>
+  				<option value="<%=T.getIdTurma()%>"><%=T.getNome()%></option>
+  			<%}
+  			}%> 			
   	</select>
   </div>
-
 <%
 ProfessorDao professordao = new ProfessorDao(); 
 List<Professor>ListaProfessor = professordao.getAll();
@@ -77,15 +81,13 @@ List<Professor>ListaProfessor = professordao.getAll();
 	%>
   		<option selected value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
 	<%}
-  			else{
-  				%>
+  			else{%>
   				<option value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
   			<%}
-  			}%>
-  			
+  			}%> 			
   	</select>
   </div>
-
+  
 <%
 DisciplinaDao disciplinadao = new DisciplinaDao(); 
 List<Disciplina>ListaDisciplina = disciplinadao.getAll();
@@ -96,12 +98,17 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
    	<select name="disciplina" id="Disciplina" class="form-control">
 	<%
   		for(Disciplina D:ListaDisciplina){
+  			if (aviso.getDisciplina().getIddisciplina()== D.getIddisciplina()){
 	%>
-  		<option value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
-	<%} %>
+  		<option selected value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
+	<%}
+  			else{%>
+  				<option value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
+  			<%}
+  			}%> 			
   	</select>
   </div>
-  
+ 
 	<div class="col-md-3 offset-md-1 pt-4">
   		<button type="submit" class="btn btn-primary ">Salvar</button>
     	<a href="avisoscon.jsp" class="btn btn-danger">Cancelar</a>

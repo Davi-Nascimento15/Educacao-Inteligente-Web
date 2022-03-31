@@ -51,11 +51,17 @@ List<Aluno>ListaAluno = alunodao.getAll();
 	<select name="alunoID" id="Aluno" class="form-control">
 <%
   for(Aluno A:ListaAluno){
+	  if (nota.getAluno().getIdaluno()== A.getIdaluno()){
 %>
-  <option class="form-select-option" value="<%=A.getIdaluno()%>"><%=A.getNome()%></option>
-<%} %>
-</select>
-</div>
+  <option selected value="<%=A.getIdaluno()%>"><%=A.getNome()%></option>
+  
+	<%}
+  			else{%>
+  				<option value="<%=A.getIdaluno()%>"><%=A.getNome()%></option>
+  			<%}
+  			}%> 			
+  	</select>
+  </div>
 
 <%
 DisciplinaDao disciplinadao = new DisciplinaDao(); 
@@ -66,11 +72,17 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
 	<select name="disciplinaID" id="Disciplina" class="form-control">
 <%
   for(Disciplina D:ListaDisciplina){
+	  if (nota.getDisciplina().getIddisciplina()== D.getIddisciplina()){
 %>
-  <option class="form-select-option" value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
-<%} %>
-</select>
-</div>
+  	<option selected value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
+
+	<%}
+  			else{%>
+  				<option value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
+  			<%}
+  			}%> 			
+  	</select>
+  </div>
 
   <div class="form-group row col-md-3 offset-md-1 pt-3">
     <label >Nota</label>
