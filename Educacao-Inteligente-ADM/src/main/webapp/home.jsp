@@ -21,13 +21,13 @@
    </div>
   </div> 
 <% 
-   Usuario usuario = (Usuario)session.getAttribute("usuario");
-   if(usuario==null){
+   Usuario sessao = (Usuario)session.getAttribute("usuario");
+   if(sessao==null){
 	   response.sendRedirect("Login.jsp");
    }
 %>
 <div class="container-fluid d-flex flex-wrap">
-
+<%if((sessao.getTipo().name().equals("Administrador"))||((sessao.getTipo().name().equals("SuperUsuario")))){ %>
 <div class="col text-center espaco">  
 	<div class="card" style="width: 20rem;">
 	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Usuario.png" width="180" height="180">
@@ -38,7 +38,8 @@
   		</div>
    	</div>
 </div>
-
+<%} %>
+<%if((sessao.getTipo().name().equals("Administrador"))||((sessao.getTipo().name().equals("SuperUsuario")))){ %>
 <div class="col text-center espaco">  
 	<div class="card" style="width: 20rem;">
 	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Aluno.png" width="180" height="180">
@@ -49,7 +50,8 @@
   		</div>
    	</div>
 </div>
-
+<%} %>
+<%if((sessao.getTipo().name().equals("Administrador"))||((sessao.getTipo().name().equals("SuperUsuario")))){ %>
 <div class="col text-center espaco">   
 	<div class="card" style="width: 20rem;">
 	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Professor.png" width="180" height="180">
@@ -60,7 +62,8 @@
   		</div>
    	</div>
 </div>
-
+<%} %>
+<%if((sessao.getTipo().name().equals("Administrador"))||((sessao.getTipo().name().equals("SuperUsuario")))){ %>
 <div class="col text-center espaco">    
 	<div class="card" style="width: 20rem;">
 	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Disciplina.png" width="180" height="180">
@@ -71,7 +74,8 @@
   		</div>
    	</div>
 </div>
-
+<%} %>
+<%if((sessao.getTipo().name().equals("Administrador"))||((sessao.getTipo().name().equals("SuperUsuario")))){ %>
 <div class="col text-center espaco">   
 	<div class="card" style="width: 20rem;">
 	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Turma.png" width="180" height="180">
@@ -82,7 +86,8 @@
   		</div>
    	</div>
 </div>
-
+<%} %>
+<%if(!sessao.getTipo().name().equals("Usuario")){ %>
 <div class="col text-center espaco">   
 	<div class="card" style="width: 20rem;">
 	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Nota.png" width="180" height="180">
@@ -93,7 +98,8 @@
   		</div>
    	</div>
 </div>
-
+<%} %>
+<%if(!sessao.getTipo().name().equals("Usuario")){ %>
 <div class="col text-center espaco">   
 	<div class="card" style="width: 20rem;">
 	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Aviso.png" width="180" height="180">
@@ -104,7 +110,8 @@
   		</div>
    	</div>
 </div>
-
+<%} %>
+<%if(!sessao.getTipo().name().equals("Usuario")){ %>
 <div class="col text-center espaco">    
 	<div class="card" style="width: 20rem;">
 	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Presenca.png" width="180" height="180">
@@ -115,7 +122,8 @@
   		</div>
    	</div>
 </div>
-
+<%} %>
+<%if(sessao.getTipo().name().equals("SuperUsuario")){ %>
 <div class="col text-center espaco">   
 	<div class="card" style="width: 20rem;">
 	 <img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Escola.png" width="180" height="180">
@@ -126,7 +134,21 @@
   		</div>
    	</div>
 </div>
+<%} %>
 
-  	
+
+<%if(sessao.getTipo().name().equals("Usuario")){ %>
+<div class="col text-center espaco">   
+	<div class="card" style="width: 20rem;">
+	 <img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Escola.png" width="180" height="180">
+      	<div class="card-body">
+	    	<h3 class="card-title">Atenção</h3>
+	        <p class="card-text">Prezado pai e/ou responsável, para acessar os dados do seu filho, baixe o aplicativo disponível na Google Play</p>
+    		<a href="" class="btn btn-danger">Link para o  Aplicativo</a>
+  		</div>
+   	</div>
+</div>
+<%} %>
+
 </body>
 </html>

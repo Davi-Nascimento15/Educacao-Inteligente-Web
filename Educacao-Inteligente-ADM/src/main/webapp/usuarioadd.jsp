@@ -14,8 +14,8 @@
 </head>
 <body>
 <% 
-   Usuario usuario = (Usuario)session.getAttribute("usuario");
-   if(usuario==null){
+   Usuario sessao = (Usuario)session.getAttribute("usuario");
+   if(sessao==null){
 	   response.sendRedirect("Login.jsp");
    }
 %>
@@ -45,9 +45,12 @@
   <div class="row form-select col-md-3 offset-md-1">
    <label>Tipo</label>
    	<select  name="Tipo" id="tipo" class="form-control">
-    	<option class="form-select-option" value="<%=TipoUsuario.Admin.name()%>">Administrador</option>
-  		<option class="form-select-option" value="<%=TipoUsuario.User.name()%>">Usuario</option>
-  		<option class="form-select-option" value="<%=TipoUsuario.Prof.name()%>">Professor</option>
+    	<option class="form-select-option" value="<%=TipoUsuario.Administrador.name()%>">Administrador</option>
+  		<option class="form-select-option" value="<%=TipoUsuario.Usuario.name()%>">Usuário</option>
+  		<option class="form-select-option" value="<%=TipoUsuario.Professor.name()%>">Professor</option>
+  		<%if (sessao.getTipo().name().equals("SuperUsuario")){%>
+  		<option class="form-select-option" value="<%=TipoUsuario.SuperUsuario.name()%>">Super Usuário</option>
+  	<%} %>
   	</select>
   </div>
   
