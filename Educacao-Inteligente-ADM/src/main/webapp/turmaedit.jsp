@@ -73,9 +73,14 @@ List<Escola>ListaEscola = escoladao.getAll();
    	<select name="escolaID" id="Escola" class="form-control">
 	<%
   		for(Escola E:ListaEscola){
+  			if(E.getIdEscola()==turma.getEscola().getIdEscola()){
 	%>
-  			<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
-	<%} %>
+  			<option selected value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%}else{%>
+		<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%}
+  	} %>
+  	
 	</select>
   </div>
 
