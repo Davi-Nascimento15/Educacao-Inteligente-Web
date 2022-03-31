@@ -36,16 +36,16 @@
    Disciplina disciplina = disciplinaDao.get(DisciplinaID);
 %>
 <form action="ControllerDisciplina" method="post">
-	<input type="hidden" name="DisciplinaID" value=<%=DisciplinaID %>>
+	<input type="hidden" name="DisciplinaID" value="<%=DisciplinaID %>">
 	
 	<div class="form-group row col-md-3 offset-md-1 pt-5">
       <label >Nome</label>
-       <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= nome value=<%=disciplina.getNome() %>>
+       <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=disciplina.getNome() %>">
     </div>
     
     <div class="form-group row col-md-3 offset-md-1">
       <label >Descrição</label>
-       <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descricao" name= descricao value=<%=disciplina.getDescricao() %>>
+       <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descricao" name= "descricao" value="<%=disciplina.getDescricao() %>">
     </div>
     
  <%

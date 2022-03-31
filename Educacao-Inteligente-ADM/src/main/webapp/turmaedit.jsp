@@ -35,16 +35,16 @@
  
 <form action="ControllerTurma" method="post">
 
-  <input type="hidden" name="TurmaID" value=<%=TurmaID %>>
+  <input type="hidden" name="TurmaID" value="<%=TurmaID %>">
 
  <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Nome</label>
-    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= nome value=<%=turma.getNome()%>>
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=turma.getNome()%>">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label>Ano</label>
-    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name= ano value=<%=turma.getAno()%>>
+    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name="ano" value="<%=turma.getAno()%>">
   </div>
   
  <%

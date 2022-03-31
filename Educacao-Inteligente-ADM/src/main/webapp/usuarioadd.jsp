@@ -29,17 +29,17 @@
  
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Matrícula</label>
-    <input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= matricula>
+    <input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "matricula">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Nome</label>
-    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= nome>
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label>Senha</label>
-    <input type="password" class="form-control"  placeholder="Insira a senha" name= senha>
+    <input type="password" class="form-control"  placeholder="Insira a senha" name= "senha">
   </div>
  
   <div class="row form-select col-md-3 offset-md-1">

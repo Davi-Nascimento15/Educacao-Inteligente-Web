@@ -31,12 +31,12 @@
 
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label >Nome</label>
-    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= nome>
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name="nome">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Descrição</label>
-    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descricao" name= descricao>
+    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descricao" name="descricao">
   </div>
  
  <%

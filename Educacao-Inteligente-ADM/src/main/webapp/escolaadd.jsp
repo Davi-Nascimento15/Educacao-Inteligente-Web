@@ -30,27 +30,27 @@
 
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label >CNPJ</label>
-    <input type="text" class="form-control" aria-describedby="Cnpj" placeholder="Ex.: XX.XXX.XXX/XXXX-XX" name= cnpj>
+    <input type="text" class="form-control" aria-describedby="Cnpj" placeholder="Ex.: XX.XXX.XXX/XXXX-XX" name= "cnpj">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Razão Social</label>
-    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= nome>
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Endereço</label>
-    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= endereco>
+    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= "endereco">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Telefone</label>
-    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= telefone>
+    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= "telefone">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Email</label>
-    <input type="email" class="form-control" aria-describedby="Email" placeholder="Ex.: user@gmail.com" name= email>
+    <input type="email" class="form-control" aria-describedby="Email" placeholder="Ex.: user@gmail.com" name= "email">
   </div>
   
   <div class="col-md-3 offset-md-1 pt-4">

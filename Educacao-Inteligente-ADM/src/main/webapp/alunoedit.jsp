@@ -35,31 +35,31 @@
  %>
  
 <form action="ControllerAluno" method="post">
- <input type="hidden" name="AlunoID" value=<%=AlunoID %>>
+ <input type="hidden" name="AlunoID" value="<%=AlunoID %>">
  
    <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Matrícula</label>
-    <input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= matricula value=<%=aluno.getMatricula()%>>
+    <input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "matricula" value="<%=aluno.getMatricula()%>">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Nome</label>
-    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= nome value=<%=aluno.getNome()%>>
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=aluno.getNome()%>">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Nome da Mãe</label>
-    <input type="text" class="form-control" aria-describedby="NomeMae" placeholder="Insira o nome da mãe" name= nomemae value=<%=aluno.getNomeMae()%>>
+    <input type="text" class="form-control" aria-describedby="NomeMae" placeholder="Insira o nome da mãe" name= "nomemae" value="<%=aluno.getNomeMae()%>">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Telefone</label>
-    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= telefone value=<%=aluno.getTelefone()%>>
+    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= "telefone" value="<%=aluno.getTelefone()%>">
   </div>
  
   <div class="form-group row col-md-3 offset-md-1">
     <label >Endereço</label>
-    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= endereco value=<%=aluno.getEndereco()%>>
+    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= "endereco" value="<%=aluno.getEndereco()%>">
   </div>
    
   <div class="row form-select col-md-3 offset-md-1">

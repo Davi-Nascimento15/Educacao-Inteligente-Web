@@ -35,16 +35,16 @@
 </div>
 
 <form action="ControllerAvisos" method="post">
-  <input type="hidden" name="AvisoID" value=<%=AvisoID %>>
+  <input type="hidden" name="AvisoID" value="<%=AvisoID %>">
   
-    <div class="form-group row col-md-3 offset-md-1 pt-5">
+  <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Descrição</label>
-    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição do aviso" name= descricao value=<%=aviso.getDescricao()%>>
+    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição do aviso" name= "descricao" value="<%=aviso.getDescricao()%>">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label>Data de Entrega</label>
-    <input type="date" class="form-control" aria-describedby="Data" placeholder="Insira a data" name= dataentrega value=<%=aviso.getDataEntrega()%>>
+    <input type="date" class="form-control" aria-describedby="Data" placeholder="Insira a data" name="dataentrega" value="<%=aviso.getDataEntrega()%>">
   </div>
 
 <%
@@ -73,9 +73,16 @@ List<Professor>ListaProfessor = professordao.getAll();
    	<select  name="professor" id="Professor" class="form-control">
 	<%
   		for(Professor P:ListaProfessor){
+  			if (aviso.getProfessor().getIdprofessor()== P.getIdprofessor()){
 	%>
-  		<option value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
-	<%} %>
+  		<option selected value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
+	<%}
+  			else{
+  				%>
+  				<option value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
+  			<%}
+  			}%>
+  			
   	</select>
   </div>
 

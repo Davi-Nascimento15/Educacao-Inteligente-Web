@@ -35,27 +35,27 @@
  
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Matrícula</label>
-    <input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= matricula>
+    <input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "matricula">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Nome</label>
-    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= nome>
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Nome da Mãe</label>
-    <input type="text" class="form-control" aria-describedby="NomeMae" placeholder="Insira o nome da mãe" name= nomemae>
+    <input type="text" class="form-control" aria-describedby="NomeMae" placeholder="Insira o nome da mãe" name= "nomemae">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Telefone</label>
-    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= telefone>
+    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= "telefone">
   </div>
  
   <div class="form-group row col-md-3 offset-md-1">
     <label >Endereço</label>
-    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= endereco>
+    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= "endereco">
   </div>
    
   <div class="row form-select col-md-3 offset-md-1">

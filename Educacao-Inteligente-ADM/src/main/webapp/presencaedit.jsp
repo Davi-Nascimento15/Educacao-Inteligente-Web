@@ -24,13 +24,13 @@
    Presenca presenca = presencaDao.get(PresencaID);
  %>
 <form action="ControllerPresenca" method="post">
-  <input type="hidden" name="PresencaID" value=<%=PresencaID %>>
+  <input type="hidden" name="PresencaID" value="<%=PresencaID %>">
  <label>Falta</label>
- <input type="checkbox" name= falta value=<%=presenca.isFalta()%>>
+ <input type="checkbox" name= falta value="<%=presenca.isFalta()%>">
  </br>
  
  <label>Data</label>
- <input type="date" name= data value=<%=presenca.getData()%>>
+ <input type="date" name= data value="<%=presenca.getData()%>">
  </br>
 <%
 AlunoDao alunodao = new AlunoDao(); 

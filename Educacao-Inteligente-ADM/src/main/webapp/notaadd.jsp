@@ -66,12 +66,12 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
 
   <div class="form-group row col-md-3 offset-md-1 pt-3">
     <label >Nota</label>
-    <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= nota>
+    <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= "nota">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Ano Letivo</label>
-    <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= anoletivo>
+    <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= "anoletivo">
   </div>
   
     <div class="row form-select col-md-3 offset-md-1">

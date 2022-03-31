@@ -7,13 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.educacaointeligente.Enum.Ano;
-import com.educacaointeligente.Enum.Turno;
+
 import com.educacaointeligente.dao.AlunoDao;
 import com.educacaointeligente.dao.PresencaDao;
-import com.educacaointeligente.dao.TurmaDao;
-import com.educacaointeligente.dao.UsuarioDao;
-import com.educacaointeligente.model.Aluno;
 import com.educacaointeligente.model.Presenca;
 
 @WebServlet("/ControllerPresenca")

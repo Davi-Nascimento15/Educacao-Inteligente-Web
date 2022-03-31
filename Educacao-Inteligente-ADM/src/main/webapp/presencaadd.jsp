@@ -45,7 +45,7 @@
   
   <div class="form-group row col-md-3 offset-md-1 pt-3">
     <label>Data</label>
-    <input type="date" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= data>
+    <input type="date" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "data">
   </div>
  
 <%
