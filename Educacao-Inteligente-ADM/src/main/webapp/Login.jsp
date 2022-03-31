@@ -24,7 +24,7 @@
       <div class="main">
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
-               <form action="Login.jsp" method="post">
+               <form action="Login.jsp" method="post"> 
                   <div class="form-group"> 
                      <label>Matrícula</label>
                      <input type="number" class="form-control" placeholder="Matricula" name="Matricula">
