@@ -19,7 +19,7 @@
   <div class="card-header">
       <h1 class="cabecario">Educação Inteligente</h1>
    </div>
-  </div> 
+</div> 
 <% 
    Usuario sessao = (Usuario)session.getAttribute("usuario");
    if(sessao==null){
