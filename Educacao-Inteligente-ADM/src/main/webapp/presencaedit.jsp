@@ -9,9 +9,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Editar Aluno</title>
+<title>Editar Falta</title>
 </head>
 <body>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="presencacon.jsp"> Faltas </a> </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Editar </li>
+  </ol>
+</nav>
 <% 
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){

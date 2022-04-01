@@ -35,6 +35,15 @@
       <h1 class="cabecario">Nova Falta</h1>
    </div>
 </div> 
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="presencacon.jsp"> Faltas </a> </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Novo </li>
+  </ol>
+</nav>
+
   
 <form action="ControllerPresenca" method="post">
   
