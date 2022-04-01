@@ -39,7 +39,7 @@
     <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Nova </li>
   </ol>
 </nav>
-
+   
 <form action="ControllerNota" method="post">
 
 <%
