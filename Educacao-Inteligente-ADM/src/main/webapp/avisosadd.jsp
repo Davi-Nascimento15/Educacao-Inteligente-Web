@@ -93,7 +93,7 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
 %>
 
 <div class="row form-select col-md-3 offset-md-1 pt-3">
-   <label>Disciplina</label>
+    <label>Disciplina</label>
    	<select name="disciplina" id="Disciplina" class="form-control">
 	<%
   		for(Disciplina D:ListaDisciplina){
@@ -107,7 +107,7 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
   	 <button type="submit" class="btn btn-primary ">Adicionar</button>
      <a href="avisoscon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
- 
+  
  </form>
 </body>
 </html>
