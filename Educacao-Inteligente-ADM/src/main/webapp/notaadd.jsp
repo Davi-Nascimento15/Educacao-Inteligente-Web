@@ -49,6 +49,13 @@ List<Aluno>ListaAluno = alunodao.getAll();
 </select>
 </div>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="notacon.jsp"> Notas </a> </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Nova </li>
+  </ol>
+</nav>
 <%
 DisciplinaDao disciplinadao = new DisciplinaDao(); 
 List<Disciplina>ListaDisciplina = disciplinadao.getAll();
