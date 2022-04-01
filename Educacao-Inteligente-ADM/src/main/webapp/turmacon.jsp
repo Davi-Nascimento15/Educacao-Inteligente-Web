@@ -33,8 +33,10 @@
 	<%
 	if(!ListadeTurmas.isEmpty()){
 	%>
+	
+<div class="mx-4">
 	<table class="table">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 			    <th scope="col">Nome</th>
 				<th scope="col">Ano</th>
@@ -46,16 +48,17 @@
 		<tbody>
 		<% for(Turma T:ListadeTurmas){ %>
 			<tr>
-			  <td><%= T.getNome() %></td>
-			  <td><%= T.getAno() %></td>
-			  <td><a class="btn btn-secondary" href="turmaedit.jsp?TurmaID=<%=T.getIdTurma()%>">Editar</a>
-			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerTurma?action=del&TurmaID=<%=T.getIdTurma()%>">Excluir</a>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= T.getNome() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= T.getAno() %></td>
+			  <td><a class="btn btn-secondary btn-sm" href="turmaedit.jsp?TurmaID=<%=T.getIdTurma()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerTurma?action=del&TurmaID=<%=T.getIdTurma()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%} %>
 		</tbody>
 	</table>
-	
+</div>
+
 	<%}else{%>
 	<p>Não há Turmas cadastradas!</p>
 	<%}%>

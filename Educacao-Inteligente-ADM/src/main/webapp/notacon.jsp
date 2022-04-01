@@ -44,8 +44,9 @@
 	<%
 	if(!ListaNotas.isEmpty()){
 	%>
+<div class="mx-4">
 	<table class="table">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Aluno</th>
 				<th scope="col">Disciplina</th>
@@ -61,19 +62,20 @@
 		<tbody>
 		<% for(Nota N:ListaNotas){ %>
 			<tr>
-			<td><%= N.getAluno().getNome()%></td>
-			<td><%= N.getDisciplina().getNome()%></td>
-			<td><%= N.getBimestre()%></td>
-			<td><%= N.getNota()%></td>
-			<td><%= N.getAluno().getTurma().getNome()%></td>
-			<td><%= N.getAnoLetivo()%></td>
-			  <td><a href="notaedit.jsp?NotaID=<%=N.getIdNota()%>">Editar</a>
-			      <a href="<%= request.getContextPath() %>/ControllerNota?action=del&NotaID=<%=N.getIdNota()%>">Excluir</a>
+			<td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= N.getAluno().getNome()%></td>
+			<td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= N.getDisciplina().getNome()%></td>
+			<td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= N.getBimestre()%></td>
+			<td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= N.getNota()%></td>
+			<td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= N.getAluno().getTurma().getNome()%></td>
+			<td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= N.getAnoLetivo()%></td>
+			  <td><a class="btn btn-secondary btn-sm" href="notaedit.jsp?NotaID=<%=N.getIdNota()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerNota?action=del&NotaID=<%=N.getIdNota()%>">Excluir</a>
 			  </td>
 			</tr> 
 		<%} %>
 		</tbody>
 	</table>
+</div>
 	
 	<%}else{%>
 	<p>Não há notas cadastradas!</p>

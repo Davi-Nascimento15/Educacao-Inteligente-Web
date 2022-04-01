@@ -36,8 +36,9 @@
 	<%
 	if(!ListadeAlunos.isEmpty()){
 	%>
+<div class="mx-4">
 	<table class="table">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 			    <th scope="col">Matrícula</th>
 				<th scope="col">Nome</th>
@@ -56,24 +57,24 @@
 		<tbody>
 		<% for(Aluno A:ListadeAlunos){ %>
 			<tr>
-			  <td><%= A.getMatricula() %></td>
-			  <td><%= A.getNome() %></td>
-			  <td><%= A.getNomeMae() %></td>
-			  <td><%= A.getTelefone() %></td>
-			  <td><%= A.getEndereco() %></td>
-			  <td><%= A.getTurno() %></td>
-			  <td><%= A.getAno() %></td>
-			  <td><%= A.getTurma().getNome()%></td>
-			  <td><%= A.getUsuario().getNome()%></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getMatricula() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getNome() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getNomeMae() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getTelefone() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getEndereco() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getTurno() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getTurma().getNome()%></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getUsuario().getNome()%></td>
 			  
-			  <td> <a class="btn btn-secondary" href="alunoedit.jsp?AlunoID=<%=A.getIdaluno()%>">Editar</a>
-			       <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerAluno?action=del&AlunoID=<%=A.getIdaluno()%>">Excluir</a>
+			  <td> <a class="btn btn-secondary btn-sm" href="alunoedit.jsp?AlunoID=<%=A.getIdaluno()%>">Editar</a>
+			       <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerAluno?action=del&AlunoID=<%=A.getIdaluno()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%} %>
 		</tbody>
 	</table>
-	
+</div>	
 	<%}else{%>
 	<p>Não há alunos cadastrados</p>
 	<%}%>

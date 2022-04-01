@@ -35,7 +35,9 @@
 	<%
 	if(!ListadeEscolas.isEmpty()){
 	%>
-	<table class="table">
+	
+<div class="mx-4">
+	<table class="table" class="thead-dark">
 		<thead>
 			<tr>
 			    <th scope="col">CNPJ</th>
@@ -51,18 +53,20 @@
 		<tbody>
 		<% for(Escola E:ListadeEscolas){ %>
 			<tr>
-			  <td><%= E.getCnpj() %></td>
-			  <td><%= E.getNome() %></td>
-			  <td><%= E.getEndereco() %></td>
-			  <td><%= E.getTelefone() %></td>
-			  <td><%= E.getEmail() %></td>
-			  <td><a class="btn btn-secondary" href="escolaedit.jsp?EscolaID=<%=E.getIdEscola()%>">Editar</a>
-			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerEscola?action=del&EscolaID=<%=E.getIdEscola()%>">Excluir</a>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= E.getCnpj() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= E.getNome() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= E.getEndereco() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= E.getTelefone() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= E.getEmail() %></td>
+			  <td><a class="btn btn-secondary btn-sm" href="escolaedit.jsp?EscolaID=<%=E.getIdEscola()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerEscola?action=del&EscolaID=<%=E.getIdEscola()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%} %>
 		</tbody>
 	</table>
+</div>
+
 	<%}else{%>
 	<p>Não há escolas cadastradas!</p>
 	<%}%>

@@ -26,6 +26,19 @@
       <h1 class="cabecario">Usuários</h1>
    </div>
 </div>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Usuarios </li>
+  </ol>
+</nav>
+
+
+<div class="col-lg-12 mb-3">
+	 <a class="btn btn-primary ml-2" style="width: 10%" href="usuarioadd.jsp">Novo</a>
+</div>
+
      <%
 	  UsuarioDao daoUsuario = new UsuarioDao();
       List<Usuario> ListadeUsuarios = daoUsuario.getAll();
@@ -34,8 +47,10 @@
 	<%
 	if(!ListadeUsuarios.isEmpty()){
 	%>
+	
+<div class="mx-4">
 	<table class="table">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 												   
 				<th scope="col">Matrícula</th>
@@ -51,10 +66,10 @@
 		<% for(Usuario U:ListadeUsuarios){ %>
 		<%if(U.getTipo().name().equals("SuperUsuario")&&(sessao.getTipo().name().equals("SuperUsuario"))){%>
 			<tr>
-			  <td><%= U.getIdmatricula()%>
-			  <td><%= U.getNome() %></td>
-			  <td><%= U.getSenha() %></td>
-			  <td><%= U.getTipo() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getIdmatricula()%>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getNome() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getSenha() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getTipo() %></td>
 				<td>
 			  	  <a class="btn btn-secondary" href="usuarioedit.jsp?UsuarioID=<%=U.getIdmatricula()%>">Editar</a>
 			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
@@ -67,20 +82,18 @@
 			  <td><%= U.getSenha() %></td>
 			  <td><%= U.getTipo() %></td>
 				<td>
-			  	  <a class="btn btn-secondary" href="usuarioedit.jsp?UsuarioID=<%=U.getIdmatricula()%>">Editar</a>
-			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
+			  	  <a class="btn btn-secondary btn-sm" href="usuarioedit.jsp?UsuarioID=<%=U.getIdmatricula()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
 			  </td>
 			</tr>
 			<%} %>
 		<%} %>
 		</tbody>
 	</table>
+</div>
+
 	<%}else{%>
 	<p>Não há usuarios cadastrados</p>
 	<%}%>
-	<div class="col-lg-12" style="text-align: left;">
-	  <a class="btn btn-secondary" style="width: 5%" href="home.jsp">Home</a>
-	  <a class="btn btn-primary" style="width: 10%" href="usuarioadd.jsp">Novo</a>
-	</div>
 </body>
 </html>

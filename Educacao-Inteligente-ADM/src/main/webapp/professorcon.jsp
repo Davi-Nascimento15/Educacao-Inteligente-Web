@@ -37,8 +37,10 @@
 	<%
 	if(!ListadeProfessores.isEmpty()){
 	%>
+	
+<div class="mx-4">
 	<table class="table">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Nome</th>
 				<th scope="col">Endereço</th>
@@ -54,18 +56,19 @@
 		<tbody>
 		<% for(Professor P:ListadeProfessores){ %>
 			<tr>
-			  <td><%= P.getNome() %></td>
-			  <td><%= P.getEndereco() %></td>
-			  <td><%= P.getTelefone() %></td>
-			  <td><%= P.getEmail() %></td>
-			  <td><%= P.getFormacao() %></td>
-			  <td><a class="btn btn-secondary" href="professoredit.jsp?ProfessorID=<%=P.getIdprofessor()%>">Editar</a>
-			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerProfessor?action=del&ProfessorID=<%=P.getIdprofessor()%>">Excluir</a>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getNome() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getEndereco() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getTelefone() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getEmail() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getFormacao() %></td>
+			  <td><a class="btn btn-secondary btn-sm" href="professoredit.jsp?ProfessorID=<%=P.getIdprofessor()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerProfessor?action=del&ProfessorID=<%=P.getIdprofessor()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%} %>
 		</tbody>
 	</table>
+</div>
 	
 	<%}else{%>
 	<p>Não há professores cadastrados</p>

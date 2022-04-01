@@ -38,8 +38,9 @@
 	<%
 	if(!ListadeAvisos.isEmpty()){
 	%>
+<div class="mx-4">
 	<table class="table">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 			    <th scope="col">Descrição</th>
 				<th scope="col">Data Geração</th>
@@ -56,19 +57,21 @@
 		<tbody>
 		<% for(Avisos A:ListadeAvisos){ %>
 			<tr>
-			  <td><%= A.getDescricao() %></td>
-			  <td><%= A.getDataGeracao() %></td>
-			  <td><%= A.getDataEntrega() %></td>
-			  <td><%= A.getProfessor().getNome() %></td>
-			  <td><%= A.getDisciplina().getNome() %></td>
-			  <td><%= A.getTurma().getNome() %></td>
-			  <td><a class="btn btn-secondary"  href="avisosedit.jsp?AvisoID=<%=A.getIdAvisos()%>">Editar</a>
-			      <a class="btn btn-danger"  href="<%= request.getContextPath() %>/ControllerAvisos?action=del&AvisoID=<%=A.getIdAvisos()%>">Excluir</a>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getDescricao() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getDataGeracao() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getDataEntrega() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getProfessor().getNome() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getDisciplina().getNome() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getTurma().getNome() %></td>
+			  <td><a class="btn btn-secondary btn-sm"  href="avisosedit.jsp?AvisoID=<%=A.getIdAvisos()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerAvisos?action=del&AvisoID=<%=A.getIdAvisos()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%} %>
 		</tbody>
 	</table>
+</div>
+
 	<%}else{%>
 	<p>Não há avisos cadastrados</p>
 	<%}%>

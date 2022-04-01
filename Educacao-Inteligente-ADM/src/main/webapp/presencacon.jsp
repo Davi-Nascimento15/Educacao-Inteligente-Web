@@ -39,8 +39,10 @@
 	<%
 	if(!ListadePresenca.isEmpty()){
 	%>
+
+<div class="mx-4">
 	<table class="table">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 			    <th scope="col">Falta</th>
 				<th scope="col">Data</th>
@@ -53,9 +55,9 @@
 		<tbody>
 		<% for(Presenca P:ListadePresenca){ %>
 			<tr>
-			  <td><%= P.isFalta()%></td>
-			  <td><%= P.getData()%></td>
-			  <td><%= P.getAluno().getNome()%></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.isFalta()%></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getData()%></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getAluno().getNome()%></td>
 			  <td>
 			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerPresenca?action=del&PresencaID=<%=P.getIdPresenca()%>">Excluir</a>
 			  </td>
@@ -63,6 +65,8 @@
 		<%} %>
 		</tbody>
 	</table>
+</div>
+
 	<%}else{%>
 	<p>Não há faltas cadastradas</p>
 	<%}%>

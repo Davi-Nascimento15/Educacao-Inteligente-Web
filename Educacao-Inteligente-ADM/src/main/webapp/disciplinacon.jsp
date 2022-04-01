@@ -36,10 +36,12 @@
 	<%
 	if(!ListadeDisciplina.isEmpty()){
 	%>
+	
+<div class="mx-4">
 	<table class="table">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
-				<th scope="col">Nome</th>
+				<th  scope="col">Nome</th>
 				<th scope="col">Descrição</th>
 				
 				<!-- bug NÃO MEXA -->
@@ -50,15 +52,16 @@
 		<tbody>
 		<% for(Disciplina D:ListadeDisciplina){ %>
 			<tr>
-			  <td ><%= D.getNome() %></td>
-			  <td><%= D.getDescricao() %></td>
-			  <td><a class="btn btn-secondary" href="disciplinaedit.jsp?DisciplinaID=<%=D.getIddisciplina()%>">Editar</a>
-			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerDisciplina?action=del&DisciplinaID=<%=D.getIddisciplina()%>">Excluir</a>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= D.getNome() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= D.getDescricao() %></td>
+			  <td><a class="btn btn-secondary btn-sm" href="disciplinaedit.jsp?DisciplinaID=<%=D.getIddisciplina()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerDisciplina?action=del&DisciplinaID=<%=D.getIddisciplina()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%} %>
 		</tbody>
 	</table>
+</div>
 	
 	<%}else{%>
 	<p>Não há disciplinas cadastradas</p>

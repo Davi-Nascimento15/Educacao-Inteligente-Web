@@ -75,6 +75,14 @@ align-items: center;
 	align-items: center;
 }
 
+.cabecario1{
+	 background-color: #C77DFF;
+	 color: #fff;
+	 display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .corpo{
 	background-color: #3C096C;
 }
