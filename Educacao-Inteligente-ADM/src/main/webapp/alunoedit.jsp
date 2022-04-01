@@ -32,6 +32,13 @@
    </div>
 </div>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="alunocon.jsp"> Alunos </a> </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Editar </li>
+  </ol>
+</nav>
 <% int AlunoID = Integer.parseInt(request.getParameter("AlunoID"));
    AlunoDao alunoDao =new AlunoDao();
    Aluno aluno = alunoDao.get(AlunoID);

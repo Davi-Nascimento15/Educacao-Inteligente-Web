@@ -28,6 +28,19 @@
       <h1 class="cabecario">Disciplinas</h1>
    </div>
 </div>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Disciplinas </li>
+  </ol>
+</nav>
+
+
+<div class="col-lg-12 mb-3">
+	 <a class="btn btn-primary ml-2" style="width: 10%" href="disciplinaadd.jsp">Novo</a>
+</div>
+
      <%
 	  DisciplinaDao daoDisciplina = new DisciplinaDao();
       List<Disciplina>ListadeDisciplina = daoDisciplina.getAll();
@@ -66,9 +79,5 @@
 	<%}else{%>
 	<p>Não há disciplinas cadastradas</p>
 	<%}%>
-	<div class="col-lg-12" style="text-align: left;">
-	  <a class="btn btn-secondary" style="width: 5%" href="home.jsp">Home</a>
-	  <a class="btn btn-primary" style="width: 10%" href="disciplinaadd.jsp">Novo</a>
-	</div>
 </body>
 </html>

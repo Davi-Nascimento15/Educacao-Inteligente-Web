@@ -31,6 +31,14 @@
    </div>
 </div>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="disciplinacon.jsp"> Disciplinas </a> </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Editar </li>
+  </ol>
+</nav>
+
 <% int DisciplinaID = Integer.parseInt(request.getParameter("DisciplinaID"));
    DisciplinaDao disciplinaDao = new DisciplinaDao();
    Disciplina disciplina = disciplinaDao.get(DisciplinaID);

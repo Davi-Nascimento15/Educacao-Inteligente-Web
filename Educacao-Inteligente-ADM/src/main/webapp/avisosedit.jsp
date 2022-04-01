@@ -34,6 +34,14 @@
    </div>
 </div>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="avisoscon.jsp"> Avisos </a> </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Editar </li>
+  </ol>
+</nav>
+
 <form action="ControllerAvisos" method="post">
   <input type="hidden" name="AvisoID" value="<%=AvisoID %>">
   
@@ -109,10 +117,10 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
   	</select>
   </div>
  
-	<div class="col-md-3 offset-md-1 pt-4">
-  		<button type="submit" class="btn btn-primary ">Salvar</button>
-    	<a href="avisoscon.jsp" class="btn btn-danger">Cancelar</a>
-   </div>
+  <div class="col-md-3 offset-md-1 pt-4 pb-5">
+  	<button type="submit" class="btn btn-primary ">Salvar</button>
+     <a href="avisoscon.jsp" class="btn btn-danger">Cancelar</a>
+  </div>
    
 </form>
 </body>
