@@ -34,7 +34,7 @@ public class EscolaDao implements Dao<Escola> {
 
 	@Override
 	public List<Escola> getAll() {
-		return em.createQuery("From Escola",Escola.class).getResultList();
+		return em.createQuery("From Escola Order By nome ASC",Escola.class).getResultList();
 	}
 	
 	@Override

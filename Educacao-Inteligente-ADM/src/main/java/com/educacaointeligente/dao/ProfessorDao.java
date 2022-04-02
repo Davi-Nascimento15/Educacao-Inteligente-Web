@@ -34,7 +34,7 @@ public class ProfessorDao implements Dao<Professor> {
 
 	@Override
 	public List<Professor> getAll() {
-		return em.createQuery("From Professor",Professor.class).getResultList();
+		return em.createQuery("From Professor Order By nome ASC",Professor.class).getResultList();
 	}
 	
 	@Override

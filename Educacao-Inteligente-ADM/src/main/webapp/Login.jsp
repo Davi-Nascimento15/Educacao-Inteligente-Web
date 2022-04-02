@@ -22,11 +22,10 @@
          </div>
       </div>
       <div class="main">
-         <div class="col-md-4 col-sm-12">
+         <div class="col-md-6 col-sm-12">
             <div class="login-form">
                <form action="Login.jsp" method="post"> 
                   <div class="form-group"> 
-                  <img class="" src="User.png" alt="some text" width=200 height=200 >
                      <label>Matrícula</label>
                      <input type="number" class="form-control" placeholder="Matricula" name="Matricula">
                   </div>

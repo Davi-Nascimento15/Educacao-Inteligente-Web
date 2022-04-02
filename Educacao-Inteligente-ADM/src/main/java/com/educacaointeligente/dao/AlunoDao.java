@@ -34,7 +34,7 @@ public class AlunoDao implements Dao<Aluno> {
 
 	@Override
 	public List<Aluno> getAll() {
-		return em.createQuery("From Aluno",Aluno.class).getResultList();
+		return em.createQuery("From Aluno Order By nome ASC",Aluno.class).getResultList();
 	}
 	
 	@Override

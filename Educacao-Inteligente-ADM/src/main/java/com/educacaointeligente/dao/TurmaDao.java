@@ -34,7 +34,7 @@ public class TurmaDao implements Dao<Turma> {
 
 	@Override
 	public List<Turma> getAll() {
-		return em.createQuery("From Turma",Turma.class).getResultList();
+		return em.createQuery("From Turma Order By nome ASC",Turma.class).getResultList();
 	}
 	
 	@Override

@@ -29,11 +29,21 @@
    }
 %>
 
-<div class="card cabecario">
-  <div class="card-header">
-      <h1 class="cabecario">Novo Aviso</h1>
-   </div>
-</div> 
+<nav class="navbar navbar-expand-lg barra">
+    <div class="container">
+        <div class="row col-md-12 pl-5 justify-content-md-center">
+          <div class="col-md-auto">
+            <ul class="nav mr-auto">
+            	<h1 class="cabecario pl-5">Novo Aviso </h1> 		
+            </ul>
+          </div>
+        </div>  
+      </div>
+      
+        <form class="d-flex pl-5">
+        	<a href="logout.jsp"> <img src="Sair.png" width="45" height="45"> </a>   
+      	</form>
+</nav> 
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">

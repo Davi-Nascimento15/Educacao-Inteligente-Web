@@ -34,7 +34,7 @@ public class NotaDao implements Dao<Nota> {
 
 	@Override
 	public List<Nota> getAll() {
-		return em.createQuery("From Nota",Nota.class).getResultList();
+		return em.createQuery("From Nota Order By bimestre ASC",Nota.class).getResultList();
 	}
 	
 	@Override
