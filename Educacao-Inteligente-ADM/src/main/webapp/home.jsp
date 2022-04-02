@@ -15,11 +15,35 @@
 </head>
 <body class="corpo">
 
-<div class="card cabecario">
-  <div class="card-header">
-      <h1 class="cabecario">Educação Inteligente</h1>
-   </div>
-</div> 
+<nav class="navbar navbar-expand-lg  barra">
+    <div class="container">
+        <div class="row col-md-12 justify-content-md-center">
+          <div class="col-md-auto">
+            <ul class="nav mr-auto">
+            </ul>
+          </div>
+        </div>
+      </div>
+ 
+      <form class="d-flex">
+        <a href="logout.jsp"> <img src="Sair.png" width="45" height="45"> </a>   
+      </form>
+</nav>
+
+<nav class="navbar navbar-expand-lg  barra">
+    <div class="container">
+        <div class="row col-md-12 justify-content-md-center">
+          <div class="col-md-auto">
+            <ul class="nav mr-auto">
+            	<h1 class="cabecario">Educação Inteligente  </h1>
+            		<img src="Luz.png" width="200" height="200">   		
+            </ul>
+          </div>
+        </div>
+      </div>
+
+</nav>
+
 <% 
    Usuario sessao = (Usuario)session.getAttribute("usuario");
    if(sessao==null){
@@ -102,7 +126,7 @@
 <%if(!sessao.getTipo().name().equals("Usuario")){ %>
 <div class="col text-center espaco">   
 	<div class="card" style="width: 20rem;">
-	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Aviso.png" width="180" height="180">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Avisos.png" width="180" height="180">
       	<div class="card-body">
 	    	<h3 class="card-title">Gerenciar Avisos</h3>
 	        <p class="card-text">....</p>
@@ -136,7 +160,7 @@
 </div>
 <%} %>
 
-
+</div>
 <%if(sessao.getTipo().name().equals("Usuario")){ %>
 <div class="col text-center espaco">   
 	<div class="card" style="width: 20rem;">

@@ -17,7 +17,7 @@
 <div class="sidenav">
          <div class="login-main-text">
             <h2>Educação Inteligente<br></h2>
-            <img class="img" src="logo.png" alt="some text" width=300 height=150>
+            <img class="img" src="Luz.png" alt="some text" width=200 height=200>
             <p class="text">Insira a matrícula e a senha fornecida pelo administrador para entrar</p>
          </div>
       </div>
