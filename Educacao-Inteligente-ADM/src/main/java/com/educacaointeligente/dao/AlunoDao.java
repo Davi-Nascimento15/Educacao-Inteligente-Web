@@ -1,6 +1,5 @@
 package com.educacaointeligente.dao;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.function.Consumer;
 

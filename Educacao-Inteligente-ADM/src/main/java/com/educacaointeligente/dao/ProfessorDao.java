@@ -38,9 +38,9 @@ public class ProfessorDao implements Dao<Professor> {
 	}
 	
 	@Override
-	public List<Professor> getAllWhere(int id) {
+	public List<Professor> getAllWhere(String A) {
 		
-		return em.createQuery("From Professor Where professor_id="+id,Professor.class).getResultList();
+		return em.createQuery("From Professor Where professor_id="+A,Professor.class).getResultList();
 	}
 	
 	@Override

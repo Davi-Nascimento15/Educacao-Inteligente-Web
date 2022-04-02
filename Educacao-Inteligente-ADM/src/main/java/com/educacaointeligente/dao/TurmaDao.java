@@ -38,9 +38,9 @@ public class TurmaDao implements Dao<Turma> {
 	}
 	
 	@Override
-	public List<Turma> getAllWhere(int id) {
+	public List<Turma> getAllWhere(String A) {
 		
-		return em.createQuery("From Turma Where idTurma="+id,Turma.class).getResultList();
+		return em.createQuery("From Turma Where idTurma="+A,Turma.class).getResultList();
 	}
 	
 	@Override

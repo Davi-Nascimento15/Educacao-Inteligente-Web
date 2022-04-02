@@ -38,9 +38,9 @@ public class PresencaDao implements Dao<Presenca> {
 	}
 	
 	@Override
-	public List<Presenca> getAllWhere(int id) {
+	public List<Presenca> getAllWhere(String A) {
 		
-		return em.createQuery("From Presenca Where idPresenca="+id,Presenca.class).getResultList();
+		return em.createQuery("From Presenca Where idPresenca="+A,Presenca.class).getResultList();
 	}
 	
 	@Override

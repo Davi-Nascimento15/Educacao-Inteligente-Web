@@ -36,9 +36,9 @@ public class ModeloDao implements Dao<Object> {
 	}
 	
 	@Override
-	public List<Object> getAllWhere(int id) {
+	public List<Object> getAllWhere(String A) {
 		
-		return em.createQuery("From Objeto Where usuario_id="+id,Object.class).getResultList();
+		return em.createQuery("From Objeto Where usuario_id="+A,Object.class).getResultList();
 	}
 	
 	@Override

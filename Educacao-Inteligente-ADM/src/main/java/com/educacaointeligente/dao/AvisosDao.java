@@ -38,9 +38,9 @@ public class AvisosDao implements Dao<Avisos> {
 	}
 	
 	@Override
-	public List<Avisos> getAllWhere(int id) {
+	public List<Avisos> getAllWhere(String A) {
 		
-		return em.createQuery("From Avisos Where idavisos="+id,Avisos.class).getResultList();
+		return em.createQuery("From Avisos Where idavisos="+A,Avisos.class).getResultList();
 	}
 	
 	@Override

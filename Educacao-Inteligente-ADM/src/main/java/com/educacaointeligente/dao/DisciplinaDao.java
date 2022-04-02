@@ -38,9 +38,9 @@ public class DisciplinaDao implements Dao<Disciplina> {
 	}
 	
 	@Override
-	public List<Disciplina> getAllWhere(int id) {
+	public List<Disciplina> getAllWhere(String A) {
 		
-		return em.createQuery("From Disciplina Where iddisciplina="+id,Disciplina.class).getResultList();
+		return em.createQuery("From Disciplina Where iddisciplina="+A,Disciplina.class).getResultList();
 	}
 	
 	@Override

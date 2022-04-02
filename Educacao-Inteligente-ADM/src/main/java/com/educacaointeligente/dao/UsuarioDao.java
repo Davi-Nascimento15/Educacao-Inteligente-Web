@@ -38,9 +38,9 @@ public class UsuarioDao implements Dao<Usuario> {
 	}
 		
 	@Override
-	public List<Usuario> getAllWhere(int id) {
+	public List<Usuario> getAllWhere(String A) {
 		
-		return em.createQuery("From Usuario Where usuario_id="+id,Usuario.class).getResultList();
+		return em.createQuery("From Usuario Where usuario_id="+A,Usuario.class).getResultList();
 	}
 	
 	@Override
