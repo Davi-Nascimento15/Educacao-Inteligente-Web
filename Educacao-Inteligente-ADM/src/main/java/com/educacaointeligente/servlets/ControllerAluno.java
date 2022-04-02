@@ -54,8 +54,8 @@ public class ControllerAluno extends HttpServlet {
 			aluno.setTurma(turmaDao.get(Integer.parseInt(request.getParameter("turmaID"))));
 			
 			alunoDao.update(aluno);
-				
-		}else 
+		}
+		else 
 		{	
 			Aluno aluno = new Aluno();
 			

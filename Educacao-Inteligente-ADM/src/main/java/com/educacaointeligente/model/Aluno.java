@@ -7,10 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import com.educacaointeligente.Enum.*;
 import com.sun.istack.NotNull;
+
+@NamedQuery(name="Aluno.buscaporNome", 
+query="select u from Aluno u where u.nome LIKE :variavel")
 
 @Entity
 public class Aluno {

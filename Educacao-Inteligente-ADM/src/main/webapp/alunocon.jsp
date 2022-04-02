@@ -38,13 +38,25 @@
 
 <div class="col-lg-12 mb-3">
 	 <a class="btn btn-primary ml-2" style="width: 10%" href="alunoadd.jsp">Novo</a>
+
+	 <form action="alunocon.jsp" method="post">
+	 <input name="pesquisa" type="text">
+	 <button type="submit">Pesquisar</button>
+	 </form>
+
 </div>
 
-     <%
+<%
 	  AlunoDao daoAluno = new AlunoDao();
-      List<Aluno> ListadeAlunos = daoAluno.getAll();
-	%>
-	
+      List<Aluno> ListadeAlunos;  
+%>
+
+<%if(request.getParameter("pesquisa")!=null)
+	ListadeAlunos = daoAluno.getAllWhere(request.getParameter("pesquisa"));
+else
+	ListadeAlunos = daoAluno.getAll();
+%>
+
 	<%
 	if(!ListadeAlunos.isEmpty()){
 	%>

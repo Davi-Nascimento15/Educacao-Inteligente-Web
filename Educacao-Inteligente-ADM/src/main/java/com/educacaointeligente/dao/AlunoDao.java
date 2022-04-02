@@ -1,5 +1,6 @@
 package com.educacaointeligente.dao;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -38,9 +39,10 @@ public class AlunoDao implements Dao<Aluno> {
 	}
 	
 	@Override
-	public List<Aluno> getAllWhere(int id) {
-		
-		return em.createQuery("From Aluno Where idaluno="+id,Aluno.class).getResultList();
+	public List<Aluno> getAllWhere(String A) {
+		return em.createNamedQuery("Aluno.buscaporNome", Aluno.class)
+		        .setParameter("variavel","%"+A+"%")
+		        .getResultList();
 	}
 	
 	@Override
