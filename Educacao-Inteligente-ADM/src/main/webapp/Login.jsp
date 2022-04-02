@@ -38,7 +38,7 @@
             </div>
          </div>
       </div>
-<% 
+<%  
 int auxMatricula=0;
 
 if(request.getParameter("Matricula")!=null){
