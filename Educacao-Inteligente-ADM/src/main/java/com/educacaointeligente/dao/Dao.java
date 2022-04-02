@@ -8,7 +8,7 @@ public interface Dao<T> {
       
       List<T>getAll();
       
-      List<T>getAllWhere(int id);
+      List<T>getAllWhere(String objeto);
       
       List<T> getNome(String objeto);
       
