@@ -52,7 +52,7 @@
 %>
 
 <%if(request.getParameter("pesquisa")!=null)
-	ListadeAlunos = daoAluno.getAllWhere(request.getParameter("pesquisa"));
+	ListadeAlunos = daoAluno.getAllNome(request.getParameter("pesquisa"));
 else
 	ListadeAlunos = daoAluno.getAll();
 %>

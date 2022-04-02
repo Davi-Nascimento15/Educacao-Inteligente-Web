@@ -38,9 +38,9 @@ public class NotaDao implements Dao<Nota> {
 	}
 	
 	@Override
-	public List<Nota> getAllWhere(String A) {
+	public List<Nota> getAllWhere(int id) {
 		
-		return em.createQuery("From Nota Where nota_id="+A,Nota.class).getResultList();
+		return em.createQuery("From Nota Where nota_id="+id,Nota.class).getResultList();
 	}
 	
 	@Override
@@ -60,6 +60,12 @@ public class NotaDao implements Dao<Nota> {
 
 	@Override
 	public List<Nota> getNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<Nota> getAllNome(String objeto) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -38,9 +38,9 @@ public class TurmaDao implements Dao<Turma> {
 	}
 	
 	@Override
-	public List<Turma> getAllWhere(String A) {
+	public List<Turma> getAllWhere(int id) {
 		
-		return em.createQuery("From Turma Where idTurma="+A,Turma.class).getResultList();
+		return em.createQuery("From Turma Where idTurma="+id,Turma.class).getResultList();
 	}
 	
 	@Override
@@ -63,5 +63,10 @@ public class TurmaDao implements Dao<Turma> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@Override
+	public List<Turma> getAllNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

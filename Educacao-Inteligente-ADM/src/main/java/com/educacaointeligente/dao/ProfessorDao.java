@@ -38,9 +38,9 @@ public class ProfessorDao implements Dao<Professor> {
 	}
 	
 	@Override
-	public List<Professor> getAllWhere(String A) {
+	public List<Professor> getAllWhere(int id) {
 		
-		return em.createQuery("From Professor Where professor_id="+A,Professor.class).getResultList();
+		return em.createQuery("From Professor Where professor_id="+id,Professor.class).getResultList();
 	}
 	
 	@Override
@@ -63,6 +63,11 @@ public class ProfessorDao implements Dao<Professor> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@Override
+	public List<Professor> getAllNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

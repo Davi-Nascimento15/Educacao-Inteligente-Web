@@ -36,9 +36,9 @@ public class ModeloDao implements Dao<Object> {
 	}
 	
 	@Override
-	public List<Object> getAllWhere(String A) {
+	public List<Object> getAllWhere(int id) {
 		
-		return em.createQuery("From Objeto Where usuario_id="+A,Object.class).getResultList();
+		return em.createQuery("From Objeto Where usuario_id="+id,Object.class).getResultList();
 	}
 	
 	@Override
@@ -61,7 +61,12 @@ public class ModeloDao implements Dao<Object> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@Override
+	public List<Object> getAllNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 

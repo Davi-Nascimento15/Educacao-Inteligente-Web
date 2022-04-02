@@ -38,9 +38,9 @@ public class PresencaDao implements Dao<Presenca> {
 	}
 	
 	@Override
-	public List<Presenca> getAllWhere(String A) {
+	public List<Presenca> getAllWhere(int id) {
 		
-		return em.createQuery("From Presenca Where idPresenca="+A,Presenca.class).getResultList();
+		return em.createQuery("From Presenca Where idPresenca="+id,Presenca.class).getResultList();
 	}
 	
 	@Override
@@ -60,6 +60,12 @@ public class PresencaDao implements Dao<Presenca> {
 
 	@Override
 	public List<Presenca> getNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<Presenca> getAllNome(String objeto) {
 		// TODO Auto-generated method stub
 		return null;
 	}

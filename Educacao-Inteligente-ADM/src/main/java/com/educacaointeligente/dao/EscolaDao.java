@@ -38,9 +38,9 @@ public class EscolaDao implements Dao<Escola> {
 	}
 	
 	@Override
-	public List<Escola> getAllWhere(String A) {
+	public List<Escola> getAllWhere(int id) {
 		
-		return em.createQuery("From Escola Where idEscola="+A,Escola.class).getResultList();
+		return em.createQuery("From Escola Where idEscola="+id,Escola.class).getResultList();
 	}
 	
 	@Override
@@ -64,5 +64,10 @@ public class EscolaDao implements Dao<Escola> {
 		return null;
 	}
 
+	@Override
+	public List<Escola> getAllNome(String objeto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

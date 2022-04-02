@@ -38,7 +38,12 @@ public class AlunoDao implements Dao<Aluno> {
 	}
 	
 	@Override
-	public List<Aluno> getAllWhere(String A) {
+	public List<Aluno> getAllWhere(int id) {
+		return em.createQuery("From Aluno Where idAluno="+id,Aluno.class).getResultList();
+	}
+	
+	@Override
+	public List<Aluno> getAllNome(String A) {
 		return em.createNamedQuery("Aluno.buscaporNome", Aluno.class)
 		        .setParameter("variavel","%"+A+"%")
 		        .getResultList();
