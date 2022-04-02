@@ -85,7 +85,7 @@ List<Escola>ListaEscola = escoladao.getAll();
 
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
-    <a href="turmacon.jsp" class="btn btn-danger">Cancelar</a>
+    <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
  </form>
  

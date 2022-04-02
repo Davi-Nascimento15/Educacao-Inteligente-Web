@@ -1,12 +1,14 @@
 package com.educacaointeligente.model;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Entity;
 import java.util.List;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.OrderColumn;
+
 import com.educacaointeligente.Enum.TipoUsuario;
 import com.sun.istack.NotNull;
 
@@ -21,6 +23,7 @@ public class Usuario {
        @NotNull
        String senha;
        @OneToMany(mappedBy = "usuario")
+       @OrderBy("nome DESC")
        private List<Aluno> aluno;
        
 	public Usuario() {

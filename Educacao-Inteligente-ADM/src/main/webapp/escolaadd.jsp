@@ -61,7 +61,7 @@
     <input type="email" class="form-control" aria-describedby="Email" placeholder="Ex.: user@gmail.com" name= "email">
   </div>
   
-  <div class="col-md-3 offset-md-1 pt-4">
+  <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="escolacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>

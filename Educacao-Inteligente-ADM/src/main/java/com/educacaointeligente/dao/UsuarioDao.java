@@ -34,7 +34,7 @@ public class UsuarioDao implements Dao<Usuario> {
 
 	@Override
 	public List<Usuario> getAll() {
-		return em.createQuery("From Usuario",Usuario.class).getResultList();
+		return em.createQuery("From Usuario Order By nome ASC",Usuario.class).getResultList();
 	}
 		
 	@Override

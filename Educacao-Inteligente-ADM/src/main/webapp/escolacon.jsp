@@ -29,6 +29,7 @@
 <div class="card cabecario">
   <div class="card-header">
       <h1 class="cabecario">Escolas</h1>
+      
    </div>
 </div>
 
@@ -48,8 +49,8 @@
 	%>
 	
 <div class="mx-4">
-	<table class="table" class="thead-dark">
-		<thead>
+	<table class="table">
+		<thead class="thead-dark">
 			<tr>
 			    <th scope="col">CNPJ</th>
 				<th scope="col">Nome</th>

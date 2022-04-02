@@ -59,8 +59,8 @@
 				<th scope="col">Endereço</th>
 				<th scope="col">Turno</th>
 				<th scope="col">Ano</th>
+				<th scope="col">Turma</th>
 				<th scope="col">Responsável</th>
-				<th scope="col">Escola</th>
 				
 				<!-- bug NÃO MEXA -->
 				<th scope="col">  </th>

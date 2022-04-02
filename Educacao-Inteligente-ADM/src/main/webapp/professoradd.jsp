@@ -60,7 +60,7 @@
     <input type="text" class="form-control" aria-describedby="Formacao" placeholder="Insira a formacao" name= "formacao">
   </div>
   
-  <div class="col-md-3 offset-md-1 pt-4">
+  <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>
   </div>

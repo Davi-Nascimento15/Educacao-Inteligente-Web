@@ -37,6 +37,7 @@
 
 <div class="col-lg-12 mb-3">
 	 <a class="btn btn-primary ml-2" style="width: 10%" href="usuarioadd.jsp">Novo</a>
+	 
 </div>
 
      <%
@@ -71,8 +72,8 @@
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getSenha() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getTipo() %></td>
 				<td>
-			  	  <a class="btn btn-secondary" href="usuarioedit.jsp?UsuarioID=<%=U.getIdmatricula()%>">Editar</a>
-			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
+			  	  <a class="btn btn-secondary btn-sm" href="usuarioedit.jsp?UsuarioID=<%=U.getIdmatricula()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
 			  </td>
 			</tr>
 			<%}else if(!U.getTipo().name().equals("SuperUsuario")){ %>
