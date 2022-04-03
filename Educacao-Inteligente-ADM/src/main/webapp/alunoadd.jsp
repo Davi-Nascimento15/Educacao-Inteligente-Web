@@ -42,7 +42,7 @@
 </nav>
 
 <nav  class = "BarraEndereco" aria-label="breadcrumb">
-  <ol class="breadcrumb BarraEndereco">
+  <ol class="breadcrumb">
     <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
     <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="alunocon.jsp"> Alunos </a> </li>
     <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Novo </li>

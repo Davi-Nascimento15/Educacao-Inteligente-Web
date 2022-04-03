@@ -46,14 +46,16 @@
 </nav>
 
 
-<div class="col-lg-12 mb-3">
+<div class="col-lg-12 mb-2">
 	 <a class="btn btn-primary ml-2" style="width: 10%" href="alunoadd.jsp">Novo</a>
+</div>
 
+<div class=" col-7 mb-3" style="float: right;">
 	 <form action="alunocon.jsp" method="post">
-	 <input name="pesquisa" type="text">
-	 <button type="submit">Pesquisar</button>
+	 	<input name="pesquisa" type="text" style="width: 73%;">
+	 	<button class="btn btn-info btn-sm" type="submit">Pesquisar</button>
+	 	<button class="btn btn-secondary btn-sm" type="submit">Voltar</button>
 	 </form>
-
 </div>
 
 <%
