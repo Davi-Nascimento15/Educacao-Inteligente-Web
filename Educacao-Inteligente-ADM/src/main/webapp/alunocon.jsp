@@ -63,7 +63,7 @@
       List<Aluno> ListadeAlunos;  
 %>
 
-<%if(request.getParameter("pesquisa")!=null)
+<%if(request.getParameter("pesquisa")!=null && request.getParameter("pesquisa")!="")
 	ListadeAlunos = daoAluno.getAllNome(request.getParameter("pesquisa"));
 else
 	ListadeAlunos = daoAluno.getAll();

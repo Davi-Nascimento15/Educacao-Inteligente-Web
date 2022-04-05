@@ -147,7 +147,7 @@
 </div>
 <%} %>
 <%if(sessao.getTipo().name().equals("SuperUsuario")){ %>
-<div class="col text-center espaco">   
+<div class="col text-center espaco" style="margin-bottom: 1%">   
 	<div class="card" style="width: 20rem;">
 	 <img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Escola.png" width="180" height="180">
       	<div class="card-body">
