@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.type.CharacterArrayClobType;
 
 import com.educacaointeligente.dao.AlunoDao;
 import com.educacaointeligente.dao.PresencaDao;
@@ -36,7 +37,7 @@ public class ControllerPresenca extends HttpServlet {
 			idPresenca = Integer.parseInt(request.getParameter("PresencaID"));
            
 			Presenca presenca = presencaDao.get(idPresenca);
-			presenca.setFalta(Boolean.getBoolean(request.getParameter("falta")));
+			presenca.setFalta(request.getParameter("falta").toString().charAt(0));
 			presenca.setData(request.getParameter("data"));
 			
 			AlunoDao alunoDao = new AlunoDao();
@@ -48,9 +49,9 @@ public class ControllerPresenca extends HttpServlet {
 		{	
 			Presenca presenca = new Presenca();
 			if(request.getParameter("falta").equals("V"))
-		    	presenca.setFalta(true);
+		    	presenca.setFalta('1');
 		    else
-		    	presenca.setFalta(false);
+		    	presenca.setFalta('0');
 		    presenca.setData(request.getParameter("data"));
 			
 			AlunoDao alunoDao = new AlunoDao();

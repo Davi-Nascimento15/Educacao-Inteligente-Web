@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.educacaointeligente.Enum.TipoAviso;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -19,6 +21,8 @@ public class Avisos {
 	String dataGeracao;
 	@NotNull
 	String dataEntrega;
+	@NotNull
+	TipoAviso tipoaviso;
 	@ManyToOne
 	Turma turma;
     @ManyToOne	
@@ -30,15 +34,24 @@ public class Avisos {
 		super();
 	}
 	
-	public Avisos(int idAvisos, String descricao, String dataGeracao, String dataEntrega, Turma turma, Professor professor, Disciplina disciplina){
+	public Avisos(int idAvisos, String descricao, String dataGeracao, String dataEntrega,TipoAviso tipoaviso, Turma turma, Professor professor, Disciplina disciplina){
 		super();
 		this.idAvisos = idAvisos;
 		this.descricao = descricao;
 		this.dataGeracao = dataGeracao;
 		this.dataEntrega = dataEntrega;
 		this.turma = turma;
+		this.tipoaviso = tipoaviso;
 		this.professor = professor;
 		this.disciplina = disciplina;
+	}
+
+	public TipoAviso getTipoaviso() {
+		return tipoaviso;
+	}
+
+	public void setTipoaviso(TipoAviso tipoaviso) {
+		this.tipoaviso = tipoaviso;
 	}
 
 	public int getIdAvisos() {
