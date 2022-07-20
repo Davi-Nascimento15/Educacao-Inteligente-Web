@@ -13,7 +13,7 @@ public class Presenca {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int idPresenca;
 	@NotNull
-	boolean falta;
+	char falta;
 	@NotNull
 	String Data;
 	@ManyToOne
@@ -22,7 +22,7 @@ public class Presenca {
 	public Presenca() {
 		super();
 	}
-	public Presenca(int idPresenca, boolean falta, String data, Aluno aluno) {
+	public Presenca(int idPresenca, char falta, String data, Aluno aluno) {
 		super();
 		this.idPresenca = idPresenca;
 		this.falta = falta;
@@ -35,10 +35,10 @@ public class Presenca {
 	public void setIdPresenca(int idPresenca) {
 		this.idPresenca = idPresenca;
 	}
-	public boolean isFalta() {
+	public char isFalta() {
 		return falta;
 	}
-	public void setFalta(boolean falta) {
+	public void setFalta(char falta) {
 		this.falta = falta;
 	}
 	public String getData() {

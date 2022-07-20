@@ -55,6 +55,15 @@
 
 <form action="ControllerAvisos" method="post">
 
+  <div class="row form-select col-md-3 offset-md-1">
+   <label>Turno</label>
+   	<select  name="tipo" id="tipo" class="form-control">
+ 	    <option value="<%=TipoAviso.aviso.name()%>">Aviso</option>
+  		<option value="<%=TipoAviso.tarefa.name()%>">Tarefa</option>
+        <option value="<%=TipoAviso.prova.name()%>">Prova</option>
+   	</select>
+   </div>
+
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Descrição</label>
     <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição do aviso" name= "descricao">

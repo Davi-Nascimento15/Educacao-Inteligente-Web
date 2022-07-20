@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.educacaointeligente.Enum.TipoAviso;
+import com.educacaointeligente.Enum.Turno;
 import com.educacaointeligente.dao.AvisosDao;
 import com.educacaointeligente.dao.DisciplinaDao;
 import com.educacaointeligente.dao.ProfessorDao;
@@ -58,7 +60,7 @@ public class ControllerAvisos extends HttpServlet {
 			aviso.setDataGeracao(data);
 			
 			aviso.setDataEntrega(request.getParameter("dataentrega"));
-			
+			aviso.setTipoaviso(TipoAviso.valueOf(request.getParameter("tipo")));
 			TurmaDao turmaDao = new TurmaDao();
 			Turma turma = turmaDao.get(Integer.parseInt(request.getParameter("turma")));
 			aviso.setTurma(turma);
@@ -83,7 +85,7 @@ public class ControllerAvisos extends HttpServlet {
 			aviso.setDataGeracao(data);
 			
 			aviso.setDataEntrega(request.getParameter("dataentrega"));
-			
+			aviso.setTipoaviso(TipoAviso.valueOf(request.getParameter("tipo")));
 			TurmaDao turmaDao = new TurmaDao();
 			Turma turma = turmaDao.get(Integer.parseInt(request.getParameter("turma")));
 			aviso.setTurma(turma);
