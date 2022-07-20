@@ -68,5 +68,11 @@ public class ModeloDao implements Dao<Object> {
 		return null;
 	}
 
+	@Override
+	public Object getString(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 

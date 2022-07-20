@@ -69,5 +69,11 @@ public class UsuarioDao implements Dao<Usuario> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Usuario getString(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

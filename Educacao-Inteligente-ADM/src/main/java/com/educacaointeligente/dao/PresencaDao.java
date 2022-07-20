@@ -69,5 +69,11 @@ public class PresencaDao implements Dao<Presenca> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Presenca getString(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

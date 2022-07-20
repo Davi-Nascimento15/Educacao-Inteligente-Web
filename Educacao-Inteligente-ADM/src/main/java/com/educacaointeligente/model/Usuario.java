@@ -1,13 +1,9 @@
 package com.educacaointeligente.model;
-
-import javax.persistence.CollectionTable;
 import javax.persistence.Entity;
 import java.util.List;
-
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
-import javax.persistence.OrderColumn;
 
 import com.educacaointeligente.Enum.TipoUsuario;
 import com.sun.istack.NotNull;
@@ -22,21 +18,41 @@ public class Usuario {
 	   TipoUsuario tipo;
        @NotNull
        String senha;
-       @OneToMany(mappedBy = "usuario")
+       @OneToMany(mappedBy="usuario")
        @OrderBy("nome DESC")
        private List<Aluno> aluno;
+       @OneToMany(mappedBy="usuario")
+       private List<Sugestao> sugestao ;
        
 	public Usuario() {
 		super();
 	}
 	
-	public Usuario(int idmatricula, String nome, TipoUsuario tipo, String senha, List<Aluno> aluno) {
+	public Usuario(int idmatricula, String nome, TipoUsuario tipo, String senha, List<Aluno> aluno, List<Sugestao> sugestao
+			) {
 		super();
 		this.idmatricula = idmatricula;
 		this.nome = nome;
 		this.tipo = tipo;
 		this.senha = senha;
 		this.aluno = aluno;
+		this.sugestao = sugestao;
+	}
+	
+	public List<Aluno> getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(List<Aluno> aluno) {
+		this.aluno = aluno;
+	}
+
+	public List<Sugestao> getSugestao() {
+		return sugestao;
+	}
+
+	public void setSugestao(List<Sugestao> sugestao) {
+		this.sugestao = sugestao;
 	}
 
 	public int getIdmatricula() {

@@ -69,5 +69,11 @@ public class ProfessorDao implements Dao<Professor> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Professor getString(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

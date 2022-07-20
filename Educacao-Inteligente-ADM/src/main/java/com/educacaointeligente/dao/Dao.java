@@ -6,6 +6,8 @@ public interface Dao<T> {
 	
       T get(int id);
       
+      T getString(String id);
+      
       List<T>getAll();
       
       List<T>getAllWhere(int objeto);

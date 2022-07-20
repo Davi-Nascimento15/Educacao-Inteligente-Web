@@ -69,5 +69,11 @@ public class NotaDao implements Dao<Nota> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Nota getString(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

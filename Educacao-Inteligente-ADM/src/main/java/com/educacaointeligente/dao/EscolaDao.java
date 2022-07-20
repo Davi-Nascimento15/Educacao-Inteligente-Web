@@ -70,4 +70,10 @@ public class EscolaDao implements Dao<Escola> {
 		return null;
 	}
 
+	@Override
+	public Escola getString(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -70,5 +70,11 @@ public class AlunoDao implements Dao<Aluno> {
 		return null;
 	}
 
+	@Override
+	public Aluno getString(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

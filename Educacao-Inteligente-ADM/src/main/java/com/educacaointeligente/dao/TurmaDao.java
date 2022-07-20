@@ -69,4 +69,10 @@ public class TurmaDao implements Dao<Turma> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Turma getString(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

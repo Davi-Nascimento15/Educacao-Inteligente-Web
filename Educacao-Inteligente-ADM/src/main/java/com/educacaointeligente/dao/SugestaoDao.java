@@ -6,16 +6,16 @@ import java.util.function.Consumer;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import com.educacaointeligente.model.Disciplina;
+import com.educacaointeligente.model.Sugestao;
 
-public class DisciplinaDao implements Dao<Disciplina> {
+public class SugestaoDao implements Dao<Sugestao> {
 	private EntityManager em;
-    
-    public DisciplinaDao(){
+	
+	public SugestaoDao(){
     	em = JPAUtil.getEntityManagerFactory().createEntityManager();
     }
-   
-    private void ExecuteInsideTrasaction(Consumer<EntityManager>action) {
+	
+	private void ExecuteInsideTrasaction(Consumer<EntityManager>action) {
         EntityTransaction tx = em.getTransaction();
         try {
         	tx.begin();
@@ -26,54 +26,54 @@ public class DisciplinaDao implements Dao<Disciplina> {
         	throw e;
         }
     }
-    
-	@Override
-	public Disciplina get(int id) {	
-		return em.find(Disciplina.class,id);
-	}
-
-	@Override
-	public List<Disciplina> getAll() {
-		return em.createQuery("From Disciplina Order By nome ASC",Disciplina.class).getResultList();
-	}
 	
 	@Override
-	public List<Disciplina> getAllWhere(int id) {
+	public Sugestao getString(String id) {
+		return em.find(Sugestao.class,id);
+	}
 		
-		return em.createQuery("From Disciplina Where iddisciplina="+id,Disciplina.class).getResultList();
+	@Override
+	public List<Sugestao> getAll() {
+		return em.createQuery("From Sugestao",Sugestao.class).getResultList();
 	}
 	
 	@Override
-	public void save (Disciplina objeto) {
+	public List<Sugestao> getAllWhere(int id) {
+		
+		return em.createQuery("From Sugestao Where sugestao_id="+id,Sugestao.class).getResultList();
+	}
+	
+	@Override
+	public void save (Sugestao objeto) {
 		ExecuteInsideTrasaction(em->em.persist(objeto));
 	}
 
 	@Override
-	public void update(Disciplina objeto) {
+	public void update(Sugestao objeto) {
 		ExecuteInsideTrasaction(em->em.merge(objeto));
 	}
 
 	@Override
-	public void delete(Disciplina objeto) {
+	public void delete(Sugestao objeto) {
 		ExecuteInsideTrasaction(em->em.remove(objeto));
 	}
 
 	@Override
-	public List<Disciplina> getNome(String objeto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	@Override
-	public List<Disciplina> getAllNome(String objeto) {
+	public List<Sugestao> getAllNome(String objeto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Disciplina getString(String id) {
+	public List<Sugestao> getNome(String objeto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Sugestao get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
-

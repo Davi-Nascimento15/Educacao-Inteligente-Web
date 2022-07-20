@@ -69,5 +69,11 @@ public class AvisosDao implements Dao<Avisos> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Avisos getString(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
