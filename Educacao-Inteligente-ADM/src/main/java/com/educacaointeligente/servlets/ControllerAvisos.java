@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.educacaointeligente.Enum.TipoAviso;
-import com.educacaointeligente.Enum.Turno;
 import com.educacaointeligente.dao.AvisosDao;
 import com.educacaointeligente.dao.DisciplinaDao;
 import com.educacaointeligente.dao.ProfessorDao;
