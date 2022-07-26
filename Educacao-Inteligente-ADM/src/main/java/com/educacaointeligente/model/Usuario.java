@@ -23,6 +23,10 @@ public class Usuario {
        private List<Aluno> aluno;
        @OneToMany(mappedBy="usuario")
        private List<Sugestao> sugestao ;
+       @OneToMany(mappedBy = "destinatario")
+       private List<MensagemChat> destinatario;
+       @OneToMany(mappedBy = "remetente")
+       private List<MensagemChat> remetente;
        
 	public Usuario() {
 		super();
