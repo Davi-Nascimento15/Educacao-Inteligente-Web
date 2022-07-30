@@ -170,6 +170,18 @@
    	</div>
 </div>
 <%} %>
+<%if((sessao.getTipo().name().equals("Administrador"))||((sessao.getTipo().name().equals("SuperUsuario")))){ %>
+<div class="col text-center espaco">  
+	<div class="card" style="width: 20rem;">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Feed.png" width="180" height="180">
+      	<div class="card-body">
+	    	<h3 class="card-title">Gerenciar Anos Letivos</h3>
+	        <p class="card-text">....</p>
+    		<a href="anoletivocon.jsp" class="btn btn-black">Acessar</a>
+  		</div>
+   	</div>
+</div>
+<%} %>
 <%if(sessao.getTipo().name().equals("SuperUsuario")){ %>
 <div class="col text-center espaco" style="margin-bottom: 1%">   
 	<div class="card" style="width: 20rem;">

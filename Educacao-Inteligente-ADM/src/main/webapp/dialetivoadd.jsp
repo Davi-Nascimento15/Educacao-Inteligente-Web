@@ -13,12 +13,12 @@
 <title>Cadastrar ano letivo</title>
 </head>
 <body>
-//<% 
-//   Usuario sessao = (Usuario)session.getAttribute("usuario");
-//   if(sessao==null){
-//	   response.sendRedirect("Login.jsp");
-//   }
-//%>
+<% 
+   Usuario sessao = (Usuario)session.getAttribute("usuario");
+   if(sessao==null){
+	   response.sendRedirect("Login.jsp");
+   }
+%>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
         <div class="row col-md-12 pl-5 justify-content-md-center">
@@ -47,7 +47,7 @@
  
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Ano</label>
-    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira a matrícula" name= "ano">
+    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name= "ano">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">

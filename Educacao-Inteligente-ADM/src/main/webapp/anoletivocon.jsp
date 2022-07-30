@@ -61,6 +61,7 @@
 	
 	<%
 	if(!Listadeanoletivo.isEmpty()){
+		int Ano=0;
 	%>
 <div class="mx-4">
 	<table class="table">
@@ -72,14 +73,16 @@
 			</tr>
 		</thead>
 		<tbody>
-		<% for(DiaLetivo A:Listadeanoletivo){ %>
+		<% for(DiaLetivo A:Listadeanoletivo){
+			if(Ano==0){
+				Ano=A.getAno(); %>
 			<tr>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
-			  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?ID=<%=A.getId()%>">Editar</a>
-			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/Controllerdialetivo?action=del&ID=<%=A.getId()%>">Excluir</a>
+			  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>">Excluir</a>
 			  </td>
 			</tr>
-		<%} %>
+		<%}} %>
 		</tbody>
 	</table>
 </div>
