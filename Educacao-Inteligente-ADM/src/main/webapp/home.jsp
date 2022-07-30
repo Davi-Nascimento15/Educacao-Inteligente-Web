@@ -173,9 +173,9 @@
 <%if((sessao.getTipo().name().equals("Administrador"))||((sessao.getTipo().name().equals("SuperUsuario")))){ %>
 <div class="col text-center espaco">  
 	<div class="card" style="width: 20rem;">
-	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Feed.png" width="180" height="180">
+	 	<img class="col mx-auto text-center card-img-top w-50 p-3 h-50 d-inline-block " src="Ano.png" width="180" height="180">
       	<div class="card-body">
-	    	<h3 class="card-title">Gerenciar Anos Letivos</h3>
+	    	<h3 class="card-title">G.. Anos Letivos</h3>
 	        <p class="card-text">....</p>
     		<a href="anoletivocon.jsp" class="btn btn-black">Acessar</a>
   		</div>
@@ -209,5 +209,34 @@
 </div>
 <%} %>
 
+<nav class="navbar navbar-expand-lg cabecario"> 
+        <div class="row col-md-4">
+            	<ul class="list-unstyled">
+  					<p><strong>Autores</strong></p>
+    					<ul>
+					      <li>Davi da Silva Nascimento</li>
+					      <li>Eliano de Almeida Cordeiro</li>
+    					</ul>
+				</ul>
+          </div>         
+          <div class="row col-md-4">
+            	<ul class="list-unstyled">
+  					<p><strong>Suporte</strong></p>
+    					<ul>
+    					  <li>davi.nascimento@aluno.unifenas.br</li>
+					      <li>eliano.cordeiro@aluno.unifenas.br</li>
+    					</ul>
+				</ul>
+          </div>       
+          <div class="row col-md-4">
+            	<ul class="list-unstyled">
+  					<p><strong>Git Hub</strong></p>
+    					<ul>
+    					  <li>Davi-nascimento15</li>
+					      <li>Eliano098</li>
+    					</ul>
+				</ul>
+          </div>
+</nav>
 </body>
 </html>
