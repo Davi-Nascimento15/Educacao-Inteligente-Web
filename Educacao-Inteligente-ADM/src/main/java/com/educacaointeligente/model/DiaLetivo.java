@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 import com.educacaointeligente.Enum.TipoData;
 import com.sun.istack.NotNull;
@@ -19,15 +21,18 @@ public class DiaLetivo {
    TipoData tipo;
    @NotNull
    int ano;
+   @ManyToOne
+   Escola escola;
    
 public DiaLetivo() {
 	super();
 }
-public DiaLetivo(String data, TipoData tipo, int ano) {
+public DiaLetivo(String data, TipoData tipo, int ano, Escola escola) {
 	super();
 	this.data = data;
 	this.tipo = tipo;
 	this.ano = ano;
+	this.escola =escola;
 }
 
 public int getId() {
@@ -60,5 +65,11 @@ public int getAno() {
 
 public void setAno(int ano) {
 	this.ano = ano;
+}
+public Escola getEscola() {
+	return escola;
+}
+public void setEscola(Escola escola) {
+	this.escola = escola;
 }
 }

@@ -1,3 +1,5 @@
+<%@page import="com.educacaointeligente.model.Escola"%>
+<%@page import="com.educacaointeligente.dao.EscolaDao"%>
 <%@page import="com.google.protobuf.TextFormat.ParseException"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -22,8 +24,8 @@
 </head>
 <body>
 <% 
-   Usuario sessao = (Usuario)session.getAttribute("usuario");
-   if(sessao==null){
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
 %>
@@ -120,6 +122,29 @@
     <input type="date" class="form-control" aria-describedby="Final Segundo Semestre" placeholder="Data Final 1º Semetre" name= "datafinalsegundosemestre" value="<%=finalsegundo%>">
   </div>
   
+  <%
+EscolaDao escoladao = new EscolaDao(); 
+List<Escola>ListaEscola = escoladao.getAll();
+%>
+
+<%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Escola</label>
+   	<select name="EscolaID" id="Escola" class="form-control">
+	<%
+  		for(Escola E:ListaEscola){
+  			if(E.getIdEscola()== diaLetivo.get(0).getEscola().getIdEscola()){
+	%>
+  			<option selected value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%}else{%>
+		<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%}
+  	} %>  	
+	</select>
+  </div>
+<%}else{ %>
+   <input type="hidden" name="EscolaID" value="<%=usuario.getEscola().getIdEscola()%>">
+<%}%>
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="anoletivocon.jsp" class="btn btn-danger">Cancelar</a>

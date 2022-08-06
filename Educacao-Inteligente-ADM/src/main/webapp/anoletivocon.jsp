@@ -62,6 +62,7 @@
 	<%
 	if(!Listadeanoletivo.isEmpty()){
 		int Ano=0;
+		String nomeEscola="";
 	%>
 <div class="mx-4">
 	<table class="table">
@@ -74,15 +75,40 @@
 		</thead>
 		<tbody>
 		<% for(DiaLetivo A:Listadeanoletivo){
-			if(Ano==0){
-				Ano=A.getAno(); %>
+			if(usuario.getEscola().getIdEscola()==A.getEscola().getIdEscola()){
+			if(Ano==0 && nomeEscola==""){
+				Ano=A.getAno();
+				nomeEscola=A.getEscola().getNome();
+			%>	
 			<tr>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
 			  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>">Excluir</a>
 			  </td>
 			</tr>
-		<%}} %>
+		<%}else if(Ano!= A.getAno() && nomeEscola.equals(A.getEscola().getNome())){
+			Ano=A.getAno();
+			nomeEscola=A.getEscola().getNome();
+		%>
+		<tr>
+		  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
+		  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
+		      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>">Excluir</a>
+		  </td>
+		</tr>
+		<%}
+			else if(Ano== A.getAno() && !nomeEscola.equals(A.getEscola().getNome())){
+					Ano=A.getAno();
+				nomeEscola=A.getEscola().getNome();
+		%>
+			<tr>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
+			  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>">Excluir</a>
+			  </td>
+			</tr>
+			<%} 
+	}}%>
 		</tbody>
 	</table>
 </div>

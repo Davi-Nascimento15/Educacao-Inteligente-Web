@@ -1,3 +1,4 @@
+<%@page import="com.educacaointeligente.dao.UsuarioDao"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.model.Professor"%>
 <%@page import="com.educacaointeligente.dao.ProfessorDao"%>
@@ -82,6 +83,24 @@
     <input type="text" class="form-control" aria-describedby="Formacao" placeholder="Insira a formacao" name= "formacao" value="<%=professor.getFormacao()%>">
   </div>
   
+  <%
+UsuarioDao usuariodao = new UsuarioDao(); 
+List<Usuario>ListaUsuario = usuariodao.getAllWhereProfessor(2);
+%>
+
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Usuário</label>
+   	<select  name="UsuarioID" id="Usuario" class="form-control">
+	<%
+  		for(Usuario A:ListaUsuario){
+  			if(A.getIdmatricula()==professor.getUsuario().getIdmatricula()){
+	%>
+		<option selected value="<%=A.getIdmatricula()%>"><%=A.getNome()%></option>
+	<%}else{ %>
+  		<option value="<%=A.getIdmatricula()%>"><%=A.getNome()%></option>
+	<%}} %>
+  	</select>
+  </div>
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>

@@ -30,14 +30,15 @@ public class Professor {
        Disciplina disciplina;
        @OneToMany(mappedBy="professor")
        private List<Avisos> aviso;
-
+       @OneToOne
+       Usuario usuario;
        
 	public Professor() {
 		super();
 	}
 	
 	public Professor(int idprofessor, String nome, String endereco, String formacao, String telefone, String email,
-			Disciplina disciplina, List<Avisos> aviso) {
+			Disciplina disciplina, List<Avisos> aviso, Usuario usuario) {
 		super();
 		this.idprofessor = idprofessor;
 		this.nome = nome;
@@ -47,6 +48,7 @@ public class Professor {
 		this.email = email;
 		this.disciplina = disciplina;
 		this.aviso = aviso;
+		this.usuario=usuario;
 	}
    	     
 
@@ -113,4 +115,13 @@ public class Professor {
 	public void setAviso(List<Avisos> aviso) {
 		this.aviso = aviso;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 }

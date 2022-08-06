@@ -43,6 +43,10 @@ public class UsuarioDao implements Dao<Usuario> {
 		return em.createQuery("From Usuario Where usuario_id="+id,Usuario.class).getResultList();
 	}
 	
+	public List<Usuario> getAllWhereProfessor(int tipo) {
+		return em.createQuery("From Usuario Where tipo="+tipo,Usuario.class).getResultList();
+	}
+	
 	@Override
 	public void save (Usuario objeto) {
 		ExecuteInsideTrasaction(em->em.persist(objeto));

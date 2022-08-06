@@ -31,13 +31,16 @@ public class Escola {
 	List<Turma> turma;
     @OneToMany(mappedBy = "escola")
     List<Aluno> aluno;
+    @OneToMany(mappedBy = "escola")
+    List<DiaLetivo> diaLetivo;
+    
 	
 	public Escola() {
 		super();
 	}
 
 	public Escola(int idEscola, String cnpj, String nome, String telefone, String email, String endereco,
-			List<Turma> turma, List<Aluno> aluno, List<Usuario> usuario) {
+			List<Turma> turma, List<Aluno> aluno, List<Usuario> usuario, List<DiaLetivo> dialetivo) {
 		super();
 		this.idEscola = idEscola;
 		this.cnpj = cnpj;
@@ -48,6 +51,7 @@ public class Escola {
 		this.usuario = usuario;
 		this.turma = turma;
 		this.aluno = aluno;
+		this.diaLetivo= dialetivo;
 	}
 
 	public int getIdEscola() {
@@ -120,5 +124,13 @@ public class Escola {
 
 	public void setAluno(List<Aluno> aluno) {
 		this.aluno = aluno;
+	}
+
+	public List<DiaLetivo> getDiaLetivo() {
+		return diaLetivo;
+	}
+
+	public void setDiaLetivo(List<DiaLetivo> diaLetivo) {
+		this.diaLetivo = diaLetivo;
 	}
 }

@@ -1,3 +1,6 @@
+<%@page import="com.educacaointeligente.model.Escola"%>
+<%@page import="java.util.List"%>
+<%@page import="com.educacaointeligente.dao.EscolaDao"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.Enum.TipoUsuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -14,8 +17,8 @@
 </head>
 <body>
 <% 
-   Usuario sessao = (Usuario)session.getAttribute("usuario");
-   if(sessao==null){
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+   if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
 %>
@@ -70,6 +73,25 @@
     <input type="date" class="form-control" aria-describedby="Final Segundo Semestre" placeholder="Data Final 1º Semetre" name= "datafinalsegundosemestre">
   </div>
   
+  <%
+EscolaDao escoladao = new EscolaDao(); 
+List<Escola>ListaEscola = escoladao.getAll();
+%>
+
+<%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Escola</label>
+   	<select name="EscolaID" id="Escola" class="form-control">
+	<%
+  		for(Escola E:ListaEscola){
+	%>
+  			<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%} %>
+	</select>
+  </div>
+<%}else{ %>
+   <input type="hidden" name="EscolaID" value="<%=usuario.getEscola().getIdEscola()%>">
+<%}%>  
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="dialetivocon.jsp" class="btn btn-danger">Cancelar</a>

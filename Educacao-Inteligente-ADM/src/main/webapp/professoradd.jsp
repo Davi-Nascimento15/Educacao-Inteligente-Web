@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="com.educacaointeligente.dao.UsuarioDao"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.Enum.TipoUsuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -70,6 +72,22 @@
     <input type="text" class="form-control" aria-describedby="Formacao" placeholder="Insira a formacao" name= "formacao">
   </div>
   
+<%
+UsuarioDao usuariodao = new UsuarioDao(); 
+List<Usuario>ListaUsuario = usuariodao.getAllWhereProfessor(2);
+%>
+
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Usuário</label>
+   	<select  name="UsuarioID" id="Usuario" class="form-control">
+	<%
+  		for(Usuario A:ListaUsuario){
+	%>
+  		<option value="<%=A.getIdmatricula()%>"><%=A.getNome()%></option>
+	<%} %>
+  	</select>
+  </div>
+    
   <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>

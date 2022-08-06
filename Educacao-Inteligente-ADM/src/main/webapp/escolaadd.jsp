@@ -19,7 +19,6 @@
 	   response.sendRedirect("Login.jsp");
    }
 %>
-
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
         <div class="row col-md-12 pl-5 justify-content-md-center">

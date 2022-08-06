@@ -17,7 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.educacaointeligente.Enum.TipoData;
 import com.educacaointeligente.dao.DiaLetivoDao;
+import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.model.DiaLetivo;
+import com.educacaointeligente.model.Escola;
 
 @WebServlet({"/ControllerDiaLetivo","/controllerDiaLetivo"})
 public class ControllerDiaLetivo extends HttpServlet {
@@ -51,6 +53,8 @@ public class ControllerDiaLetivo extends HttpServlet {
 			
 		if(!(request.getParameter("AnoDiaLetivo")==null)) {
 			List<DiaLetivo> listano = diaLetivoDao.getAllWhereAno(Integer.parseInt(request.getParameter("AnoDiaLetivo")));
+			EscolaDao escoladao = new EscolaDao();
+			Escola escola = escoladao.get(Integer.parseInt(request.getParameter("EscolaID")));
 			for(DiaLetivo D:listano) {
 				DiaLetivo delDiaLetivo = diaLetivoDao.get(D.getId());
 				diaLetivoDao.delete(delDiaLetivo);
@@ -81,9 +85,9 @@ public class ControllerDiaLetivo extends HttpServlet {
 			while(Aux.before(inicioprimeiro)) {
 				DiaLetivo diaLetivo;
 				if(Feriados(request.getParameter("ano"), formato.format(Aux))==1){
-					diaLetivo = new DiaLetivo(formato.format(Aux),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));	
+					diaLetivo = new DiaLetivo(formato.format(Aux),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);	
 				}else{
-					diaLetivo = new DiaLetivo(formato.format(Aux),TipoData.ferias, Integer.parseInt(request.getParameter("ano")));
+					diaLetivo = new DiaLetivo(formato.format(Aux),TipoData.ferias, Integer.parseInt(request.getParameter("ano")),escola);
 				}
 				diaLetivoDao.save(diaLetivo);
 				Calendar c1 = Calendar.getInstance();
@@ -102,14 +106,14 @@ public class ControllerDiaLetivo extends HttpServlet {
 			
 			while(inicioprimeiro.before(finalprimeiro)) {
 				if(inicioprimeiro.getDay()==0||inicioprimeiro.getDay()==6) {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else if(Feriados(request.getParameter("ano"), formato.format(inicioprimeiro))==1){
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}
 				else {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.letivo, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.letivo, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}
 				Calendar c = Calendar.getInstance();
@@ -119,14 +123,14 @@ public class ControllerDiaLetivo extends HttpServlet {
 			}
 			
 			if(inicioprimeiro.getDay()==0||inicioprimeiro.getDay()==6) {
-				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux1);
 			}else if(Feriados(request.getParameter("ano"), formato.format(inicioprimeiro))==1){
-				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux1);
 			}
 			else{
-				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.letivo, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.letivo, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux1);
 			}
 			
@@ -144,10 +148,10 @@ public class ControllerDiaLetivo extends HttpServlet {
 			
 			while(inicioprimeiro.before(iniciosegundo)) {
 				if(Feriados(request.getParameter("ano"), formato.format(inicioprimeiro))==1){
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.ferias, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.ferias, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}
 				Calendar c1 = Calendar.getInstance();
@@ -165,13 +169,13 @@ public class ControllerDiaLetivo extends HttpServlet {
 			
 			while(iniciosegundo.before(finalsegundo)) {
 				if(iniciosegundo.getDay()==0||iniciosegundo.getDay()==6) {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else if(Feriados(request.getParameter("ano"), formato.format(iniciosegundo))==1){
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else{
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.letivo, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.letivo, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);	
 				}
 				Calendar c1 = Calendar.getInstance();
@@ -181,13 +185,13 @@ public class ControllerDiaLetivo extends HttpServlet {
 			}
 			
 			if(iniciosegundo.getDay()==0||iniciosegundo.getDay()==6) {
-				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux2);
 			} else if(Feriados(request.getParameter("ano"), formato.format(iniciosegundo))==1){
-				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux2);
 			}else {
-				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.letivo, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.letivo, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux2);	
 			}
 			
@@ -206,10 +210,10 @@ public class ControllerDiaLetivo extends HttpServlet {
 		    
 			while(finalsegundo.before(Aux)) {
 				if(Feriados(request.getParameter("ano"), formato.format(finalsegundo))==1){
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(finalsegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(finalsegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(finalsegundo),TipoData.ferias, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(finalsegundo),TipoData.ferias, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}
 				Calendar c1 = Calendar.getInstance();
@@ -225,6 +229,9 @@ public class ControllerDiaLetivo extends HttpServlet {
 			String datainiciosegundo =  request.getParameter("datainiciosegundosemestre");
 			String datafinalsegundo =  request.getParameter("datafinalsegundosemestre");
 			
+			EscolaDao escoladao = new EscolaDao();
+			Escola escola = escoladao.get(Integer.parseInt(request.getParameter("EscolaID")));
+		
 			SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 			
 			Date inicioprimeiro = new Date();
@@ -245,9 +252,9 @@ public class ControllerDiaLetivo extends HttpServlet {
 			while(Aux.before(inicioprimeiro)) {
 				DiaLetivo diaLetivo;
 				if(Feriados(request.getParameter("ano"), formato.format(Aux))==1){
-					diaLetivo = new DiaLetivo(formato.format(Aux),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));	
+					diaLetivo = new DiaLetivo(formato.format(Aux),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);	
 				}else{
-					diaLetivo = new DiaLetivo(formato.format(Aux),TipoData.ferias, Integer.parseInt(request.getParameter("ano")));
+					diaLetivo = new DiaLetivo(formato.format(Aux),TipoData.ferias, Integer.parseInt(request.getParameter("ano")),escola);
 				}
 				diaLetivoDao.save(diaLetivo);
 				Calendar c1 = Calendar.getInstance();
@@ -266,14 +273,14 @@ public class ControllerDiaLetivo extends HttpServlet {
 			
 			while(inicioprimeiro.before(finalprimeiro)) {
 				if(inicioprimeiro.getDay()==0||inicioprimeiro.getDay()==6) {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else if(Feriados(request.getParameter("ano"), formato.format(inicioprimeiro))==1){
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}
 				else {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.letivo, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.letivo, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}
 				Calendar c = Calendar.getInstance();
@@ -283,14 +290,14 @@ public class ControllerDiaLetivo extends HttpServlet {
 			}
 			
 			if(inicioprimeiro.getDay()==0||inicioprimeiro.getDay()==6) {
-				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux1);
 			}else if(Feriados(request.getParameter("ano"), formato.format(inicioprimeiro))==1){
-				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux1);
 			}
 			else{
-				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.letivo, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux1 = new DiaLetivo(formato.format(inicioprimeiro),TipoData.letivo, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux1);
 			}
 			
@@ -308,10 +315,10 @@ public class ControllerDiaLetivo extends HttpServlet {
 			
 			while(inicioprimeiro.before(iniciosegundo)) {
 				if(Feriados(request.getParameter("ano"), formato.format(inicioprimeiro))==1){
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.ferias, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(inicioprimeiro),TipoData.ferias, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}
 				Calendar c1 = Calendar.getInstance();
@@ -329,13 +336,13 @@ public class ControllerDiaLetivo extends HttpServlet {
 			
 			while(iniciosegundo.before(finalsegundo)) {
 				if(iniciosegundo.getDay()==0||iniciosegundo.getDay()==6) {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else if(Feriados(request.getParameter("ano"), formato.format(iniciosegundo))==1){
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else{
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.letivo, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(iniciosegundo),TipoData.letivo, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);	
 				}
 				Calendar c1 = Calendar.getInstance();
@@ -345,13 +352,13 @@ public class ControllerDiaLetivo extends HttpServlet {
 			}
 			
 			if(iniciosegundo.getDay()==0||iniciosegundo.getDay()==6) {
-				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.finaldesemana, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux2);
 			} else if(Feriados(request.getParameter("ano"), formato.format(iniciosegundo))==1){
-				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux2);
 			}else {
-				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.letivo, Integer.parseInt(request.getParameter("ano")));
+				DiaLetivo diaLetivoaux2 = new DiaLetivo(formato.format(iniciosegundo),TipoData.letivo, Integer.parseInt(request.getParameter("ano")),escola);
 				diaLetivoDao.save(diaLetivoaux2);	
 			}
 			
@@ -369,10 +376,10 @@ public class ControllerDiaLetivo extends HttpServlet {
 			
 			while(finalsegundo.before(Aux)) {
 				if(Feriados(request.getParameter("ano"), formato.format(finalsegundo))==1){
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(finalsegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(finalsegundo),TipoData.feriado, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}else {
-					DiaLetivo diaLetivo = new DiaLetivo(formato.format(finalsegundo),TipoData.ferias, Integer.parseInt(request.getParameter("ano")));
+					DiaLetivo diaLetivo = new DiaLetivo(formato.format(finalsegundo),TipoData.ferias, Integer.parseInt(request.getParameter("ano")),escola);
 					diaLetivoDao.save(diaLetivo);
 				}
 				Calendar c1 = Calendar.getInstance();

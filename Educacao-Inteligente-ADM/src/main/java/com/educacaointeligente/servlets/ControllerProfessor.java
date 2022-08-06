@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.educacaointeligente.dao.ProfessorDao;
+import com.educacaointeligente.dao.UsuarioDao;
 import com.educacaointeligente.model.Professor;
+import com.educacaointeligente.model.Usuario;
 
 @WebServlet({"/ControllerProfessor","/controllerprofessor"})
 public class ControllerProfessor extends HttpServlet {
@@ -47,6 +49,10 @@ public class ControllerProfessor extends HttpServlet {
 			professor.setEndereco(request.getParameter("endereco"));
 			professor.setTelefone(request.getParameter("telefone"));
 			professor.setEmail(request.getParameter("email"));
+
+			UsuarioDao usuariodao = new UsuarioDao();
+			Usuario usuario = usuariodao.get(Integer.parseInt(request.getParameter("UsuarioID")));
+			professor.setUsuario(usuario);					
 						
 			professorDao.update(professor);
 				
@@ -59,7 +65,11 @@ public class ControllerProfessor extends HttpServlet {
 			professor.setEndereco(request.getParameter("endereco"));
 			professor.setTelefone(request.getParameter("telefone"));
 			professor.setEmail(request.getParameter("email"));
-						
+			
+			UsuarioDao usuariodao = new UsuarioDao();
+			Usuario usuario = usuariodao.get(Integer.parseInt(request.getParameter("UsuarioID")));
+			professor.setUsuario(usuario);					
+			
 			professorDao.save(professor);
 		}
 		
