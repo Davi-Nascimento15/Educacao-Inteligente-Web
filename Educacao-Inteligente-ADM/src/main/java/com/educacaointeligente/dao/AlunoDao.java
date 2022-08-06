@@ -37,6 +37,10 @@ public class AlunoDao implements Dao<Aluno> {
 		return em.createQuery("From Aluno Order By nome ASC",Aluno.class).getResultList();
 	}
 	
+	public List<Aluno> getAllEscola(int id) {
+		return em.createQuery("From Aluno where escola_idEscola="+id,Aluno.class).getResultList();
+	}
+	
 	@Override
 	public List<Aluno> getAllWhere(int id) {
 		return em.createQuery("From Aluno Where idAluno="+id,Aluno.class).getResultList();

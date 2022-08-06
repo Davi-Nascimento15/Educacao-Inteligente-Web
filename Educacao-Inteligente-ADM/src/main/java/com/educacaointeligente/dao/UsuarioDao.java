@@ -2,10 +2,8 @@ package com.educacaointeligente.dao;
 
 import java.util.List;
 import java.util.function.Consumer;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-
 import com.educacaointeligente.model.Usuario;
 
 public class UsuarioDao implements Dao<Usuario> {
@@ -35,6 +33,10 @@ public class UsuarioDao implements Dao<Usuario> {
 	@Override
 	public List<Usuario> getAll() {
 		return em.createQuery("From Usuario Order By nome ASC",Usuario.class).getResultList();
+	}
+	
+	public List<Usuario> getAllEscola(int id) {
+		return em.createQuery("From Usuario where escola_idEscola="+id,Usuario.class).getResultList();
 	}
 		
 	@Override

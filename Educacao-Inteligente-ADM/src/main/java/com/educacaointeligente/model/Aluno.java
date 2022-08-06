@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import com.educacaointeligente.Enum.*;
 import com.sun.istack.NotNull;
@@ -24,6 +25,7 @@ public class Aluno {
 	@NotNull
 	int matricula;
 	@NotNull
+	@OrderBy("nome DESC")
     String nome;
     @NotNull
 	String nomeMae;

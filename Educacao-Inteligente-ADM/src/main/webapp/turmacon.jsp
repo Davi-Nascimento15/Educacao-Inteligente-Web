@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.educacaointeligente.model.*"%>
 <%@page import="java.util.List"%>
 <%@page import="com.educacaointeligente.dao.*"%>
@@ -22,8 +23,16 @@
    }
 %>
      <%
+      List<Turma> ListadeTurmas;
 	  TurmaDao daoTurma = new TurmaDao();
-      List<Turma> ListadeTurmas = daoTurma.getAll();
+  	  int idEscola = usuario.getEscola().getIdEscola();
+  	  
+  	  if(usuario.getTipo().name().equals("SuperUsuario")){
+  		ListadeTurmas = daoTurma.getAll();
+  	  }
+  	  else{
+  		ListadeTurmas = daoTurma.getAllEscola(idEscola);
+  	  }    
 	%>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -51,10 +60,9 @@
 <div class="col-lg-12 mb-3">
 	 <a class="btn btn-primary ml-2" style="width: 10%" href="turmaadd.jsp">Nova</a>
 </div>
-
-	<%
+<%
 	if(!ListadeTurmas.isEmpty()){
-	%>
+%>
 	
 <div class="mx-4">
 	<table class="table">
@@ -76,12 +84,12 @@
 			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerTurma?action=del&TurmaID=<%=T.getIdTurma()%>">Excluir</a>
 			  </td>
 			</tr>
-		<%} %>
+<%}%>
 		</tbody>
 	</table>
 </div>
 
-	<%}else{%>
+<%}else{%>
 	<p>Não há Turmas cadastradas!</p>
 	<%}%>
 </body>
