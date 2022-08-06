@@ -51,8 +51,16 @@
 </div>
 
      <%
-	  UsuarioDao daoUsuario = new UsuarioDao();
-      List<Usuario> ListadeUsuarios = daoUsuario.getAll();
+	 	UsuarioDao daoUsuario = new UsuarioDao();
+     	List<Usuario> ListadeUsuarios;
+     	int idEscola = sessao.getEscola().getIdEscola();
+     	
+     	if(sessao.getTipo().name().equals("SuperUsuario")){
+      		ListadeUsuarios = daoUsuario.getAll();
+      	  }
+      	  else{
+      		ListadeUsuarios = daoUsuario.getAllEscola(idEscola);
+      	  }    
 	%>
 	
 	<%

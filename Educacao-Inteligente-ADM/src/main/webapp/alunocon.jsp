@@ -60,13 +60,19 @@
 
 <%
 	  AlunoDao daoAluno = new AlunoDao();
-      List<Aluno> ListadeAlunos;  
+      List<Aluno> ListadeAlunos;
+  	  int idEscola = usuario.getEscola().getIdEscola(); 
 %>
 
 <%if(request.getParameter("pesquisa")!=null && request.getParameter("pesquisa")!="")
 	ListadeAlunos = daoAluno.getAllNome(request.getParameter("pesquisa"));
-else
-	ListadeAlunos = daoAluno.getAll();
+
+else if(usuario.getTipo().name().equals("SuperUsuario")){
+		ListadeAlunos = daoAluno.getAll();
+  	}
+  	else{
+		ListadeAlunos = daoAluno.getAllEscola(idEscola);
+}    
 %>
 
 	<%

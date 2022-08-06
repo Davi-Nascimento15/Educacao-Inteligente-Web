@@ -5,7 +5,6 @@ import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-
 import com.educacaointeligente.model.Turma;
 
 public class TurmaDao implements Dao<Turma> {
@@ -35,6 +34,10 @@ public class TurmaDao implements Dao<Turma> {
 	@Override
 	public List<Turma> getAll() {
 		return em.createQuery("From Turma Order By nome ASC",Turma.class).getResultList();
+	}
+	
+	public List<Turma> getAllEscola(int id) {
+		return em.createQuery("From Turma where escola_idEscola="+id,Turma.class).getResultList();
 	}
 	
 	@Override
