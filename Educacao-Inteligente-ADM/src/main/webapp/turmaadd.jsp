@@ -67,16 +67,17 @@ List<Disciplina>Lista = disciplinadao.getAll();
 %>
 
   <div class="row form-select col-md-3 offset-md-1 pt-3">
-   <label>Disciplinas</label>
-   	<select name="disciplina" id="Disciplina" class="form-control">
-	<%
-  		for(Disciplina D:Lista){
-	%>
-  		<option value="<%=D.getIddisciplina()%>"><%=D.getNome()%></option>
-	<%} %>  	
-	</select>
-  </div>
-  
+   		<label>Disciplinas</label>
+   </div> 
+   
+  <div class="offset-md-1 ml-9">
+  	<%for(Disciplina D:Lista){%>
+  	<div class="form-check ml-3 ">
+	    <input class="form-check-input" type="checkbox" value=<%=D.getIddisciplina()%> id="flexCheckChecked" name="<%=D.getNome()%>">
+    	<label class="form-check-label" for="flexCheckChecked"><%=D.getNome()%></label>
+    </div>
+  	<%}%>
+ </div>
 <%
 EscolaDao escoladao = new EscolaDao(); 
 List<Escola>ListaEscola = escoladao.getAll();

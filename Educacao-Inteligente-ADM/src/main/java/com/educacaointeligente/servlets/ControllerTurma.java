@@ -1,6 +1,7 @@
 package com.educacaointeligente.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -42,8 +43,17 @@ public class ControllerTurma extends HttpServlet {
 			turma.setNome(request.getParameter("nome"));
 			
 			DisciplinaDao disciplinaDao = new DisciplinaDao();
-			List<Disciplina>D = disciplinaDao.getAllWhere(Integer.parseInt(request.getParameter("disciplina")));
-			turma.setListadisciplina(D);
+			List<Disciplina> disciplinas = disciplinaDao.getAll();
+			List<Disciplina> disciplinaTurma = new ArrayList<Disciplina>();
+			for(Disciplina D: disciplinas) {
+				String Aux= D.getNome(); 
+				if(!(request.getParameter(Aux)==null)){
+					if(request.getParameter(Aux).equals(Integer.toString(D.getIddisciplina()))){
+						disciplinaTurma.add(D);
+					}
+				}
+			}
+			turma.setListadisciplina(disciplinaTurma);
 			
 			EscolaDao escolaDao = new EscolaDao();
 			turma.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
@@ -58,9 +68,17 @@ public class ControllerTurma extends HttpServlet {
 			turma.setNome(request.getParameter("nome"));
 			
 			DisciplinaDao disciplinaDao = new DisciplinaDao();
-			List<Disciplina>D = disciplinaDao.getAllWhere(Integer.parseInt(request.getParameter("disciplina")));
-			turma.setListadisciplina(D);
-			
+			List<Disciplina> disciplinas = disciplinaDao.getAll();
+			List<Disciplina> disciplinaTurma = new ArrayList<Disciplina>();
+			for(Disciplina D: disciplinas) {
+				String Aux= D.getNome();
+				if(!(request.getParameter(Aux)==null)){
+					if(request.getParameter(Aux).equals(Integer.toString(D.getIddisciplina()))){
+						disciplinaTurma.add(D);
+					}
+				}
+			}
+			turma.setListadisciplina(disciplinaTurma);
 			EscolaDao escolaDao = new EscolaDao();
 			turma.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
 			
