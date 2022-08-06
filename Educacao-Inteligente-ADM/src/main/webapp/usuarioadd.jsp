@@ -93,7 +93,9 @@ List<Escola>ListaEscola = escoladao.getAll();
 	<%} %> 
  	</select>
   </div>
-<%} %>
+<%}else{ %>
+   <input type="hidden" name="escolaID" value="<%=sessao.getEscola().getIdEscola()%>">
+<%}%>
   <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="usuariocon.jsp" class="btn btn-danger">Cancelar</a>
