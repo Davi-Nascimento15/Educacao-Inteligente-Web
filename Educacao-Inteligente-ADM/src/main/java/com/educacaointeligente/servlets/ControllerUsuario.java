@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.educacaointeligente.Enum.TipoUsuario;
+import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.dao.UsuarioDao;
 import com.educacaointeligente.model.Usuario;
 
@@ -45,6 +46,9 @@ public class ControllerUsuario extends HttpServlet {
 			usuario.setSenha(request.getParameter("senha"));
 			usuario.setTipo(TipoUsuario.valueOf(request.getParameter("Tipo")));
 			
+			EscolaDao escolaDao = new EscolaDao();
+			usuario.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
+			
 			usuarioDao.update(usuario);
 				
 		}else 
@@ -55,6 +59,9 @@ public class ControllerUsuario extends HttpServlet {
 			usuario.setNome(request.getParameter("nome"));
 			usuario.setSenha(request.getParameter("senha"));
 			usuario.setTipo(TipoUsuario.valueOf(request.getParameter("Tipo")));
+			
+			EscolaDao escolaDao = new EscolaDao();
+			usuario.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
 						
 			usuarioDao.save(usuario);	
 		}

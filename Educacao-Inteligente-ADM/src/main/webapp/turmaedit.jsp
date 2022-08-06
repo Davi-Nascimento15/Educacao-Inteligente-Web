@@ -86,6 +86,7 @@ EscolaDao escoladao = new EscolaDao();
 List<Escola>ListaEscola = escoladao.getAll();
 %>
 
+<%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Escola</label>
    	<select name="escolaID" id="Escola" class="form-control">
@@ -97,11 +98,10 @@ List<Escola>ListaEscola = escoladao.getAll();
 	<%}else{%>
 		<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
 	<%}
-  	} %>
-  	
+  	} %>  	
 	</select>
   </div>
-
+<%} %>
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="turmacon.jsp" class="btn btn-danger">Cancelar</a>

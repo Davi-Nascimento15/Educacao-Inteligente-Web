@@ -82,6 +82,7 @@ EscolaDao escoladao = new EscolaDao();
 List<Escola>ListaEscola = escoladao.getAll();
 %>
 
+<%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Escola</label>
    	<select name="escolaID" id="Escola" class="form-control">
@@ -92,7 +93,7 @@ List<Escola>ListaEscola = escoladao.getAll();
 	<%} %>
 	</select>
   </div>
-
+<%} %>
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>

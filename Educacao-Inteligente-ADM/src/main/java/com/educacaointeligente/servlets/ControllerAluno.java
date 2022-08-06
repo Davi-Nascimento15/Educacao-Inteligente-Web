@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.educacaointeligente.Enum.Ano;
 import com.educacaointeligente.Enum.Turno;
 import com.educacaointeligente.dao.AlunoDao;
+import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.dao.TurmaDao;
 import com.educacaointeligente.dao.UsuarioDao;
 import com.educacaointeligente.model.Aluno;
@@ -53,6 +54,9 @@ public class ControllerAluno extends HttpServlet {
 			TurmaDao turmaDao = new TurmaDao();
 			aluno.setTurma(turmaDao.get(Integer.parseInt(request.getParameter("turmaID"))));
 			
+			EscolaDao escolaDao = new EscolaDao();
+			aluno.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
+			
 			alunoDao.update(aluno);
 		}
 		else 
@@ -72,6 +76,9 @@ public class ControllerAluno extends HttpServlet {
 			
 			TurmaDao turmaDao = new TurmaDao();
 			aluno.setTurma(turmaDao.get(Integer.parseInt(request.getParameter("turmaID"))));
+			
+			EscolaDao escolaDao = new EscolaDao();
+			aluno.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
 						
 			alunoDao.save(aluno);	
 		}

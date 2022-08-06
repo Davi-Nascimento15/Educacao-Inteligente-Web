@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="com.educacaointeligente.model.Escola"%>
+<%@page import="com.educacaointeligente.dao.EscolaDao"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.Enum.TipoUsuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -73,8 +76,25 @@
   	<%} %>
   	</select>
   </div>
-  
-  <div class="col-md-3 offset-md-1 pt-4">
+
+<%
+EscolaDao escoladao = new EscolaDao(); 
+List<Escola>ListaEscola = escoladao.getAll();
+%>
+
+<%if(sessao.getTipo().name().equals("SuperUsuario")){ %>
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Escola</label>
+   	<select  name="escolaID" id="Escola" class="form-control">
+	<%
+  	for(Escola E:ListaEscola){
+	%>
+  		<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%} %> 
+ 	</select>
+  </div>
+<%} %>
+  <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="usuariocon.jsp" class="btn btn-danger">Cancelar</a>
   </div>

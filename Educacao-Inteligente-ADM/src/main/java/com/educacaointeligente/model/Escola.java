@@ -25,15 +25,19 @@ public class Escola {
 	String email;
 	@NotNull
 	String endereco;
+    @OneToMany(mappedBy = "escola")
+    List<Usuario> usuario;
 	@OneToMany(mappedBy = "escola")
 	List<Turma> turma;
+    @OneToMany(mappedBy = "escola")
+    List<Aluno> aluno;
 	
 	public Escola() {
 		super();
 	}
 
 	public Escola(int idEscola, String cnpj, String nome, String telefone, String email, String endereco,
-			List<Turma> turma) {
+			List<Turma> turma, List<Aluno> aluno, List<Usuario> usuario) {
 		super();
 		this.idEscola = idEscola;
 		this.cnpj = cnpj;
@@ -41,7 +45,9 @@ public class Escola {
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
+		this.usuario = usuario;
 		this.turma = turma;
+		this.aluno = aluno;
 	}
 
 	public int getIdEscola() {
@@ -91,6 +97,14 @@ public class Escola {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	
+	public List<Usuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
+	}
 
 	public List<Turma> getTurma() {
 		return turma;
@@ -99,5 +113,12 @@ public class Escola {
 	public void setTurma(List<Turma> turma) {
 		this.turma = turma;
 	}
-	
+
+	public List<Aluno> getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(List<Aluno> aluno) {
+		this.aluno = aluno;
+	}
 }
