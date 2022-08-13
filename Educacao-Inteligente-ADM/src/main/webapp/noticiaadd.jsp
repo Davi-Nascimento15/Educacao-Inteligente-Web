@@ -60,7 +60,26 @@
     <label>Descrição</label>
     <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição" name= "descricao">
   </div>
-  
+
+<%
+EscolaDao escoladao = new EscolaDao(); 
+List<Escola>ListaEscola = escoladao.getAll();
+%>
+
+<%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Escola</label>
+   	<select name="escolaID" id="Escola" class="form-control">
+	<%
+  		for(Escola E:ListaEscola){
+	%>
+  			<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%} %>
+	</select>
+  </div>
+<%}else{ %>
+   <input type="hidden" name="escolaID" value="<%=usuario.getEscola().getIdEscola()%>">
+<%}%> 
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="noticiacon.jsp" class="btn btn-danger">Cancelar</a>

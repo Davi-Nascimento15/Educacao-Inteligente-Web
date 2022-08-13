@@ -9,8 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.dao.NoticiaDao;
-import com.educacaointeligente.model.Escola;
 import com.educacaointeligente.model.Noticia;
 
 
@@ -44,15 +45,24 @@ public class ControllerNoticia extends HttpServlet {
 			Noticia noticia = noticiaDao.get(idNoticia);
 			noticia.setTitulo(request.getParameter("titulo"));
 			noticia.setDescricao(request.getParameter("descricao"));
+			
+			EscolaDao escolaDao = new EscolaDao();
+			noticia.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
+			
 			noticiaDao.update(noticia);
 		}else 
 		{	
 			Noticia noticia = new Noticia();
 			noticia.setTitulo(request.getParameter("titulo"));
 			noticia.setDescricao(request.getParameter("descricao"));
+			
 			Date dataHoraAtual = new Date();
 			String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-			noticia.setDataGeracao(data);						
+			noticia.setDataGeracao(data);
+			
+			EscolaDao escolaDao = new EscolaDao();
+			noticia.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
+			
 			noticiaDao.save(noticia);	
 		}
 		response.sendRedirect("noticiacon.jsp?");

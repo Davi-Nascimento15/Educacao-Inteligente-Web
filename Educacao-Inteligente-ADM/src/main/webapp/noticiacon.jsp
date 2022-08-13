@@ -23,9 +23,17 @@
 %>
 
      <%
+      List<Noticia> ListadeNoticias;
 	  NoticiaDao daoNoticia = new NoticiaDao();
-      List<Noticia> ListadeNoticias = daoNoticia.getAll();
-	 %>
+  	  int idEscola = usuario.getEscola().getIdEscola();
+  	  
+  	  if(usuario.getTipo().name().equals("SuperUsuario")){
+  		ListadeNoticias = daoNoticia.getAll();
+  	  }
+  	  else{
+  		ListadeNoticias = daoNoticia.getAllEscola(idEscola);
+  	  }    
+	%>
 
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">

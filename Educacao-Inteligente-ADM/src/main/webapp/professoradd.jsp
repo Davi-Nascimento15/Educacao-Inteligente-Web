@@ -78,7 +78,7 @@ List<Usuario>ListaUsuario = usuariodao.getAllWhereProfessor(2);
 %>
 
   <div class="row form-select col-md-3 offset-md-1 pt-3">
-   <label>Usuário</label>
+   <label>Usuário (professor) </label>
    	<select  name="UsuarioID" id="Usuario" class="form-control">
 	<%
   		for(Usuario A:ListaUsuario){

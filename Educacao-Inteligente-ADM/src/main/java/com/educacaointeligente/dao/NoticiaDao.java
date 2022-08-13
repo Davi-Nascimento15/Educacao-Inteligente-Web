@@ -36,6 +36,10 @@ public class NoticiaDao implements Dao<Noticia> {
 		return em.createQuery("From Noticia Order By idNoticia DESC",Noticia.class).getResultList();
 	}
 	
+	public List<Noticia> getAllEscola(int id) {
+		return em.createQuery("From Noticia where escola_idEscola="+id,Noticia.class).getResultList();
+	}
+	
 	@Override
 	public List<Noticia> getAllWhere(int id) {
 		

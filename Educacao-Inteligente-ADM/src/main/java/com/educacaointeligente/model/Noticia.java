@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.sun.istack.NotNull;
 
@@ -18,17 +19,20 @@ public class Noticia {
     String descricao;
 	@NotNull
 	String dataGeracao;
+    @ManyToOne
+    Escola escola;
 	
 	public Noticia() {
 		super();
 	}
 
-	public Noticia(int idNoticia, String titulo, String descricao, String dataGeracao) {
+	public Noticia(int idNoticia, String titulo, String descricao, String dataGeracao,Escola escola) {
 		super();
 		this.idNoticia = idNoticia;
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.dataGeracao = dataGeracao;
+		this.escola = escola;
 	}
 
 	public int getIdNoticia() {
@@ -61,5 +65,14 @@ public class Noticia {
 
 	public void setDataGeracao(String dataGeracao) {
 		this.dataGeracao = dataGeracao;
+	}
+	
+	public Escola getEscola() {
+		return escola;
+	}
+
+
+	public void setEscola(Escola escola) {
+		this.escola = escola;
 	}
 }
