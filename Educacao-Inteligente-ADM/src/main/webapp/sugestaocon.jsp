@@ -23,8 +23,16 @@
 %>
 
      <%
+      List<Sugestao> ListadeSugestoes;
 	  SugestaoDao daoSugestao = new SugestaoDao();
-      List<Sugestao> ListadeSugestoes = daoSugestao.getAll();
+  	  int idEscola = usuario.getEscola().getIdEscola();
+  	  
+  	  if(usuario.getTipo().name().equals("SuperUsuario")){
+  		ListadeSugestoes = daoSugestao.getAll();
+  	  }
+  	  else{
+  		ListadeSugestoes = daoSugestao.getAllEscola(idEscola);
+  	  }    
 	%>
 	
 <nav class="navbar navbar-expand-lg barra">
@@ -60,7 +68,6 @@
 				<th scope="col">Nome</th>
 				<th scope="col">Titulo</th>
 				<th scope="col">Descrição</th>
-				<th scope="col">Like</th>
 				
 				<!-- bug NÃO MEXA -->
 				<th scope="col">  </th>
@@ -72,7 +79,6 @@
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= S.getUsuario().getNome() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= S.getTitulo() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= S.getDescricao() %></td>
-			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= S.getCurtidas() %></td>
 			<td>
 			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerSugestao?action=del&SugestaoID=<%=S.getIdSugestao()%>">Excluir</a>
 			  </td>

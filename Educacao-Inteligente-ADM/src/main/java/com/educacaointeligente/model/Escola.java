@@ -34,6 +34,8 @@ public class Escola {
     @OneToMany(mappedBy = "escola")
     List<Noticia> noticia;
     @OneToMany(mappedBy = "escola")
+    List<Sugestao> sugestao;
+    @OneToMany(mappedBy = "escola")
     List<DiaLetivo> diaLetivo;
     
 	
@@ -42,7 +44,7 @@ public class Escola {
 	}
 
 	public Escola(int idEscola, String cnpj, String nome, String telefone, String email, String endereco,
-			List<Turma> turma, List<Aluno> aluno, List<Usuario> usuario, List<Noticia> noticia, List<DiaLetivo> dialetivo) {
+			List<Turma> turma, List<Aluno> aluno, List<Usuario> usuario, List<Noticia> noticia, List<Sugestao> sugestao, List<DiaLetivo> dialetivo) {
 		super();
 		this.idEscola = idEscola;
 		this.cnpj = cnpj;
@@ -54,6 +56,7 @@ public class Escola {
 		this.turma = turma;
 		this.aluno = aluno;
 		this.noticia = noticia;
+		this.sugestao = sugestao;
 		this.diaLetivo= dialetivo;
 	}
 
@@ -135,6 +138,14 @@ public class Escola {
 
 	public void setNoticia(List<Noticia> noticia) {
 		this.noticia = noticia;
+	}
+	
+	public List<Sugestao> getSugestao() {
+		return sugestao;
+	}
+
+	public void setSugestao(List<Sugestao> sugestao) {
+		this.sugestao = sugestao;
 	}
 
 	public List<DiaLetivo> getDiaLetivo() {

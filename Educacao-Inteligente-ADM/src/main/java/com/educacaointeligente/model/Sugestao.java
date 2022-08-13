@@ -14,22 +14,22 @@ public class Sugestao {
     String titulo;
     @NotNull
     String descricao;
-    @NotNull
-    int curtidas;
     @ManyToOne
-    Usuario usuario; 
+    Usuario usuario;
+    @ManyToOne
+    Escola escola;
     
 	public Sugestao() {
 		super();
 	}
 
-	public Sugestao(String idSugestao, String titulo, String descricao, int curtidas, Usuario usuario) {
+	public Sugestao(String idSugestao, String titulo, String descricao, Usuario usuario, Escola escola ) {
 		super();
 		this.idSugestao = idSugestao;
 		this.titulo = titulo;
 		this.descricao = descricao;
-		this.curtidas = curtidas;
 		this.usuario = usuario;
+		this.escola = escola;
 	}
 
 	public String getIdSugestao() {
@@ -55,14 +55,6 @@ public class Sugestao {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
-	public int getCurtidas() {
-		return curtidas;
-	}
-
-	public void setCurtidas(int curtidas) {
-		this.curtidas = curtidas;
-	}
 	
 	public Usuario getUsuario() {
 		return usuario;
@@ -71,5 +63,13 @@ public class Sugestao {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	public Escola getEscola() {
+		return escola;
+	}
+
+	public void setEscola(Escola escola) {
+		this.escola = escola;
+	}	
 }
 
