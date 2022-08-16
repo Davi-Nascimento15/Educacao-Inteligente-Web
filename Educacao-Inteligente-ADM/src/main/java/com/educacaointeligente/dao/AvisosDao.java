@@ -1,11 +1,8 @@
 package com.educacaointeligente.dao;
-
 import java.util.List;
 import java.util.function.Consumer;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-
 import com.educacaointeligente.model.Avisos;
 
 public class AvisosDao implements Dao<Avisos> {
@@ -35,6 +32,10 @@ public class AvisosDao implements Dao<Avisos> {
 	@Override
 	public List<Avisos> getAll() {
 		return em.createQuery("From Avisos",Avisos.class).getResultList();
+	}
+	
+	public List<Avisos> getAllEscola(int id) {
+		return em.createQuery("From Avisos where escola_idEscola="+id,Avisos.class).getResultList();
 	}
 	
 	@Override

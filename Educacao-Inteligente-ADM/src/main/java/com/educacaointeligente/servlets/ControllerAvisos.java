@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.educacaointeligente.Enum.TipoAviso;
 import com.educacaointeligente.dao.AvisosDao;
 import com.educacaointeligente.dao.DisciplinaDao;
+import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.dao.ProfessorDao;
 import com.educacaointeligente.dao.TurmaDao;
 import com.educacaointeligente.model.Avisos;
@@ -72,6 +73,9 @@ public class ControllerAvisos extends HttpServlet {
 			Disciplina disciplina = disciplinaDao.get(Integer.parseInt(request.getParameter("disciplina")));
 			aviso.setDisciplina(disciplina);
 			
+			EscolaDao escolaDao = new EscolaDao();
+			aviso.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
+			
 			avisosDao.update(aviso);
 				
 		}else 
@@ -96,6 +100,9 @@ public class ControllerAvisos extends HttpServlet {
 			DisciplinaDao disciplinaDao = new DisciplinaDao();
 			Disciplina disciplina = disciplinaDao.get(Integer.parseInt(request.getParameter("disciplina")));
 			aviso.setDisciplina(disciplina);
+			
+			EscolaDao escolaDao = new EscolaDao();
+			aviso.setEscola(escolaDao.get(Integer.parseInt(request.getParameter("escolaID"))));
 						
 			avisosDao.save(aviso);
 		}

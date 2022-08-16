@@ -1,3 +1,5 @@
+<%@page import="com.educacaointeligente.model.Escola"%>
+<%@page import="com.educacaointeligente.dao.EscolaDao"%>
 <%@page import="com.educacaointeligente.model.Disciplina"%>
 <%@page import="com.educacaointeligente.dao.DisciplinaDao"%>
 <%@page import="com.educacaointeligente.model.Professor"%>
@@ -56,7 +58,7 @@
 <form action="ControllerAvisos" method="post">
 
   <div class="row form-select col-md-3 offset-md-1">
-   <label>Turno</label>
+   <label>Tipo</label>
    	<select  name="tipo" id="tipo" class="form-control">
  	    <option value="<%=TipoAviso.aviso.name()%>">Aviso</option>
   		<option value="<%=TipoAviso.tarefa.name()%>">Tarefa</option>
@@ -121,6 +123,26 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
 	<%} %>
   	</select>
   </div>
+
+<%
+EscolaDao escoladao = new EscolaDao(); 
+List<Escola>ListaEscola = escoladao.getAll();
+%>
+
+<%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Escola</label>
+   	<select  name="escolaID" id="Escola" class="form-control">
+	<%
+  	for(Escola E:ListaEscola){
+	%>
+  		<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%} %> 
+ 	</select>
+  </div>
+<%}else{ %>
+   <input type="hidden" name="escolaID" value="<%=usuario.getEscola().getIdEscola()%>">
+  <%} %>
   
   <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	 <button type="submit" class="btn btn-primary ">Adicionar</button>
