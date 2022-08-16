@@ -43,6 +43,10 @@ public class ProfessorDao implements Dao<Professor> {
 		return em.createQuery("From Professor Where professor_id="+id,Professor.class).getResultList();
 	}
 	
+	public List<Professor> getAllWhereEscola(int id) {
+		return em.createQuery("From Professor where escola_idEscola="+id+" Order By nome ASC",Professor.class).getResultList();
+	}
+	
 	@Override
 	public void save (Professor objeto) {
 		ExecuteInsideTrasaction(em->em.persist(objeto));

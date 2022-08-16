@@ -26,6 +26,7 @@ public class ControllerAluno extends HttpServlet {
 	    	AlunoDao alunoDao = new AlunoDao();
 	    	Aluno delAluno = alunoDao.get(AlunoId);
 	    	alunoDao.delete(delAluno);
+	    	
 	    	response.sendRedirect("alunocon.jsp?");
 		}
 	}

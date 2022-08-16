@@ -1,3 +1,5 @@
+<%@page import="com.educacaointeligente.model.Escola"%>
+<%@page import="com.educacaointeligente.dao.EscolaDao"%>
 <%@page import="java.util.List"%>
 <%@page import="com.educacaointeligente.dao.UsuarioDao"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
@@ -87,12 +89,31 @@ List<Usuario>ListaUsuario = usuariodao.getAllWhereProfessor(2);
 	<%} %>
   	</select>
   </div>
-    
+  
+<%
+EscolaDao escoladao = new EscolaDao(); 
+List<Escola>ListaEscola = escoladao.getAll();
+%>
+
+<%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Escola</label>
+   	<select  name="EscolaID" id="Escola" class="form-control">
+	<%
+  	for(Escola E:ListaEscola){
+	%>
+  		<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%} %> 
+ 	</select>
+  </div>
+<%}else{ %>
+   <input type="hidden" name="EscolaID" value="<%=usuario.getEscola().getIdEscola()%>">
+  <%} %>
+   
   <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>
-  </div>
-  
+  </div>  
 </form>
 </body>
 </html>

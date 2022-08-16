@@ -26,7 +26,20 @@
      <%
 	  ProfessorDao daoProfessor = new ProfessorDao();
       List<Professor> ListadeProfessores = daoProfessor.getAll();
+  	  int idEscola = usuario.getEscola().getIdEscola(); 
+
 	%>
+	
+	<%if(request.getParameter("pesquisa")!=null && request.getParameter("pesquisa")!="")
+	//ListadeProfessores = daoProfessor.get(request.getParameter("pesquisa"));
+
+     if(usuario.getTipo().name().equals("SuperUsuario")){
+		ListadeProfessores = daoProfessor.getAll();
+  	}
+  	else{
+		ListadeProfessores = daoProfessor.getAllWhereEscola(idEscola);
+}    
+%>
 	
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -90,7 +103,6 @@
 		</tbody>
 	</table>
 </div>
-	
 	<%}else{%>
 	<p>Não há professores cadastrados</p>
 	<%}%>

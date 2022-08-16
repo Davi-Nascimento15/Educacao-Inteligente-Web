@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import com.sun.istack.NotNull;
@@ -28,19 +29,22 @@ public class Disciplina {
     private List<Avisos> aviso;
     @OneToMany(mappedBy="disciplina")
     private List<Nota> nota ;
+    @ManyToOne
+    private Escola escola;
     
 	public Disciplina() {
 		super();
 	}
 
 	public Disciplina(int iddisciplina, String nome, String descricao, Professor professor,
-			List<Turma> listadisciplina) {
+			List<Turma> listadisciplina, Escola escola) {
 		super();
 		this.iddisciplina = iddisciplina;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.professor = professor;
 		this.listadisciplina = listadisciplina;
+		this.escola = escola;
 	}
 
 	public int getIddisciplina() {
@@ -97,6 +101,14 @@ public class Disciplina {
 
 	public void setNota(List<Nota> nota) {
 		this.nota = nota;
+	}
+
+	public Escola getEscola() {
+		return escola;
+	}
+
+	public void setEscola(Escola escola) {
+		this.escola = escola;
 	}
 	
 }

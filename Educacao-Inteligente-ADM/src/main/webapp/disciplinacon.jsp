@@ -54,8 +54,18 @@
      <%
 	  DisciplinaDao daoDisciplina = new DisciplinaDao();
       List<Disciplina>ListadeDisciplina = daoDisciplina.getAll();
+      int EscolaID = usuario.getEscola().getIdEscola(); 
 	%>
-	
+<%if(request.getParameter("pesquisa")!=null && request.getParameter("pesquisa")!="")
+	//ListadeDisciplina = daoDisciplina.getAllNome(request.getParameter("pesquisa"));
+
+    if(usuario.getTipo().name().equals("SuperUsuario")){
+		ListadeDisciplina = daoDisciplina.getAll();
+  	}
+  	else{
+		ListadeDisciplina = daoDisciplina.getAllWhereEscola(EscolaID);
+}    
+%>
 	<%
 	if(!ListadeDisciplina.isEmpty()){
 	%>

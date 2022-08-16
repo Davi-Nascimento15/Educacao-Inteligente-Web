@@ -36,8 +36,8 @@ public class ControllerDiaLetivo extends HttpServlet {
 		
 		if(request.getParameter("action").equals("del")) {
 	    	DiaLetivoDao diaLetivoDao = new DiaLetivoDao();
-	    	List<DiaLetivo> listano = diaLetivoDao.getAllWhereAno(Integer.parseInt(request.getParameter("AnoDiaLetivo")));
-			for(DiaLetivo D:listano) {
+	    	List<DiaLetivo> listano = diaLetivoDao.getAllWhereAnoEscola(Integer.parseInt(request.getParameter("AnoDiaLetivo")),Integer.parseInt(request.getParameter("EscolaID")));
+				for(DiaLetivo D:listano) {
 				DiaLetivo delDiaLetivo = diaLetivoDao.get(D.getId());
 				diaLetivoDao.delete(delDiaLetivo);
 			}

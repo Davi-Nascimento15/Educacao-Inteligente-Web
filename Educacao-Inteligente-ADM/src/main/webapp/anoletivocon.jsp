@@ -83,7 +83,7 @@
 			<tr>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
 			  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
-			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>">Excluir</a>
+			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>&EscolaID=<%=A.getEscola().getIdEscola()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%}else if(Ano!= A.getAno() && nomeEscola.equals(A.getEscola().getNome())){
@@ -93,7 +93,7 @@
 		<tr>
 		  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
 		  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
-		      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>">Excluir</a>
+		      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>&EscolaID=<%=A.getEscola().getIdEscola()%>">Excluir</a>
 		  </td>
 		</tr>
 		<%}
@@ -104,7 +104,7 @@
 			<tr>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
 			  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
-			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>">Excluir</a>
+			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>&EscolaID=<%=A.getEscola().getIdEscola()%>">Excluir</a>
 			  </td>
 			</tr>
 			<%} 

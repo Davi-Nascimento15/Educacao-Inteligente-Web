@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -32,13 +33,15 @@ public class Professor {
        private List<Avisos> aviso;
        @OneToOne
        Usuario usuario;
+       @ManyToOne
+       private Escola escola;
        
 	public Professor() {
 		super();
 	}
 	
 	public Professor(int idprofessor, String nome, String endereco, String formacao, String telefone, String email,
-			Disciplina disciplina, List<Avisos> aviso, Usuario usuario) {
+			Disciplina disciplina, List<Avisos> aviso, Usuario usuario, Escola escola) {
 		super();
 		this.idprofessor = idprofessor;
 		this.nome = nome;
@@ -49,6 +52,7 @@ public class Professor {
 		this.disciplina = disciplina;
 		this.aviso = aviso;
 		this.usuario=usuario;
+		this.escola = escola;
 	}
    	     
 
@@ -123,5 +127,14 @@ public class Professor {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public Escola getEscola() {
+		return escola;
+	}
+
+	public void setEscola(Escola escola) {
+		this.escola = escola;
+	}
+	
 	
 }

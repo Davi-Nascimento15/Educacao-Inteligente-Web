@@ -6,8 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.dao.ProfessorDao;
 import com.educacaointeligente.dao.UsuarioDao;
+import com.educacaointeligente.model.Escola;
 import com.educacaointeligente.model.Professor;
 import com.educacaointeligente.model.Usuario;
 
@@ -50,6 +53,10 @@ public class ControllerProfessor extends HttpServlet {
 			professor.setTelefone(request.getParameter("telefone"));
 			professor.setEmail(request.getParameter("email"));
 
+			EscolaDao escoladao = new EscolaDao();
+			Escola escola = escoladao.get(Integer.parseInt(request.getParameter("EscolaID")));
+			professor.setEscola(escola);
+			
 			UsuarioDao usuariodao = new UsuarioDao();
 			Usuario usuario = usuariodao.get(Integer.parseInt(request.getParameter("UsuarioID")));
 			professor.setUsuario(usuario);					
@@ -65,6 +72,10 @@ public class ControllerProfessor extends HttpServlet {
 			professor.setEndereco(request.getParameter("endereco"));
 			professor.setTelefone(request.getParameter("telefone"));
 			professor.setEmail(request.getParameter("email"));
+			
+			EscolaDao escoladao = new EscolaDao();
+			Escola escola = escoladao.get(Integer.parseInt(request.getParameter("EscolaID")));
+			professor.setEscola(escola);
 			
 			UsuarioDao usuariodao = new UsuarioDao();
 			Usuario usuario = usuariodao.get(Integer.parseInt(request.getParameter("UsuarioID")));
