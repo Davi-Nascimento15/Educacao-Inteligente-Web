@@ -48,25 +48,6 @@ public class Escola {
 		super();
 	}
 
-	public Escola(int idEscola, String cnpj, String nome, String telefone, String email, String endereco,
-			List<Turma> turma, List<Aluno> aluno, List<Usuario> usuario, List<Noticia> noticia, List<Sugestao> sugestao, List<DiaLetivo> dialetivo, List<Professor> professor,List<Disciplina> disciplina) {
-		super();
-		this.idEscola = idEscola;
-		this.cnpj = cnpj;
-		this.nome = nome;
-		this.telefone = telefone;
-		this.email = email;
-		this.endereco = endereco;
-		this.usuario = usuario;
-		this.turma = turma;
-		this.aluno = aluno;
-		this.noticia = noticia;
-		this.sugestao = sugestao;
-		this.diaLetivo= dialetivo;
-		this.professor = professor;
-		this.disciplina = disciplina;
-	}
-
 	public Escola(int idEscola, String cnpj, String nome, String telefone, String email, String endereco) {
 		super();
 		this.idEscola = idEscola;
