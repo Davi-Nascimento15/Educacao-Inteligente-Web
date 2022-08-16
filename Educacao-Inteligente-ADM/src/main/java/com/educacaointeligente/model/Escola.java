@@ -41,6 +41,8 @@ public class Escola {
     List<Professor> professor;
     @OneToMany(mappedBy = "escola")
     List<Disciplina> disciplina;
+    @OneToMany(mappedBy = "escola")
+    List<Avisos> aviso;
 	
 	public Escola() {
 		super();
@@ -185,6 +187,14 @@ public class Escola {
 
 	public void setDisciplina(List<Disciplina> disciplina) {
 		this.disciplina = disciplina;
+	}
+	
+	public List<Avisos> getAviso() {
+		return aviso;
+	}
+
+	public void setAviso(List<Avisos> aviso) {
+		this.aviso = aviso;
 	}
 	
 }
