@@ -126,6 +126,30 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
   			}%> 			
   	</select>
   </div>
+
+<%
+EscolaDao escoladao = new EscolaDao(); 
+List<Escola>ListaEscola = escoladao.getAll();
+%>
+
+<%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Escola</label>
+   	<select name="escolaID" id="Escola" class="form-control">
+	<%
+  		for(Escola E:ListaEscola){
+  			if(E.getIdEscola()==aviso.getEscola().getIdEscola()){
+	%>
+  			<option selected value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%}else{%>
+		<option value="<%=E.getIdEscola()%>"><%=E.getNome()%></option>
+	<%}
+  	} %>  	
+	</select>
+  </div>
+<%}else{ %>
+   <input type="hidden" name="escolaID" value="<%=usuario.getEscola().getIdEscola()%>">
+<%}%>
  
   <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Salvar</button>

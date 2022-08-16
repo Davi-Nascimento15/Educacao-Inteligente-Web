@@ -26,8 +26,16 @@
 %>
 
      <%
+      List<Avisos> ListadeAvisos;
 	  AvisosDao daoAvisos = new AvisosDao();
-      List<Avisos> ListadeAvisos = daoAvisos.getAll();
+  	  int idEscola = usuario.getEscola().getIdEscola();
+  	  
+  	  if(usuario.getTipo().name().equals("SuperUsuario")){
+  		ListadeAvisos = daoAvisos.getAll();
+  	  }
+  	  else{
+  		ListadeAvisos = daoAvisos.getAllEscola(idEscola);
+  	  }    
 	%>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">

@@ -29,23 +29,27 @@ public class Avisos {
 	Professor professor;
 	@ManyToOne
 	Disciplina disciplina;
+	@ManyToOne
+	Escola escola;
 	
 	public Avisos() {
 		super();
 	}
 	
-	public Avisos(int idAvisos, String descricao, String dataGeracao, String dataEntrega,TipoAviso tipoaviso, Turma turma, Professor professor, Disciplina disciplina){
+	public Avisos(int idAvisos, String descricao, String dataGeracao, String dataEntrega, TipoAviso tipoaviso,
+			Turma turma, Professor professor, Disciplina disciplina, Escola escola) {
 		super();
 		this.idAvisos = idAvisos;
 		this.descricao = descricao;
 		this.dataGeracao = dataGeracao;
 		this.dataEntrega = dataEntrega;
-		this.turma = turma;
 		this.tipoaviso = tipoaviso;
+		this.turma = turma;
 		this.professor = professor;
 		this.disciplina = disciplina;
+		this.escola = escola;
 	}
-
+	
 	public TipoAviso getTipoaviso() {
 		return tipoaviso;
 	}
@@ -95,5 +99,11 @@ public class Avisos {
 	}
 	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
+	}
+	public Escola getEscola() {
+		return escola;
+	}
+	public void setEscola(Escola escola) {
+		this.escola = escola;
 	}
 }
