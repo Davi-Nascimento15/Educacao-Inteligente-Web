@@ -27,8 +27,11 @@
    }
    
    ProfessorDao professordao = new ProfessorDao();
-   Professor professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
-
+   Professor professorID = new Professor();
+   
+   if(usuario.getTipo().name().equals("Professor")){ 
+	   professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
+    }
 %>
 
      <%

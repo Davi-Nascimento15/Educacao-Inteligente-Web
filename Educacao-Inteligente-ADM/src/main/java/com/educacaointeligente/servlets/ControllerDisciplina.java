@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.educacaointeligente.dao.DisciplinaDao;
+import com.educacaointeligente.dao.EscolaDao;
 import com.educacaointeligente.dao.ProfessorDao;
 import com.educacaointeligente.model.Disciplina;
+import com.educacaointeligente.model.Escola;
 
 @WebServlet({"/ControllerDisciplina","/controllerdisciplina"})
 public class ControllerDisciplina extends HttpServlet {
@@ -48,6 +50,10 @@ public class ControllerDisciplina extends HttpServlet {
 			ProfessorDao professorDao = new ProfessorDao();
 			disciplina.setProfessor(professorDao.get(Integer.parseInt(request.getParameter("professorID"))));
 			
+			EscolaDao escolaDao = new EscolaDao();
+			Escola escola = escolaDao.get(Integer.parseInt(request.getParameter("EscolaID")));
+			disciplina.setEscola(escola);
+			
 			disciplinaDao.update(disciplina);						
 				
 		}else 
@@ -59,6 +65,10 @@ public class ControllerDisciplina extends HttpServlet {
 			
 			ProfessorDao professorDao = new ProfessorDao();
 			disciplina.setProfessor(professorDao.get(Integer.parseInt(request.getParameter("professorID"))));
+			
+			EscolaDao escolaDao = new EscolaDao();
+			Escola escola = escolaDao.get(Integer.parseInt(request.getParameter("EscolaID")));
+			disciplina.setEscola(escola);
 			
 			disciplinaDao.save(disciplina);
 		}

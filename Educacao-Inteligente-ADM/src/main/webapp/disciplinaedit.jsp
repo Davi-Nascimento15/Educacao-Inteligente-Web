@@ -95,7 +95,7 @@ List<Escola>ListaEscola = escoladao.getAll();
 <%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Escola</label>
-   	<select  name="escolaID" id="Escola" class="form-control">
+   	<select  name="EscolaID" id="Escola" class="form-control">
 	<%
   	for(Escola E:ListaEscola){
   		if(E.getIdEscola()==disciplina.getEscola().getIdEscola()){

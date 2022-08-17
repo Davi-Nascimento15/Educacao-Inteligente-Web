@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.educacaointeligente.model.Escola"%>
 <%@page import="com.educacaointeligente.dao.EscolaDao"%>
 <%@page import="com.educacaointeligente.model.Disciplina"%>
@@ -29,10 +30,12 @@
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
-   
    ProfessorDao professordao = new ProfessorDao();
-   Professor professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
-
+   Professor professorID = new Professor();
+   
+   if(usuario.getTipo().name().equals("Professor")){ 
+	   professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
+    }
 %>
 
 <nav class="navbar navbar-expand-lg barra">
@@ -82,8 +85,12 @@
 
 <%
 TurmaDao turmadao = new TurmaDao(); 
-List<Turma>ListaTurma = turmadao.getAllEscola(usuario.getEscola().getIdEscola());
-%>
+List<Turma>ListaTurma = new ArrayList<Turma>();
+if(usuario.getTipo().name().equals("SuperUsuario")){
+	ListaTurma = turmadao.getAll();
+}else{
+ 	ListaTurma = turmadao.getAllEscola(usuario.getEscola().getIdEscola());
+}%>
 
 <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Turma</label>
@@ -97,9 +104,14 @@ List<Turma>ListaTurma = turmadao.getAllEscola(usuario.getEscola().getIdEscola())
   </div>
 
 <%
+List<Professor>ListaProfessor = new ArrayList<Professor>();
 if(!usuario.getTipo().name().equals("Professor")){
-	professordao = new ProfessorDao(); 
-	List<Professor>ListaProfessor = professordao.getAll();
+	
+	if(usuario.getTipo().name().equals("Administrador")){
+		ListaProfessor = professordao.getAllWhereEscola(usuario.getEscola().getIdEscola());
+	}else{
+		ListaProfessor = professordao.getAll();
+	}
 %>
 <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Professor</label>
@@ -118,13 +130,16 @@ if(!usuario.getTipo().name().equals("Professor")){
    <input type="hidden" name="professor" value="<%=professorID.getIdprofessor()%>"> 	
 <%}
 DisciplinaDao disciplinadao = new DisciplinaDao(); 
-List<Disciplina>ListaDisciplina = disciplinadao.getAll();
-
-if(usuario.getTipo().name().equals("Professor")){
+List<Disciplina>ListaDisciplina = new ArrayList<Disciplina>();
+if(usuario.getTipo().name().equals("SuperUsuario")){
+	ListaDisciplina = disciplinadao.getAll();
+}
+else if(usuario.getTipo().name().equals("Professor")){
 	ListaDisciplina = disciplinadao.getAllWhereProfessor(professorID.getIdprofessor());
+}else{
+	ListaDisciplina = disciplinadao.getAllWhereEscola(usuario.getEscola().getIdEscola());
 }
 %>
-
 <div class="row form-select col-md-3 offset-md-1 pt-3">
     <label>Disciplina</label>
    	<select name="disciplina" id="Disciplina" class="form-control">
