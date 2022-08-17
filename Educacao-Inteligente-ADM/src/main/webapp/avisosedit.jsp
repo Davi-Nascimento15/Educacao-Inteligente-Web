@@ -21,6 +21,10 @@
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
+   
+   ProfessorDao professordao = new ProfessorDao();
+   Professor professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
+
 %>
 
 <% int AvisoID = Integer.parseInt(request.getParameter("AvisoID"));
@@ -67,7 +71,7 @@
 
 <%
 TurmaDao turmadao = new TurmaDao(); 
-List<Turma>ListaTurma = turmadao.getAll();
+List<Turma>ListaTurma = turmadao.getAllEscola(usuario.getEscola().getIdEscola());
 %>
 
 <div class="row form-select col-md-3 offset-md-1 pt-3">
@@ -86,8 +90,9 @@ List<Turma>ListaTurma = turmadao.getAll();
   	</select>
   </div>
 <%
-ProfessorDao professordao = new ProfessorDao(); 
-List<Professor>ListaProfessor = professordao.getAll();
+if(!usuario.getTipo().name().equals("Professor")){
+	professordao = new ProfessorDao(); 
+	List<Professor>ListaProfessor = professordao.getAll();
 %>
 
 <div class="row form-select col-md-3 offset-md-1 pt-3">
@@ -105,12 +110,18 @@ List<Professor>ListaProfessor = professordao.getAll();
   			}%> 			
   	</select>
   </div>
-  
 <%
+}else{
+%>
+   <input type="hidden" name="professor" value="<%=professorID.getIdprofessor()%>"> 	
+<%}
 DisciplinaDao disciplinadao = new DisciplinaDao(); 
 List<Disciplina>ListaDisciplina = disciplinadao.getAll();
-%>
 
+if(usuario.getTipo().name().equals("Professor")){
+	ListaDisciplina = disciplinadao.getAllWhereProfessor(professorID.getIdprofessor());
+}
+%>
 <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Disciplina</label>
    	<select name="disciplina" id="Disciplina" class="form-control">

@@ -5,6 +5,8 @@ import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+
+import com.educacaointeligente.model.Disciplina;
 import com.educacaointeligente.model.Turma;
 
 public class TurmaDao implements Dao<Turma> {

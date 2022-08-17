@@ -47,6 +47,11 @@ public class DisciplinaDao implements Dao<Disciplina> {
 		
 		return em.createQuery("From Disciplina Where escola_idEscola="+id+" Order By nome ASC",Disciplina.class).getResultList();
 	}
+	
+	public List<Disciplina> getAllWhereProfessor(int id) {
+		
+		return em.createQuery("From Disciplina Where professor_idprofessor="+id+" Order By nome ASC",Disciplina.class).getResultList();
+	}
 	@Override
 	public void save (Disciplina objeto) {
 		ExecuteInsideTrasaction(em->em.persist(objeto));

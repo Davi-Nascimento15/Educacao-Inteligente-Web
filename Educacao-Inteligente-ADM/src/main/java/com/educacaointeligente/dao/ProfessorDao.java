@@ -42,7 +42,12 @@ public class ProfessorDao implements Dao<Professor> {
 		
 		return em.createQuery("From Professor Where professor_id="+id,Professor.class).getResultList();
 	}
-	
+
+	public Professor getAllUsuarioProfessor(int id) {
+		
+		return em.createQuery("From Professor Where usuario_idmatricula="+id,Professor.class).getSingleResult();
+	}
+
 	public List<Professor> getAllWhereEscola(int id) {
 		return em.createQuery("From Professor where escola_idEscola="+id+" Order By nome ASC",Professor.class).getResultList();
 	}

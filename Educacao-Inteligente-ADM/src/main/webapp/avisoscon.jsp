@@ -1,3 +1,5 @@
+<%@page import="com.educacaointeligente.model.Professor"%>
+<%@page import="com.educacaointeligente.dao.ProfessorDao"%>
 <%@page import="com.educacaointeligente.model.Avisos"%>
 <%@page import="com.educacaointeligente.dao.AvisosDao"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
@@ -23,6 +25,10 @@
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
+   
+   ProfessorDao professordao = new ProfessorDao();
+   Professor professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
+
 %>
 
      <%
@@ -93,11 +99,20 @@
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getProfessor().getNome() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getDisciplina().getNome() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getTurma().getNome() %></td>
+		<%if(usuario.getTipo().name().equals("Professor")){
+			if(A.getProfessor().getIdprofessor()==professorID.getIdprofessor()){%>
 			  <td><a class="btn btn-secondary btn-sm"  href="avisosedit.jsp?AvisoID=<%=A.getIdAvisos()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerAvisos?action=del&AvisoID=<%=A.getIdAvisos()%>">Excluir</a>
 			  </td>
 			</tr>
-		<%} %>
+		<%}
+		}else{%>
+			  <td><a class="btn btn-secondary btn-sm"  href="avisosedit.jsp?AvisoID=<%=A.getIdAvisos()%>">Editar</a>
+			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerAvisos?action=del&AvisoID=<%=A.getIdAvisos()%>">Excluir</a>
+			  </td>
+			</tr>
+		<%}
+		} %>
 		</tbody>
 	</table>
 </div>
