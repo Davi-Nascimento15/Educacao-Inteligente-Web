@@ -1,3 +1,8 @@
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.educacaointeligente.model.Professor"%>
+<%@page import="com.educacaointeligente.dao.ProfessorDao"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.educacaointeligente.model.Aluno"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
@@ -25,7 +30,24 @@
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
-%>
+   ProfessorDao professordao = new ProfessorDao();
+   Professor professorID = new Professor();
+   
+   if(usuario.getTipo().name().equals("Professor")){ 
+	   professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
+    }
+   
+   DisciplinaDao disciplinadao = new DisciplinaDao(); 
+   List<Disciplina>ListaDisciplina = new ArrayList<Disciplina>();
+   if(usuario.getTipo().name().equals("SuperUsuario")){
+   	ListaDisciplina = disciplinadao.getAll();
+   }
+   else if(usuario.getTipo().name().equals("Professor")){
+   	ListaDisciplina = disciplinadao.getAllWhereProfessor(professorID.getIdprofessor());
+   }else{
+   	ListaDisciplina = disciplinadao.getAllWhereEscola(usuario.getEscola().getIdEscola());
+   }
+   %>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
         <div class="row col-md-12 pl-5 justify-content-md-center">
@@ -54,7 +76,14 @@
 
 <%
 AlunoDao alunodao = new AlunoDao(); 
-List<Aluno>ListaAluno = alunodao.getAll();
+List<Aluno>ListaAluno = new ArrayList<Aluno>();
+if(usuario.getTipo().name().equals("Professor")){
+	ListaAluno = alunodao.getAllWhereTurma(ListaDisciplina, usuario.getEscola().getIdEscola(), professorID.getIdprofessor());
+}else if(usuario.getTipo().name().equals("Administrador")){
+	ListaAluno= alunodao.getAllEscola(usuario.getEscola().getIdEscola());
+}else{
+	ListaAluno = alunodao.getAll();
+}
 %>
 <div class="row form-select col-md-3 offset-md-1 pt-5"> 
  <label>Aluno</label>
@@ -66,11 +95,6 @@ List<Aluno>ListaAluno = alunodao.getAll();
 <%} %>
 </select>
 </div>
-
-<%
-DisciplinaDao disciplinadao = new DisciplinaDao(); 
-List<Disciplina>ListaDisciplina = disciplinadao.getAll();
-%>
 <div class="row form-select col-md-3 offset-md-1 pt-3"> 
  <label>Disciplina</label>
 	<select name="disciplinaID" id="Disciplina" class="form-control">
@@ -86,10 +110,10 @@ List<Disciplina>ListaDisciplina = disciplinadao.getAll();
     <label >Nota</label>
     <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= "nota">
   </div>
-  
+  <%LocalDate data = LocalDate.now(); %>
   <div class="form-group row col-md-3 offset-md-1">
     <label >Ano Letivo</label>
-    <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= "anoletivo">
+    <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= "anoletivo" value="<%=data.getYear()%>">
   </div>
   
     <div class="row form-select col-md-3 offset-md-1">

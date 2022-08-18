@@ -1,5 +1,6 @@
 package com.educacaointeligente.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -7,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import com.educacaointeligente.model.Aluno;
+import com.educacaointeligente.model.Disciplina;
+import com.educacaointeligente.model.Turma;
 
 public class AlunoDao implements Dao<Aluno> {
 	private EntityManager em;
@@ -44,6 +47,31 @@ public class AlunoDao implements Dao<Aluno> {
 	@Override
 	public List<Aluno> getAllWhere(int id) {
 		return em.createQuery("From Aluno Where idAluno="+id,Aluno.class).getResultList();
+	}
+	
+	public List<Aluno> getAllWhereTurma(List<Disciplina>disciplina,int Escola,int Professor){
+		TurmaDao turmadao = new TurmaDao();
+		List<Turma> turma = turmadao.getAllEscola(Escola);
+		List<Aluno> turmaaux = new ArrayList<Aluno>();
+		for(Turma T: turma) {
+		  for(Disciplina D:disciplina){
+			  for(Disciplina DT:T.getListadisciplina()) {
+				  if(D.getIddisciplina()==DT.getIddisciplina()) {
+					  int c=0;
+					  for(Aluno A:T.getAluno()){
+						 for(Aluno aux:turmaaux) {
+						    if(aux.getIdaluno()==A.getIdaluno())
+						    	c++;
+						 }if(c==0){
+							 turmaaux.add(A);
+						}
+					  }
+					  break;
+				  }
+			  }
+		  }  
+		}
+		return turmaaux;
 	}
 	
 	@Override
