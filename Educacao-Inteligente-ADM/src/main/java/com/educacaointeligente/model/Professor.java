@@ -35,6 +35,8 @@ public class Professor {
        Usuario usuario;
        @ManyToOne
        private Escola escola;
+       @OneToMany(mappedBy="professor")
+       private List<Presenca> presenca;
        
 	public Professor() {
 		super();

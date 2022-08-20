@@ -8,6 +8,7 @@
 <%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.model.Turma"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.educacaointeligente.dao.UsuarioDao"%>
 <%@page import="com.educacaointeligente.dao.TurmaDao"%>
 <%@page import="com.educacaointeligente.Enum.*"%>
@@ -29,6 +30,13 @@
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
+   
+   ProfessorDao professordao = new ProfessorDao();
+   Professor professorID = new Professor();
+   
+   if(usuario.getTipo().name().equals("Professor")){ 
+	   professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
+    }
 %>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -68,8 +76,27 @@
   </div>
  
 <%
+DisciplinaDao disciplinadao = new DisciplinaDao(); 
+List<Disciplina>ListaDisciplina = new ArrayList<Disciplina>();
+    		
+if(usuario.getTipo().name().equals("SuperUsuario")){
+	ListaDisciplina = disciplinadao.getAll();
+}
+else if(usuario.getTipo().name().equals("Professor")){
+	ListaDisciplina = disciplinadao.getAllWhereProfessor(professorID.getIdprofessor());
+}else{
+	ListaDisciplina = disciplinadao.getAllWhereEscola(usuario.getEscola().getIdEscola());
+}
+
 AlunoDao alunodao = new AlunoDao(); 
-List<Aluno>ListaAluno = alunodao.getAll();
+List<Aluno>ListaAluno = new ArrayList <Aluno>();
+if(usuario.getTipo().name().equals("Professor")){
+	ListaAluno = alunodao.getAllWhereTurma(ListaDisciplina, usuario.getEscola().getIdEscola(), professorID.getIdprofessor());
+}else if(usuario.getTipo().name().equals("Administrador")){
+	ListaAluno= alunodao.getAllEscola(usuario.getEscola().getIdEscola());
+}else{
+	ListaAluno = alunodao.getAll();
+}
 %>
 
   <div class="row form-select col-md-3 offset-md-1 pt-3">
@@ -79,9 +106,33 @@ List<Aluno>ListaAluno = alunodao.getAll();
   		for(Aluno A:ListaAluno){
 	%>
   			<option value="<%=A.getIdaluno()%>"><%=A.getNome()%></option>
-	<%} %>
+	<%}%>
   	</select>
   </div>
+<%
+List<Professor> ListaProfessor = new ArrayList<Professor>();
+
+if(usuario.getTipo().name().equals("SuperUsuario")){
+	ListaProfessor = professordao.getAll();
+}else if(usuario.getTipo().name().equals("Administrador")){
+	ListaProfessor = professordao.getAllWhereEscola(usuario.getEscola().getIdEscola());
+}
+%>
+
+<%if((usuario.getTipo().name().equals("Administrador"))||((usuario.getTipo().name().equals("SuperUsuario")))){ %>
+  <div class="row form-select col-md-3 offset-md-1 pt-3">
+   <label>Professor</label>
+   	<select name="professor" id="Professor" class="form-control">
+	<%
+  		for(Professor P:ListaProfessor){
+	%>
+  			<option value="<%=P.getIdprofessor()%>"><%=P.getNome()%></option>
+	<%}%>
+	</select>
+  </div>
+<%}else{ %>
+   <input type="hidden" name="professor" value="<%=professorID%>">
+<%}%>
 
   <div class="col-md-3 offset-md-1 pt-4">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.educacaointeligente.dao.AlunoDao;
 import com.educacaointeligente.dao.PresencaDao;
+import com.educacaointeligente.dao.ProfessorDao;
 import com.educacaointeligente.model.Presenca;
 
 @WebServlet("/ControllerPresenca")
@@ -41,6 +42,9 @@ public class ControllerPresenca extends HttpServlet {
 			
 			AlunoDao alunoDao = new AlunoDao();
 			presenca.setAluno(alunoDao.get(Integer.parseInt(request.getParameter("aluno"))));
+			
+			ProfessorDao professorDao = new ProfessorDao();
+			presenca.setProfessor(professorDao.get(Integer.parseInt(request.getParameter("professor"))));
 	
 			presencaDao.update(presenca);
 				
@@ -55,6 +59,9 @@ public class ControllerPresenca extends HttpServlet {
 			
 			AlunoDao alunoDao = new AlunoDao();
 			presenca.setAluno(alunoDao.get(Integer.parseInt(request.getParameter("aluno"))));
+			
+			ProfessorDao professorDao = new ProfessorDao();
+			presenca.setProfessor(professorDao.get(Integer.parseInt(request.getParameter("professor"))));
 						
 			presencaDao.save(presenca);	
 		}

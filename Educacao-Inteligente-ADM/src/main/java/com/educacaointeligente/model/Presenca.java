@@ -18,16 +18,19 @@ public class Presenca {
 	String Data;
 	@ManyToOne
 	Aluno aluno;
+	@ManyToOne
+	Professor professor;
 	
 	public Presenca() {
 		super();
 	}
-	public Presenca(int idPresenca, char falta, String data, Aluno aluno) {
+	public Presenca(int idPresenca, char falta, String data, Aluno aluno, Professor professor) {
 		super();
 		this.idPresenca = idPresenca;
 		this.falta = falta;
 		Data = data;
 		this.aluno = aluno;
+		this.professor = professor;
 	}
 	public int getIdPresenca() {
 		return idPresenca;
@@ -52,5 +55,11 @@ public class Presenca {
 	}
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+	public Professor getProfessor() {
+		return professor;
+	}
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
 }

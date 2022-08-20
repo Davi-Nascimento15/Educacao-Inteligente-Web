@@ -1,5 +1,6 @@
 package com.educacaointeligente.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -7,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import com.educacaointeligente.model.Presenca;
+import com.educacaointeligente.model.Professor;
 
 public class PresencaDao implements Dao<Presenca> {
 	private EntityManager em;
@@ -41,6 +43,21 @@ public class PresencaDao implements Dao<Presenca> {
 	public List<Presenca> getAllWhere(int id) {
 		
 		return em.createQuery("From Presenca Where idPresenca="+id,Presenca.class).getResultList();
+	}
+	
+	public List<Presenca> getAllWhereProfessor(int id) {
+		
+		return em.createQuery("From Presenca Where professor_idprofessor="+id,Presenca.class).getResultList();
+	}
+	
+	public List<Presenca>getAllWherePresenca(List<Professor>professor) {
+        List<Presenca> presenca = new ArrayList<Presenca>();
+        for(Professor P:professor) {
+        	List<Presenca> aux = new ArrayList<Presenca>();
+        	aux= em.createQuery("From Presenca Where professor_idprofessor="+P.getIdprofessor(),Presenca.class).getResultList();
+            presenca.addAll(aux);
+        }
+		return presenca;
 	}
 	
 	@Override
