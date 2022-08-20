@@ -1,12 +1,15 @@
 package com.educacaointeligente.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import com.educacaointeligente.model.Disciplina;
 import com.educacaointeligente.model.Nota;
+import com.educacaointeligente.model.Turma;
 
 public class NotaDao implements Dao<Nota> {
 	private EntityManager em;
@@ -41,6 +44,16 @@ public class NotaDao implements Dao<Nota> {
 	public List<Nota> getAllWhere(int id) {
 		
 		return em.createQuery("From Nota Where nota_id="+id,Nota.class).getResultList();
+	}
+	
+	public List<Nota> getAllWhereNota(List<Disciplina>disciplina) {
+        List<Nota> nota= new ArrayList<Nota>();
+        for(Disciplina D:disciplina) {
+        	List<Nota> aux = new ArrayList<Nota>(); 
+        	aux= em.createQuery("From Nota  Where disciplina_idDisciplina="+D.getIddisciplina(),Nota.class).getResultList();
+            nota.addAll(aux);
+        }
+		return nota;
 	}
 	
 	@Override

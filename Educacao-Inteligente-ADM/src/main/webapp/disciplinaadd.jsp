@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.educacaointeligente.dao.EscolaDao"%>
 <%@page import="com.educacaointeligente.model.Escola"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
@@ -22,6 +23,13 @@
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
+   
+   ProfessorDao professordao = new ProfessorDao();
+   Professor professorID = new Professor();
+   
+   if(usuario.getTipo().name().equals("Professor")){ 
+	   professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
+    }
 %>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -60,8 +68,12 @@
   </div>
  
  <%
-ProfessorDao professordao = new ProfessorDao(); 
-List<Professor>ListaProfessor = professordao.getAll();
+List<Professor>ListaProfessor = new ArrayList<Professor>(); 
+ if(usuario.getTipo().name().equals("SuperUsuario")){
+   ListaProfessor = professordao.getAll();
+ }else if(usuario.getTipo().name().equals("Administrador")){
+   ListaProfessor = professordao.getAllWhereEscola(usuario.getEscola().getIdEscola());
+ }
 %>
 <div class="row form-select col-md-3 offset-md-1">
  <label>Professor</label>

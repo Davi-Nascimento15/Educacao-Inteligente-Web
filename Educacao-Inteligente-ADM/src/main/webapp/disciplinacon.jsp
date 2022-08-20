@@ -56,15 +56,13 @@
       List<Disciplina>ListadeDisciplina = daoDisciplina.getAll();
       int EscolaID = usuario.getEscola().getIdEscola(); 
 	%>
-<%if(request.getParameter("pesquisa")!=null && request.getParameter("pesquisa")!="")
-	//ListadeDisciplina = daoDisciplina.getAllNome(request.getParameter("pesquisa"));
-
-    if(usuario.getTipo().name().equals("SuperUsuario")){
+<%
+   if(usuario.getTipo().name().equals("SuperUsuario")){
 		ListadeDisciplina = daoDisciplina.getAll();
-  	}
-  	else{
+   }
+  	else if(usuario.getTipo().name().equals("Administrador")){
 		ListadeDisciplina = daoDisciplina.getAllWhereEscola(EscolaID);
-}    
+   }
 %>
 	<%
 	if(!ListadeDisciplina.isEmpty()){

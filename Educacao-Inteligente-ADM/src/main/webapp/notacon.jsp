@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.educacaointeligente.model.Professor"%>
+<%@page import="com.educacaointeligente.dao.ProfessorDao"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.educacaointeligente.model.Aluno"%>
 <%@page import="com.educacaointeligente.model.Nota"%>
@@ -28,11 +31,34 @@
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
    }
-%>
-
-<%
+   
+   ProfessorDao professordao = new ProfessorDao();
+   Professor professorID = new Professor();
+   
+   if(usuario.getTipo().name().equals("Professor")){ 
+	   professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
+    }
+   
+   DisciplinaDao disciplinadao = new DisciplinaDao(); 
+   List<Disciplina>ListaDisciplina = new ArrayList<Disciplina>();
+   if(usuario.getTipo().name().equals("SuperUsuario")){
+	 	ListaDisciplina = disciplinadao.getAll();
+   }
+   else if(usuario.getTipo().name().equals("Professor")){
+	   ListaDisciplina = disciplinadao.getAllWhereProfessor(professorID.getIdprofessor());
+   }else{
+	   ListaDisciplina = disciplinadao.getAllWhereEscola(usuario.getEscola().getIdEscola());
+   }
+   
 	NotaDao daoNota = new NotaDao();
-	List<Nota> ListaNotas = daoNota.getAll();
+	List<Nota> ListaNotas = new ArrayList<Nota>();
+   	if(usuario.getTipo().name().equals("Professor")){
+	 ListaNotas = daoNota.getAllWhereNota(ListaDisciplina);
+	}else if(usuario.getTipo().name().equals("Administrador")){
+	 ListaNotas = daoNota.getAllWhereNota(ListaDisciplina);
+	}else{
+	 ListaNotas = daoNota.getAll();
+	}
 %>
 
 <nav class="navbar navbar-expand-lg barra">
