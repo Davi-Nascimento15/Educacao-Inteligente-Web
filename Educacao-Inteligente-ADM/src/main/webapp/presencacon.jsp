@@ -1,3 +1,5 @@
+<%@page import="com.educacaointeligente.model.Professor"%>
+<%@page import="com.educacaointeligente.dao.ProfessorDao"%>
 <%@page import="com.educacaointeligente.model.Presenca"%>
 <%@page import="com.educacaointeligente.dao.PresencaDao"%>
 <%@page import="com.educacaointeligente.model.Avisos"%>
@@ -27,8 +29,29 @@
    }
 %>
      <%
+      List<Presenca> ListadePresenca;
 	  PresencaDao daoPresenca = new PresencaDao();
-      List<Presenca> ListadePresenca = daoPresenca.getAll();
+  	  	  
+  	  if(usuario.getTipo().name().equals("SuperUsuario")){
+  		ListadePresenca = daoPresenca.getAll();
+  	  }
+  	  else if(usuario.getTipo().name().equals("Administrador")){
+  		  
+  	      ProfessorDao professordao = new ProfessorDao();
+  	      List<Professor> Listaprofessor = professordao.getAllWhereEscola(usuario.getEscola().getIdEscola());
+  	      
+  	      ListadePresenca = daoPresenca.getAllWherePresenca(Listaprofessor);
+  	      
+  	  }
+  	  else{
+  		  
+  	      ProfessorDao professordao = new ProfessorDao();
+  	      Professor professorID = new Professor();
+  	      
+  	  	  professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
+  	  	  
+  	  	  ListadePresenca = daoPresenca.getAllWhereProfessor(professorID.getIdprofessor());
+  	  }
 	%>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
