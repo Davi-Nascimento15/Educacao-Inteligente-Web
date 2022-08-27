@@ -1,5 +1,7 @@
 <%@page import="com.educacaointeligente.model.Escola"%>
 <%@page import="java.util.List"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.util.Date"%>
 <%@page import="com.educacaointeligente.dao.EscolaDao"%>
 <%@page import="com.educacaointeligente.model.Usuario"%>
 <%@page import="com.educacaointeligente.Enum.TipoUsuario"%>
@@ -47,10 +49,11 @@
 </nav>
 
  <form action="ControllerDiaLetivo" method="post">
- 
+  
+  <%LocalDate data = LocalDate.now(); %>
   <div class="form-group row col-md-3 offset-md-1 pt-5">
-    <label>Ano</label>
-    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name= "ano">
+    <label >Ano Letivo</label>
+    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Ex.: 2022" name= "ano" value="<%=data.getYear()%>">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">

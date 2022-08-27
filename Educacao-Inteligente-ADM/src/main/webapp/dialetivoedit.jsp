@@ -98,7 +98,7 @@
  <form action="ControllerDiaLetivo" method="post">
   <input type="hidden" name="AnoDiaLetivo" value="<%=request.getParameter("Ano") %>">
   <div class="form-group row col-md-3 offset-md-1 pt-5">
-    <label>Ano</label>
+    <label>Ano Letivo</label>
     <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name= "ano" value="<%=request.getParameter("Ano")%>">
   </div>
   

@@ -1,4 +1,6 @@
 <%@page import="com.educacaointeligente.model.Usuario"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.util.Date"%>
 <%@page import="com.educacaointeligente.model.Disciplina"%>
 <%@page import="java.util.List"%>
 <%@page import="com.educacaointeligente.dao.DisciplinaDao"%>
@@ -55,10 +57,11 @@
     <label>Nome</label>
     <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome">
   </div>
-  
+    
+  <%LocalDate data = LocalDate.now(); %>
   <div class="form-group row col-md-3 offset-md-1">
-    <label>Ano</label>
-    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name= "ano">
+    <label >Ano Letivo</label>
+    <input type="text" class="form-control" aria-describedby="Ano" placeholder="Ex.: 2022" name= "ano" value="<%=data.getYear()%>">
   </div>
   
  <%
@@ -97,7 +100,7 @@ List<Escola>ListaEscola = escoladao.getAll();
 <%}else{ %>
    <input type="hidden" name="escolaID" value="<%=usuario.getEscola().getIdEscola()%>">
 <%}%>
-  <div class="col-md-3 offset-md-1 pt-4">
+  <div class="col-md-3 offset-md-1 pt-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>
   </div>

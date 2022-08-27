@@ -81,7 +81,7 @@
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
-    <label >Formação</label>
+    <label >Formação Acadêmica</label>
     <input type="text" class="form-control" aria-describedby="Formacao" placeholder="Insira a formacao" name= "formacao" value="<%=professor.getFormacao()%>">
   </div>
   

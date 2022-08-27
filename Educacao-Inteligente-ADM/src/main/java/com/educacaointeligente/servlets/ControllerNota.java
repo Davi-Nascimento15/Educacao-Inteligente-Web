@@ -46,7 +46,7 @@ public class ControllerNota extends HttpServlet {
            
 			Nota nota = notaDao.get(idNota);
             
-			nota.setNota((Float.parseFloat(request.getParameter("nota"))));
+			nota.setNota((Double.parseDouble(request.getParameter("nota"))));
 			nota.setAnoLetivo(Integer.parseInt(request.getParameter("anoletivo")));
 			nota.setBimestre(Bimestre.valueOf(request.getParameter("bimestre")));
 			
@@ -63,7 +63,7 @@ public class ControllerNota extends HttpServlet {
 
 			Nota nota = new Nota();
 			
-			nota.setNota((Float.parseFloat(request.getParameter("nota"))));
+			nota.setNota((Double.parseDouble(request.getParameter("nota"))));
 			nota.setAnoLetivo(Integer.parseInt(request.getParameter("anoletivo")));
 			nota.setBimestre(Bimestre.valueOf(request.getParameter("bimestre")));
 			

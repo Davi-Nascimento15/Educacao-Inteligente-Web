@@ -16,7 +16,7 @@ public class Nota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	int idNota;
     @NotNull
-    float nota;
+    double nota;
     @NotNull
     int anoLetivo;
     @NotNull
@@ -30,7 +30,7 @@ public class Nota {
     	
     }
     
-	public Nota(int idNota, float nota, int anoLetivo, Bimestre bimestre, Turma turma, Aluno aluno,
+	public Nota(int idNota, double nota, int anoLetivo, Bimestre bimestre, Turma turma, Aluno aluno,
 			Disciplina disciplina) {
 		super();
 		this.idNota = idNota;
@@ -49,11 +49,11 @@ public class Nota {
 		this.idNota = idNota;
 	}
 
-	public float getNota() {
+	public double getNota() {
 		return nota;
 	}
 
-	public void setNota(float nota) {
+	public void setNota(double nota) {
 		this.nota = nota;
 	}
 
