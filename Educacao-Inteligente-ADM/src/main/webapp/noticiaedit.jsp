@@ -51,7 +51,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
-    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="turmacon.jsp"> Notícias </a> </li>
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="noticiacon.jsp"> Notícias </a> </li>
     <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Editar </li>
   </ol>
 </nav>
@@ -65,11 +65,11 @@
     <input type="text" class="form-control" aria-describedby="Titulo" placeholder="Insira o titulo" name= "titulo" value="<%=noticia.getTitulo()%>">
   </div>
   
-  <div class="form-group row col-md-8 offset-md-1 pt-5">
-    <label>Descrição</label>
-    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição" name= "descricao" value="<%=noticia.getDescricao()%>">
-  </div>
-
+  <div class="form-group row col-md-8 offset-md-1 pt-3">
+    <label for="exampleFormControlTextarea1">Descrição</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name= "descricao"> <%=noticia.getDescricao()%> </textarea>
+  </div> 
+  
 <%
 EscolaDao escoladao = new EscolaDao(); 
 List<Escola>ListaEscola = escoladao.getAll();

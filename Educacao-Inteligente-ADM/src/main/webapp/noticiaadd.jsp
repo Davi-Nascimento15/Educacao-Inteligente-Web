@@ -61,10 +61,10 @@
     <input type="text" class="form-control" aria-describedby="Titulo" placeholder="Insira o titulo" name= "titulo">
   </div>
   
-  <div class="form-group row col-md-8 offset-md-1 pt-5">
-    <label>Descrição</label>
-    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição" name= "descricao">
-  </div>
+  <div class="form-group row col-md-8 offset-md-1 pt-3">
+    <label for="exampleFormControlTextarea1">Descrição</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name= "descricao" ></textarea>
+  </div>  
 
 <%
 EscolaDao escoladao = new EscolaDao(); 
