@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 
 import com.educacaointeligente.Enum.TipoAviso;
@@ -31,13 +32,16 @@ public class Avisos {
 	Disciplina disciplina;
 	@ManyToOne
 	Escola escola;
+	@NotNull
+	@Column(length=500)
+	String observacao;
 	
 	public Avisos() {
 		super();
 	}
 	
 	public Avisos(int idAvisos, String descricao, String dataGeracao, String dataEntrega, TipoAviso tipoaviso,
-			Turma turma, Professor professor, Disciplina disciplina, Escola escola) {
+			Turma turma, Professor professor, Disciplina disciplina, Escola escola, String observacao) {
 		super();
 		this.idAvisos = idAvisos;
 		this.descricao = descricao;
@@ -48,6 +52,7 @@ public class Avisos {
 		this.professor = professor;
 		this.disciplina = disciplina;
 		this.escola = escola;
+		this.observacao = observacao;
 	}
 	
 	public TipoAviso getTipoaviso() {
@@ -105,5 +110,11 @@ public class Avisos {
 	}
 	public void setEscola(Escola escola) {
 		this.escola = escola;
+	}
+	public String getObservacao() {
+		return observacao;
+	}
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 }

@@ -16,7 +16,12 @@
 <link rel="stylesheet" href="Style.css" type="text/css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>Insert title here</title>
+
+<!-- Modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	
+<title>Editar Professor</title>
 </head>
 <body>
 <% 
@@ -126,7 +131,7 @@ List<Escola>ListaEscola = escoladao.getAll();
 <%}else{ %>
    <input type="hidden" name="EscolaID" value="<%=usuario.getEscola().getIdEscola()%>">
 <%}%> 
-  <div class="col-md-3 offset-md-1 pt-4">
+  <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>
   </div>

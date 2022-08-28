@@ -13,6 +13,10 @@
 <link rel="stylesheet" href="Style.css" type="text/css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <title>Editar Escola</title>
 </head>
 <body>
@@ -25,7 +29,7 @@
 <% int EscolaID = Integer.parseInt(request.getParameter("EscolaID"));
    EscolaDao escolaDao = new EscolaDao();
    Escola escola = escolaDao.get(EscolaID);
- %>
+%>
  
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -79,7 +83,7 @@
     <input type="email" class="form-control" aria-describedby="Email" placeholder="Ex.: user@gmail.com" name= "email" value="<%=escola.getEmail()%>">
   </div>
   
-  <div class="col-md-3 offset-md-1 pt-4">
+  <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="escolacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>

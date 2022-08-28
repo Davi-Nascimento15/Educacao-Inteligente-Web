@@ -1,5 +1,6 @@
 package com.educacaointeligente.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -13,6 +14,7 @@ public class Sugestao {
     @NotNull
     String titulo;
     @NotNull
+	@Column(length=500)
     String descricao;
     @ManyToOne
     Usuario usuario;

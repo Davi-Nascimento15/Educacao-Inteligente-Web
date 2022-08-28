@@ -14,6 +14,10 @@
 <link rel="stylesheet" href="Style.css" type="text/css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <title>Editar Aviso</title>
 </head>
 <body>
@@ -66,6 +70,11 @@
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Descrição</label>
     <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição do aviso" name= "descricao" value="<%=aviso.getDescricao()%>">
+  </div>
+  
+  <div class="form-group row col-md-3 offset-md-1 pt-5">
+    <label>Observação</label>
+    <input type="text" class="form-control" aria-describedby="Observacao" placeholder="Insira observações do aviso" name= "observacao" value="<%=aviso.getObservacao()%>">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">

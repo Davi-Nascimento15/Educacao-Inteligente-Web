@@ -22,6 +22,11 @@
 <link rel="stylesheet" href="Style.css" type="text/css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	
 <title>Adicionar Nova Nota</title>
 </head>
 <body>
@@ -110,12 +115,14 @@ if(usuario.getTipo().name().equals("Professor")){
     <label >Nota</label>
     <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= "nota">
   </div>
+  
+<%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
   <%LocalDate data = LocalDate.now(); %>
   <div class="form-group row col-md-3 offset-md-1">
     <label >Ano Letivo</label>
     <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= "anoletivo" value="<%=data.getYear()%>">
   </div>
-  
+<%} %> 
     <div class="row form-select col-md-3 offset-md-1">
    	 <label>Bimestre</label>
  		<select name="bimestre" id="Bimestre" class="form-control">

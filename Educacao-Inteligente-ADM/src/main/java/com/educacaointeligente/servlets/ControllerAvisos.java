@@ -55,6 +55,7 @@ public class ControllerAvisos extends HttpServlet {
 			Avisos aviso = avisosDao.get(idAviso);
             
 			aviso.setDescricao(request.getParameter("descricao"));
+			aviso.setObservacao(request.getParameter("observacao"));
 			Date dataHoraAtual = new Date();
 			String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 			aviso.setDataGeracao(data);
@@ -83,6 +84,7 @@ public class ControllerAvisos extends HttpServlet {
 			Avisos aviso = new Avisos();
 			
 			aviso.setDescricao(request.getParameter("descricao"));
+			aviso.setObservacao(request.getParameter("observacao"));
 			Date dataHoraAtual = new Date();
 			String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 			aviso.setDataGeracao(data);

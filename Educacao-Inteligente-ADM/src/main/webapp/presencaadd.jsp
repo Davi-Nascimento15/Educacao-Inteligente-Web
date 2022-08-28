@@ -22,6 +22,11 @@
 <link rel="stylesheet" href="Style.css" type="text/css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	
 <title>Adicionar Nova Falta</title>
 </head>
 <body>
@@ -38,6 +43,8 @@
 	   professorID = professordao.getAllUsuarioProfessor(usuario.getIdmatricula());
     }
 %>
+
+
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
         <div class="row col-md-12 pl-5 justify-content-md-center">
@@ -74,7 +81,7 @@
     <label>Data</label>
     <input type="date" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "data">
   </div>
- 
+
 <%
 DisciplinaDao disciplinadao = new DisciplinaDao(); 
 List<Disciplina>ListaDisciplina = new ArrayList<Disciplina>();
@@ -131,10 +138,10 @@ if(usuario.getTipo().name().equals("SuperUsuario")){
 	</select>
   </div>
 <%}else{ %>
-   <input type="hidden" name="professor" value="<%=professorID%>">
+   <input type="hidden" name="professor" value="<%=professorID.getIdprofessor()%>">
 <%}%>
 
-  <div class="col-md-3 offset-md-1 pt-4">
+  <div class="col-md-3 offset-md-1 pt-4 pb-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="presencacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>

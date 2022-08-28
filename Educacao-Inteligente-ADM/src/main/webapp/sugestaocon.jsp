@@ -12,6 +12,10 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link rel="stylesheet" href="Style.css" type="text/css">
 
+<!-- Modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 <title>Sugestões Cadastradas</title>
 </head>
 <body>
@@ -79,7 +83,8 @@
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= S.getUsuario().getNome() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= S.getTitulo() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= S.getDescricao() %></td>
-			<td>
+			<td>	
+				  <a class="btn btn-secondary btn-sm" href="sugestaomodal.jsp?SugestaoID=<%=S.getIdSugestao()%>">Detalhes</a>
 			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerSugestao?action=del&SugestaoID=<%=S.getIdSugestao()%>">Excluir</a>
 			  </td>
 			</tr>
@@ -91,6 +96,5 @@
 	<%}else{%>
 	<p>Não há sugestões cadastradas!</p>
 	<%}%>
-
 </body>
 </html>
