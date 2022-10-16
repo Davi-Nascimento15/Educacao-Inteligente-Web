@@ -36,7 +36,7 @@
           <div class="col-md-auto">
             <ul class="nav mr-auto">
             	<h1 class="cabecario">Educação Inteligente  </h1>
-            		<img src="Luz.png" width="200" height="200">   		
+            		<img src="Luz.png" width="180" height="180">   		
             </ul>
           </div>
         </div>
@@ -49,7 +49,7 @@
 	   response.sendRedirect("Login.jsp");
    }
 %>
-<div class="container-fluid d-flex flex-wrap">
+<div class="row row-cols-1 row-cols-md-4 g-2" style="justify-content: center">
 <%if((sessao.getTipo().name().equals("Administrador"))||((sessao.getTipo().name().equals("SuperUsuario")))){ %>
 <div class="col text-center espaco">  
 	<div class="card" style="width: 20rem;">
@@ -209,34 +209,10 @@
 </div>
 <%} %>
 
-<nav class="navbar navbar-expand-lg cabecario"> 
-        <div class="row col-md-4">
-            	<ul class="list-unstyled">
-  					<p><strong>Autores</strong></p>
-    					<ul>
-					      <li>Davi da Silva Nascimento</li>
-					      <li>Eliano de Almeida Cordeiro</li>
-    					</ul>
-				</ul>
-          </div>         
-          <div class="row col-md-4">
-            	<ul class="list-unstyled">
-  					<p><strong>Suporte</strong></p>
-    					<ul>
-    					  <li>davi.nascimento@aluno.unifenas.br</li>
-					      <li>eliano.cordeiro@aluno.unifenas.br</li>
-    					</ul>
-				</ul>
-          </div>       
-          <div class="row col-md-4">
-            	<ul class="list-unstyled">
-  					<p><strong>Git Hub</strong></p>
-    					<ul>
-    					  <li>Davi-nascimento15</li>
-					      <li>Eliano098</li>
-    					</ul>
-				</ul>
-          </div>
-</nav>
+<footer class="cabecario" style="position: absolute; bottom: ; width: 100%; height: 60px; line-height: 60px;" >
+	<div class="row">
+		© 2019 Copyright - Solution Software
+	</div> 
+</footer>
 </body>
 </html>
