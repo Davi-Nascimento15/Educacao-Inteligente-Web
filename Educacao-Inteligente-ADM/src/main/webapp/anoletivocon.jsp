@@ -93,7 +93,7 @@
 			%>	
 			<tr>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
-			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getEscola().getNome() %></td>			  
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getEscola().getNome()%></td>			  
 			  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>&EscolaID=<%=A.getEscola().getIdEscola()%>">Excluir</a>
 			  </td>
