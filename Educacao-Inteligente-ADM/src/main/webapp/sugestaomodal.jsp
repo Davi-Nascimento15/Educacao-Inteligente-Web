@@ -21,7 +21,13 @@
 </head>
 <body>
 
-<% String SugestaoID = (request.getParameter("SugestaoID"));
+<% 
+Usuario usuario = (Usuario)session.getAttribute("usuario");
+if(usuario==null){
+	   response.sendRedirect("Login.jsp");
+}else{
+
+   String SugestaoID = (request.getParameter("SugestaoID"));
    SugestaoDao sugestaoDao = new SugestaoDao();
    Sugestao sugestao = sugestaoDao.getString(SugestaoID);
 %>
@@ -54,6 +60,6 @@
     <h4 for="exampleFormControlTextarea1"> <%=sugestao.getTitulo()%> </h4>
     <textarea class="form-control" placeholder="<%=sugestao.getDescricao()%>" id="exampleFormControlTextarea1" rows="10" readonly></textarea>
   </div>
-
+<%} %>
 </body>
 </html>

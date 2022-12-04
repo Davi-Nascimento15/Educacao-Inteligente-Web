@@ -24,7 +24,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -113,7 +113,9 @@ else if(usuario.getTipo().name().equals("SuperUsuario")){
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getTurma().getNome()%></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getUsuario().getNome()%></td>
 			  
-			  <td> <a class="btn btn-secondary btn-sm" href="alunoedit.jsp?AlunoID=<%=A.getIdaluno()%>">Editar</a>
+			  <td> 
+			  	   <a class="btn btn-primary btn-sm" href="alunoDetails.jsp?AlunoID=<%=A.getIdaluno()%>">Detalhes</a>
+			  	   <a class="btn btn-secondary btn-sm" href="alunoedit.jsp?AlunoID=<%=A.getIdaluno()%>">Editar</a>
 			       <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerAluno?action=del&AlunoID=<%=A.getIdaluno()%>">Excluir</a>
 			  </td>
 			</tr>
@@ -123,6 +125,6 @@ else if(usuario.getTipo().name().equals("SuperUsuario")){
 </div>	
 	<%}else{%>
 	<p>Não há alunos cadastrados</p>
-	<%}%>
+	<%}}%>
 </body>
 </html>

@@ -67,7 +67,11 @@ align-items: center;
 }
 
 .espaco{
-	margin-top:1%;
+	padding-right: 3%;
+    margin-top: 1%;
+    display: flex;
+    padding-left: 3%;
+    margin-bottom: 1%;
 }
 .cabecario{
 	 background-color: #240046;
@@ -143,4 +147,20 @@ footer {
     height: 100px;    
     text-align: center;
     line-height: 100px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+select[readonly] {
+  background: #eee; /*Simular campo inativo - Sugestão @GabrielRodrigues*/
+  pointer-events: none;
+  touch-action: none;
 }

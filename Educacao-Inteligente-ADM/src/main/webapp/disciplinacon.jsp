@@ -25,7 +25,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -79,6 +79,9 @@
 				<th  scope="col">Nome</th>
 				<th scope="col">Descrição</th>
 				<th scope="col">Professor</th>
+		<%if(usuario.getTipo().name().equals("SuperUsuario")){%>
+				<th scope="col">Escola</th>
+		<%} %>
 				
 				<!-- bug NÃO MEXA -->
 				<th scope="col">  </th>
@@ -91,6 +94,9 @@
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= D.getNome() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= D.getDescricao() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= D.getProfessor().getNome() %></td>
+		<%if(usuario.getTipo().name().equals("SuperUsuario")){%>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= D.getEscola().getNome()%></td>
+		<%} %>
 			  <td><a class="btn btn-secondary btn-sm" href="disciplinaedit.jsp?DisciplinaID=<%=D.getIddisciplina()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerDisciplina?action=del&DisciplinaID=<%=D.getIddisciplina()%>">Excluir</a>
 			  </td>
@@ -102,6 +108,6 @@
 	
 	<%}else{%>
 	<p>Não há disciplinas cadastradas</p>
-	<%}%>
+	<%}}%>
 </body>
 </html>

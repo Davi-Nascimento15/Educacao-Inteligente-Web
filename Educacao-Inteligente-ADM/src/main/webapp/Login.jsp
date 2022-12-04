@@ -27,7 +27,7 @@
                <form action="Login.jsp" method="post"> 
                   <div class="form-group"> 
                      <label>Matrícula</label>
-                     <input type="number" class="form-control" placeholder="Matricula" name="Matricula">
+                     <input type="Text" class="form-control" placeholder="Matricula" name="Matricula" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                   </div>
                   <div class="form-group">
                      <label>Senha</label>

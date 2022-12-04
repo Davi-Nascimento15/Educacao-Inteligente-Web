@@ -36,7 +36,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
    
    ProfessorDao professordao = new ProfessorDao();
    Professor professorID = new Professor();
@@ -135,7 +135,7 @@ if(usuario.getTipo().name().equals("Professor")){
 
   <div class="form-group row col-md-3 offset-md-1 pt-3">
     <label >Nota</label>
-    <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= "nota" value="<%=nota.getNota()%>">
+    <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= "nota" value="<%=nota.getNota()%>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
@@ -164,7 +164,7 @@ if(usuario.getTipo().name().equals("Professor")){
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="notacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
-
+<%} %>
 </form>
 </body>
 </html>

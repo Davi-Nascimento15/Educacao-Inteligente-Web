@@ -23,7 +23,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 
      <%
@@ -88,7 +88,9 @@
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= N.getTitulo() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= N.getDescricao() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= N.getDataGeracao()%></td>
-			  <td><a class="btn btn-secondary btn-sm" href="noticiaedit.jsp?NoticiaID=<%=N.getIdNoticia()%>">Editar</a>
+			  <td>
+				  <a class="btn btn-primary btn-sm" href="noticiaDetails.jsp?NoticiaID=<%=N.getIdNoticia()%>">Detalhes</a>
+			  	  <a class="btn btn-secondary btn-sm" href="noticiaedit.jsp?NoticiaID=<%=N.getIdNoticia()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerNoticia?action=del&NoticiaID=<%=N.getIdNoticia()%>">Excluir</a>
 			  </td>
 			</tr>
@@ -99,7 +101,7 @@
 
 	<%}else{%>
 	<p>Não há notícias cadastradas!</p>
-	<%}%>
+	<%}}%>
 	
 </body>
 </html>

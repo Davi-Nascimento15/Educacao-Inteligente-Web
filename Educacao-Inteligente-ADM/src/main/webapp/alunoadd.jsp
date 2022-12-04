@@ -28,7 +28,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 
 <nav class="navbar navbar-expand-lg barra">
@@ -74,7 +74,7 @@
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Telefone</label>
-    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= "telefone">
+    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= "telefone" mask="(99) 99999-9999">
   </div>
  
   <div class="form-group row col-md-3 offset-md-1">
@@ -161,6 +161,7 @@ List<Escola>ListaEscola = escoladao.getAll();
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
      <a href="alunocon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
+ <%} %>
  </form>
 </body>
 </html>

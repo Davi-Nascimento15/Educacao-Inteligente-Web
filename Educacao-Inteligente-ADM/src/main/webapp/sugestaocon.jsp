@@ -23,7 +23,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 
      <%
@@ -95,6 +95,6 @@
 
 	<%}else{%>
 	<p>Não há sugestões cadastradas!</p>
-	<%}%>
+	<%}}%>
 </body>
 </html>

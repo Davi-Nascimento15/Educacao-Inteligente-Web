@@ -20,7 +20,7 @@
 <!-- Modal -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<title>Editar Aluno</title>
+<title>Detalhes do Aluno</title>
 </head>
 <body>
 <% 
@@ -34,7 +34,7 @@
         <div class="row col-md-12 pl-5 justify-content-md-center">
           <div class="col-md-auto">
             <ul class="nav mr-auto">
-            	<h1 class="cabecario pl-5">Editar Aluno </h1> 		
+            	<h1 class="cabecario pl-5">Detalhes do Aluno </h1> 		
             </ul>
           </div>
         </div>  
@@ -49,7 +49,7 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
     <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="alunocon.jsp"> Alunos </a> </li>
-    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Editar </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Detalhes </li>
   </ol>
 </nav>
 <% int AlunoID = Integer.parseInt(request.getParameter("AlunoID"));
@@ -62,27 +62,27 @@
  
    <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Matrícula</label>
-    <input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "matricula" value="<%=aluno.getMatricula()%>">
+    <input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "matricula" value="<%=aluno.getMatricula()%>" readonly>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Nome</label>
-    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=aluno.getNome()%>">
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=aluno.getNome()%>" readonly>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Nome da Mãe</label>
-    <input type="text" class="form-control" aria-describedby="NomeMae" placeholder="Insira o nome da mãe" name= "nomemae" value="<%=aluno.getNomeMae()%>">
+    <input type="text" class="form-control" aria-describedby="NomeMae" placeholder="Insira o nome da mãe" name= "nomemae" value="<%=aluno.getNomeMae()%>" readonly>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Telefone</label>
-    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= "telefone" value="<%=aluno.getTelefone()%>">
+    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= "telefone" value="<%=aluno.getTelefone()%>" readonly>
   </div>
  
   <div class="form-group row col-md-3 offset-md-1">
     <label >Endereço</label>
-    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= "endereco" value="<%=aluno.getEndereco()%>">
+    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= "endereco" value="<%=aluno.getEndereco()%>" readonly>
   </div>
   
 <%
@@ -91,7 +91,7 @@
  
   <div class="row form-select col-md-3 offset-md-1">
    <label>Turno</label>
-   	<select  name="turno" id="Turno" class="form-control">
+   	<select  name="turno" id="Turno" class="form-control" readonly="readonly" tabindex="-1" aria-disabled="true">
    	   <%for (int i = 0; i < Turnoadd.size(); i++){
    	   if(Turnoadd.get(i).name().equals(aluno.getTurno().name())){%>
    	    	<option selected value="<%=Turnoadd.get(i).name()%>"><%=Turnoadd.get(i).name()%></option>
@@ -107,7 +107,7 @@
 %>
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Ano</label>
-   	<select  name="ano" id="Ano" class="form-control">
+   	<select  name="ano" id="Ano" class="form-control" readonly="readonly" tabindex="-1" aria-disabled="true">
      <%for (int i = 0; i < Anoadd.size(); i++){
    	   if(Anoadd.get(i).name().equals(aluno.getAno().name())){%>
    	    	<option selected value="<%=Anoadd.get(i).name()%>"><%=Anoadd.get(i).name()%></option>
@@ -124,7 +124,7 @@ List<Usuario>ListaUsuario = usuariodao.getAll();
 
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Usuário Responsável</label>
-   	<select  name="usuarioID" id="Usuario" class="form-control">
+   	<select  name="usuarioID" id="Usuario" class="form-control" readonly="readonly" tabindex="-1" aria-disabled="true">
 	<%
   	for(Usuario U:ListaUsuario){
 	 if(U.getIdmatricula()==aluno.getUsuario().getIdmatricula()){
@@ -143,7 +143,7 @@ List<Turma>ListaTurma = turmadao.getAll();
 
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Turma</label>
-   	<select  name="turmaID" id="Turma" class="form-control">
+   	<select  name="turmaID" id="Turma" class="form-control" readonly="readonly" tabindex="-1" aria-disabled="true">
 	<%
   	for(Turma T:ListaTurma){
   		if(T.getIdTurma()==aluno.getTurma().getIdTurma()){
@@ -163,7 +163,7 @@ List<Escola>ListaEscola = escoladao.getAll();
 <%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Escola</label>
-   	<select  name="escolaID" id="Escola" class="form-control">
+   	<select  name="escolaID" id="Escola" class="form-control" readonly="readonly" tabindex="-1" aria-disabled="true">
 	<%
   	for(Escola E:ListaEscola){
   		if(E.getIdEscola()==aluno.getEscola().getIdEscola()){
@@ -176,11 +176,10 @@ List<Escola>ListaEscola = escoladao.getAll();
  	</select>
   </div>
 <%}else{ %>
-   <input type="hidden" name="escolaID" value="<%=usuario.getEscola().getIdEscola()%>">
+   <input type="hidden" name="escolaID" value="<%=usuario.getEscola().getIdEscola()%>" readonly>
 <%}%> 
   <div class="col-md-3 offset-md-1 pt-4 pb-5">
-  	<button type="submit" class="btn btn-primary ">Salvar</button>
-    <a href="alunocon.jsp" class="btn btn-danger">Cancelar</a>
+    <a href="alunocon.jsp" class="btn btn-danger">Voltar</a>
     <%} %>
   </div>
  </form>

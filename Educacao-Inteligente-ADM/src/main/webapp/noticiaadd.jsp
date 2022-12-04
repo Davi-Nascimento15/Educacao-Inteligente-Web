@@ -27,7 +27,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 
 <nav class="navbar navbar-expand-lg barra">
@@ -58,12 +58,12 @@
 
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Título</label>
-    <input type="text" class="form-control" aria-describedby="Titulo" placeholder="Insira o titulo" name= "titulo">
+    <input type="text" class="form-control" aria-describedby="Titulo" placeholder="Insira o titulo" name= "titulo" maxlength="255">
   </div>
   
   <div class="form-group row col-md-8 offset-md-1 pt-3">
     <label for="exampleFormControlTextarea1">Descrição</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name= "descricao" ></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name= "descricao" maxlength="2048"></textarea>
   </div>  
 
 <%
@@ -89,7 +89,7 @@ List<Escola>ListaEscola = escoladao.getAll();
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="noticiacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
-  
+  <%} %>
 </form>
 </body>
 </html>

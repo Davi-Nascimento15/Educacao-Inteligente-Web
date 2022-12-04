@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	
-<title>Editar Usuário</title>
+<title>Detalhes do Usuário</title>
 </head>
 <body>
 <% 
@@ -35,7 +35,7 @@
         <div class="row col-md-12 pl-5 justify-content-md-center">
           <div class="col-md-auto">
             <ul class="nav mr-auto">
-            	<h1 class="cabecario pl-5"> Editar Usuário </h1> 		
+            	<h1 class="cabecario pl-5"> Detalhes do Usuário </h1> 		
             </ul>
           </div>
         </div>  
@@ -50,7 +50,7 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
     <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="usuariocon.jsp"> Usuarios </a> </li>
-    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Editar </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Detalhes </li>
   </ol>
 </nav>
 
@@ -63,17 +63,17 @@
   	
   	<div class="form-group row col-md-3 offset-md-1 pt-5">
       <label>Matrícula</label>
-    	<input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "matricula" value="<%=usuario.getIdmatricula()%>">
+    	<input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "matricula" value="<%=usuario.getIdmatricula()%>" readonly>
     </div>
     
     <div class="form-group row col-md-3 offset-md-1">
       <label >Nome</label>
-       <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=usuario.getNome()%>">
+       <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=usuario.getNome()%>" readonly>
     </div>
     
     <div class="form-group row col-md-3 offset-md-1">
       <label>Senha</label>
-      <input type="password" class="form-control"  placeholder="Insira a senha" name= "senha" value="<%=usuario.getSenha()%>">
+      <input type="password" class="form-control"  placeholder="Insira a senha" name= "senha" value="<%=usuario.getSenha()%>" readonly>
     </div> 
 
 <%
@@ -82,10 +82,10 @@
   
   <div class="row form-select col-md-3 offset-md-1">
    <label>Tipo</label>
-   	<select  name="Tipo" id="tipo" class="form-control">
+   	<select  name="Tipo" id="tipo" class="form-control" readonly="readonly">
    	<%for (int i = 0; i < Tipoadd.size(); i++){
    	   		if(Tipoadd.get(i).name().equals(usuario.getTipo().name())){%>
-  				<option selected value="<%=Tipoadd.get(i).name()%>"><%=Tipoadd.get(i).name()%></option>
+  				<option selected value="<%=Tipoadd.get(i).name()%>"><%=Tipoadd.get(i).name()%> </option>
 		<%}else{%>
  	    	<option value="<%=Tipoadd.get(i).name()%>"><%=Tipoadd.get(i).name()%></option>
      	<%}	
@@ -101,7 +101,7 @@ List<Escola>ListaEscola = escoladao.getAll();
 <%if(user.getTipo().name().equals("SuperUsuario")){ %>
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    <label>Escola</label>
-   	<select  name="escolaID" id="Escola" class="form-control">
+   	<select  name="escolaID" id="Escola" class="form-control" readonly="readonly" tabindex="-1" aria-disabled="true">
 	<%
   	for(Escola E:ListaEscola){
   		if(E.getIdEscola()==usuario.getEscola().getIdEscola()){
@@ -114,11 +114,10 @@ List<Escola>ListaEscola = escoladao.getAll();
  	</select>
   </div>
 <%}else{ %>
-   <input type="hidden" name="escolaID" value="<%=usuario.getEscola().getIdEscola()%>">
+   <input type="hidden" name="escolaID" value="<%=usuario.getEscola().getIdEscola()%>" readonly>
 <%}%>
   <div class="col-md-3 offset-md-1 pt-4 pb-5">
-  	<button type="submit" class="btn btn-primary ">Salvar</button>
-    <a href="usuariocon.jsp" class="btn btn-danger">Cancelar</a>
+    <a href="usuariocon.jsp" class="btn btn-danger">Voltar</a>
   </div>
  <%} %>
  </form>

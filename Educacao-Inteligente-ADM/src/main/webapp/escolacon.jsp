@@ -23,7 +23,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 
      <%
@@ -94,7 +94,7 @@
 
 	<%}else{%>
 	<p>Não há escolas cadastradas!</p>
-	<%}%>
+	<%}}%>
 
 </body>
 </html>

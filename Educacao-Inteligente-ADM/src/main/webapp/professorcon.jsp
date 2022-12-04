@@ -24,7 +24,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 
      <%
@@ -99,7 +99,8 @@
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getTelefone() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getEmail() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getFormacao() %></td>
-			  <td><a class="btn btn-secondary btn-sm" href="professoredit.jsp?ProfessorID=<%=P.getIdprofessor()%>">Editar</a>
+			  <td><a class="btn btn-primary btn-sm" href="professorDetails.jsp?ProfessorID=<%=P.getIdprofessor()%>">Detalhes</a>
+			      <a class="btn btn-secondary btn-sm" href="professoredit.jsp?ProfessorID=<%=P.getIdprofessor()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerProfessor?action=del&ProfessorID=<%=P.getIdprofessor()%>">Excluir</a>
 			  </td>
 			</tr>
@@ -109,6 +110,6 @@
 </div>
 	<%}else{%>
 	<p>Não há professores cadastrados</p>
-	<%}%>
+	<%}}%>
 </body>
 </html>

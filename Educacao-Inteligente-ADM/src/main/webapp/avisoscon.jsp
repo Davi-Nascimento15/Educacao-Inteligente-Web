@@ -28,7 +28,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
    
    ProfessorDao professordao = new ProfessorDao();
    Professor professorID = new Professor();
@@ -108,13 +108,17 @@
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getTurma().getNome() %></td>
 		<%if(usuario.getTipo().name().equals("Professor")){
 			if(A.getProfessor().getIdprofessor()==professorID.getIdprofessor()){%>
-			  <td><a class="btn btn-secondary btn-sm"  href="avisosedit.jsp?AvisoID=<%=A.getIdAvisos()%>">Editar</a>
+			  <td>
+			  	  <a class="btn btn-primary btn-sm"  href="avisosDetails.jsp?AvisoID=<%=A.getIdAvisos()%>">Detalhes</a>
+			  	  <a class="btn btn-secondary btn-sm"  href="avisosedit.jsp?AvisoID=<%=A.getIdAvisos()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerAvisos?action=del&AvisoID=<%=A.getIdAvisos()%>">Excluir</a>
 			  </td>
 			</tr>
 		<%}
 		}else{%>
-			  <td><a class="btn btn-secondary btn-sm"  href="avisosedit.jsp?AvisoID=<%=A.getIdAvisos()%>">Editar</a>
+			  <td>
+			      <a class="btn btn-primary btn-sm"  href="avisosDetails.jsp?AvisoID=<%=A.getIdAvisos()%>">Detalhes</a>
+			  	  <a class="btn btn-secondary btn-sm"  href="avisosedit.jsp?AvisoID=<%=A.getIdAvisos()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerAvisos?action=del&AvisoID=<%=A.getIdAvisos()%>">Excluir</a>
 			  </td>
 			</tr>
@@ -126,6 +130,6 @@
 
 	<%}else{%>
 	<p>Não há avisos cadastrados</p>
-	<%}%>
+	<%}}%>
 </body>
 </html>

@@ -24,7 +24,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 <% int EscolaID = Integer.parseInt(request.getParameter("EscolaID"));
    EscolaDao escolaDao = new EscolaDao();
@@ -87,7 +87,7 @@
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="escolacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
-  
+<%} %>
 </form>
 </body>
 </html>

@@ -28,7 +28,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 
 <% int ProfessorID = Integer.parseInt(request.getParameter("ProfessorID"));
@@ -72,7 +72,7 @@
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Endereço</label>
-    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= "endereco" value"=<%=professor.getEndereco()%>">
+    <input type="text" class="form-control" aria-describedby="Endereco" placeholder="Insira o endereco" name= "endereco" value="<%=professor.getEndereco()%>">
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
@@ -135,7 +135,7 @@ List<Escola>ListaEscola = escoladao.getAll();
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
-
+<%} %>
  </form>
 </body>
 </html>

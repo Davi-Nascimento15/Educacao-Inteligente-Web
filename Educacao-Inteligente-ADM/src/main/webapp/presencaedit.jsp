@@ -24,7 +24,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
    
    ProfessorDao professordao = new ProfessorDao();
    Professor professorID = new Professor();
@@ -113,6 +113,7 @@ if(usuario.getTipo().name().equals("SuperUsuario")){
 
 
 <input type="submit" value="Salvar">
+<%} %>
 </form>
 </body>
 </html>

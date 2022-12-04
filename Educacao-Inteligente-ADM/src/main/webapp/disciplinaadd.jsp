@@ -26,7 +26,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
    
    ProfessorDao professordao = new ProfessorDao();
    Professor professorID = new Professor();
@@ -113,7 +113,7 @@ List<Escola>ListaEscola = escoladao.getAll();
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="disciplinacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
-  
+  <%} %>
 </form>
 </body>
 </html>

@@ -34,7 +34,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
    
    ProfessorDao professordao = new ProfessorDao();
    Professor professorID = new Professor();
@@ -73,7 +73,7 @@
 <form action="ControllerPresenca" method="post">
   
   <div class="form-check row col-md-4 offset-md-1 pt-5 form-control-lg ml-39">
-    <input class="form-check-input" type="checkbox" value="V" id="flexCheckChecked" name="falta"  checked>
+    <input class="form-check-input" type="checkbox" value="V" id="flexCheckChecked" name="falta"  checked onclick="return false;">
     <label class="form-check-label" for="flexCheckChecked"> Faltou</label>
   </div>  
   
@@ -145,7 +145,7 @@ if(usuario.getTipo().name().equals("SuperUsuario")){
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="presencacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
-  
+  <%} %>
 </form>
 </body>
 </html>

@@ -23,7 +23,7 @@
    Usuario sessao = (Usuario)session.getAttribute("usuario");
    if(sessao==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -91,20 +91,22 @@
 			<tr>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getIdmatricula()%>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getNome() %></td>
-			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getSenha() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; -webkit-text-security: disc;"><%= U.getSenha() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getTipo() %></td>
 				<td>
+				  <a class="btn btn-primary btn-sm" href="usuarioDetails.jsp?UsuarioID=<%=U.getIdmatricula()%>">Detalhes</a>
 			  	  <a class="btn btn-secondary btn-sm" href="usuarioedit.jsp?UsuarioID=<%=U.getIdmatricula()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
 			  </td>
 			</tr>
 			<%}else if(!U.getTipo().name().equals("SuperUsuario")){ %>
 			<tr>
-			  <td><%= U.getIdmatricula()%>
-			  <td><%= U.getNome() %></td>
-			  <td><%= U.getSenha() %></td>
-			  <td><%= U.getTipo() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getIdmatricula()%>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getNome() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; -webkit-text-security: disc;"><%= U.getSenha() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= U.getTipo() %></td>
 				<td>
+			  	  <a class="btn btn-primary btn-sm" href="usuarioDetails.jsp?UsuarioID=<%=U.getIdmatricula()%>">Detalhes</a>				
 			  	  <a class="btn btn-secondary btn-sm" href="usuarioedit.jsp?UsuarioID=<%=U.getIdmatricula()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerUsuario?action=del&UsuarioID=<%=U.getIdmatricula()%>">Excluir</a>
 			  </td>
@@ -117,6 +119,6 @@
 
 	<%}else{%>
 	<p>Não há usuarios cadastrados</p>
-	<%}%>
+	<%}}%>
 </body>
 </html>

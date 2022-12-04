@@ -47,7 +47,7 @@
    Usuario sessao = (Usuario)session.getAttribute("usuario");
    if(sessao==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 <div class="row row-cols-1 row-cols-md-4 g-2" style="justify-content: center">
 <%if((sessao.getTipo().name().equals("Administrador"))||((sessao.getTipo().name().equals("SuperUsuario")))){ %>
@@ -207,9 +207,9 @@
   		</div>
    	</div>
 </div>
-<%} %>
+<%}} %>
 
-<footer class="cabecario" style="position: absolute; bottom: ; width: 100%; height: 60px; line-height: 60px;" >
+<footer class="cabecario" style="position: relative; ; width: 100%; height: 60px; line-height: 60px;" >
 	<div class="row">
 		© 2019 Copyright - Solution Software
 	</div> 

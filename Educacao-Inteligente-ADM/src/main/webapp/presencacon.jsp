@@ -30,7 +30,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp"); 
-   }
+   }else{
 %>
      <%
       List<Presenca> ListadePresenca;
@@ -93,6 +93,7 @@
 			<tr>
 				<th scope="col">Aluno</th>
 				<th scope="col">Data</th>
+				<th scopw="col">Professor</th>
 
 				<!-- bug NÃO MEXA -->
 				<th scope="col">  </th>
@@ -103,6 +104,7 @@
 			<tr>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getAluno().getNome()%></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getData()%></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= P.getProfessor().getNome()%></td>
 			  <td>
 			      <a class="btn btn-danger" href="<%= request.getContextPath() %>/ControllerPresenca?action=del&PresencaID=<%=P.getIdPresenca()%>">Excluir</a>
 			  </td>
@@ -114,6 +116,6 @@
 
 	<%}else{%>
 	<p>Não há faltas cadastradas</p>
-	<%}%>
+	<%}}%>
 </body>
 </html>

@@ -25,7 +25,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
    
    ProfessorDao professordao = new ProfessorDao();
    Professor professorID = new Professor();
@@ -66,6 +66,16 @@
 
 <form action="ControllerAvisos" method="post">
   <input type="hidden" name="AvisoID" value="<%=AvisoID %>">
+  
+  <div class="row form-select col-md-3 offset-md-1">
+   <label>Tipo</label>
+   	<select  name="tipo" id="tipo" class="form-control" readonly="readonly" tabindex="-1" aria-disabled="true">
+ 	    <option value="<%=TipoAviso.aviso.name()%>">Aviso</option>
+  		<option value="<%=TipoAviso.tarefa.name()%>">Tarefa</option>
+        <option value="<%=TipoAviso.prova.name()%>">Prova</option>
+   	</select>
+   </div>
+   <div class="row form-select col-md-3 offset-md-1"><label style="color: red">*Não é possível realizar alteração do tipo de aviso</label></div>
   
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Descrição</label>
@@ -193,7 +203,7 @@ List<Escola>ListaEscola = escoladao.getAll();
   	<button type="submit" class="btn btn-primary ">Salvar</button>
      <a href="avisoscon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
-   
+ <%} %>
 </form>
 </body>
 </html>

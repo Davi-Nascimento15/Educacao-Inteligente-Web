@@ -34,7 +34,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
    
    ProfessorDao professordao = new ProfessorDao();
    Professor professorID = new Professor();
@@ -130,7 +130,7 @@
 	
 	<%}else{%>
 	<p>Não há notas cadastradas!</p>
-	<%}%>
+	<%}}%>
 
 </body>
 </html>

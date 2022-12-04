@@ -21,7 +21,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -78,7 +78,7 @@
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
     <a href="escolacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
-  
+<%} %>  
 </form>
 </body>
 </html>
