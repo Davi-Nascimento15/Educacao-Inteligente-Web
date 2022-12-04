@@ -37,6 +37,10 @@ public class DiaLetivoDao implements Dao<DiaLetivo> {
 		return em.createQuery("From DiaLetivo",DiaLetivo.class).getResultList();
 	}
 	
+	public List<DiaLetivo> getAllWhereEscola(int id) {
+		
+		return em.createQuery("From DiaLetivo Where escola_idEscola="+id,DiaLetivo.class).getResultList();
+	}
 	@Override
 	public List<DiaLetivo> getAllWhere(int id) {
 		
