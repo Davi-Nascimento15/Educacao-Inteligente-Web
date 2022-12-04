@@ -30,7 +30,7 @@ Adicionar Novo Professor
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 
 <nav class="navbar navbar-expand-lg barra">
@@ -67,13 +67,17 @@ Adicionar Novo Professor
   <%LocalDate data = LocalDate.now(); %>
   <div class="form-group row col-md-3 offset-md-1">
     <label >Ano Letivo</label>
-    <input type="text" class="form-control" aria-describedby="Ano" placeholder="Ex.: 2022" name= "ano" value="<%=data.getYear()%>">
+    <input type="text" class="form-control" aria-describedby="Ano" placeholder="Ex.: 2022" name= "ano" value="<%=data.getYear()%>"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4">
   </div>
   
  <%
-DisciplinaDao disciplinadao = new DisciplinaDao(); 
-List<Disciplina>Lista = disciplinadao.getAll();
-%>
+ DisciplinaDao disciplinadao = new DisciplinaDao();
+ List<Disciplina>Lista;
+ if(usuario.getTipo().name().equals("SuperUsuario")){
+	 Lista = disciplinadao.getAll();
+ }else{
+	Lista = disciplinadao.getAllWhereEscola(usuario.getEscola().getIdEscola());
+}%>
 
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    		<label>Disciplinas</label>
@@ -108,9 +112,9 @@ List<Escola>ListaEscola = escoladao.getAll();
 <%}%>
   <div class="col-md-3 offset-md-1 pt-5">
   	<button type="submit" class="btn btn-primary ">Adicionar</button>
-    <a href="professorcon.jsp" class="btn btn-danger">Cancelar</a>
+    <a href="turmacon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
  </form>
- 
+ <%} %>
 </body>
 </html>

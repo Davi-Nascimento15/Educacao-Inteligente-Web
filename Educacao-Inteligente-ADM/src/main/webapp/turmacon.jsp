@@ -24,7 +24,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
      <%
       List<Turma> ListadeTurmas;
@@ -84,7 +84,9 @@
 			<tr>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= T.getNome() %></td>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= T.getAno() %></td>
-			  <td><a class="btn btn-secondary btn-sm" href="turmaedit.jsp?TurmaID=<%=T.getIdTurma()%>">Editar</a>
+			  <td>
+			  	  <a class="btn btn-primary btn-sm" href="turmaDetails.jsp?TurmaID=<%=T.getIdTurma()%>">Detalhes</a>
+			  	  <a class="btn btn-secondary btn-sm" href="turmaedit.jsp?TurmaID=<%=T.getIdTurma()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm" href="<%= request.getContextPath() %>/ControllerTurma?action=del&TurmaID=<%=T.getIdTurma()%>">Excluir</a>
 			  </td>
 			</tr>
@@ -95,6 +97,6 @@
 
 <%}else{%>
 	<p>Não há Turmas cadastradas!</p>
-	<%}%>
+	<%}}%>
 </body>
 </html>

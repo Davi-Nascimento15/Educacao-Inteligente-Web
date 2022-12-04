@@ -28,7 +28,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 
      <%
@@ -119,6 +119,6 @@
 
 	<%}else{%>
 	<p>Não há anos letivos cadastrados</p>
-	<%}%>
+	<%}}%>
 </body>
 </html>
