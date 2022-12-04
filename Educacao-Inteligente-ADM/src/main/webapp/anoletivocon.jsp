@@ -1,3 +1,6 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.educacaointeligente.model.DiaLetivo"%>
 <%@page import="com.educacaointeligente.dao.DiaLetivoDao"%>
 <%@page import="com.educacaointeligente.model.Avisos"%>
@@ -15,7 +18,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link rel="stylesheet" href="Style.css" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.mi//n.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link rel="stylesheet" href="Style.css" type="text/css">
 
 <!-- Modal -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -31,10 +34,16 @@
    }else{
 %>
 
-     <%
-	  DiaLetivoDao daodiaLetivo = new DiaLetivoDao();
-      List<DiaLetivo> Listadeanoletivo = daodiaLetivo.getAll();
-	%>
+ <%
+ Map<String, String> map = new HashMap<String, String>();
+ DiaLetivoDao daodiaLetivo = new DiaLetivoDao();
+ List<DiaLetivo> Listadeanoletivo;
+ if(usuario.getTipo().name().equals("SuperUsuario")){
+	 Listadeanoletivo = daodiaLetivo.getAll();
+ }else{
+	 Listadeanoletivo = daodiaLetivo.getAllWhereEscola(usuario.getEscola().getIdEscola());
+}%>
+
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
         <div class="row col-md-12 pl-5 justify-content-md-center">
@@ -65,54 +74,31 @@
 	
 	<%
 	if(!Listadeanoletivo.isEmpty()){
-		int Ano=0;
-		String nomeEscola="";
+		
 	%>
 <div class="mx-4">
 	<table class="table">
 		<thead class="thead-dark">
 			<tr>
 			    <th scope="col">Ano</th>
+				<th scope="col">Escola</th>
 				<!-- bug NÃO MEXA -->
 				<th scope="col">  </th>
 			</tr>
 		</thead>
 		<tbody>
 		<% for(DiaLetivo A:Listadeanoletivo){
-			if(usuario.getEscola().getIdEscola()==A.getEscola().getIdEscola()){
-			if(Ano==0 && nomeEscola==""){
-				Ano=A.getAno();
-				nomeEscola=A.getEscola().getNome();
+			if(!map.containsKey(Integer.toString(A.getAno())+ A.getEscola().getNome())){
+				map.put(Integer.toString(A.getAno())+ A.getEscola().getNome(),"");
 			%>	
 			<tr>
 			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
+			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getEscola().getNome()%></td>			  
 			  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
 			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>&EscolaID=<%=A.getEscola().getIdEscola()%>">Excluir</a>
 			  </td>
 			</tr>
-		<%}else if(Ano!= A.getAno() && nomeEscola.equals(A.getEscola().getNome())){
-			Ano=A.getAno();
-			nomeEscola=A.getEscola().getNome();
-		%>
-		<tr>
-		  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
-		  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
-		      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>&EscolaID=<%=A.getEscola().getIdEscola()%>">Excluir</a>
-		  </td>
-		</tr>
-		<%}
-			else if(Ano== A.getAno() && !nomeEscola.equals(A.getEscola().getNome())){
-					Ano=A.getAno();
-				nomeEscola=A.getEscola().getNome();
-		%>
-			<tr>
-			  <td style="max-width: 18ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><%= A.getAno() %></td>
-			  <td><a class="btn btn-secondary btn-sm"  href="dialetivoedit.jsp?Ano=<%=A.getAno()%>">Editar</a>
-			      <a class="btn btn-danger btn-sm"  href="<%= request.getContextPath() %>/ControllerDiaLetivo?action=del&AnoDiaLetivo=<%=A.getAno()%>&EscolaID=<%=A.getEscola().getIdEscola()%>">Excluir</a>
-			  </td>
-			</tr>
-			<%} 
-	}}%>
+		<%} }%>
 		</tbody>
 	</table>
 </div>
