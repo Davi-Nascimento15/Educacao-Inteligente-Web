@@ -74,7 +74,7 @@
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Telefone</label>
-    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: (XX)XXXXX-XXXX" name= "telefone" mask="(99) 99999-9999">
+    <input type="text" class="form-control" aria-describedby="Telefone" placeholder="Ex.: Insira o telefone" name= "telefone" maxlength="15" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
   </div>
  
   <div class="form-group row col-md-3 offset-md-1">
