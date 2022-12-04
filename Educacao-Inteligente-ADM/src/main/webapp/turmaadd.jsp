@@ -79,6 +79,7 @@ Adicionar Novo Professor
 	Lista = disciplinadao.getAllWhereEscola(usuario.getEscola().getIdEscola());
 }%>
 
+
   <div class="row form-select col-md-3 offset-md-1 pt-3">
    		<label>Disciplinas</label>
    </div> 
