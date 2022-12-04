@@ -31,7 +31,7 @@
    Usuario usuario = (Usuario)session.getAttribute("usuario");
    if(usuario==null){
 	   response.sendRedirect("Login.jsp");
-   }
+   }else{
 %>
 <nav class="navbar navbar-expand-lg barra">
     <div class="container">
@@ -52,7 +52,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="home.jsp"> Home </a> </li>
-    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="dialetivocon.jsp"> Anos Letivos </a> </li>
+    <li class="breadcrumb-item" aria-current="page"> <a style="font-style:italic" href="anoletivocon.jsp"> Anos Letivos </a> </li>
     <li class="breadcrumb-item active" aria-current="page" style="font-style:italic"> Editar </li>
   </ol>
 </nav>
@@ -153,7 +153,7 @@ List<Escola>ListaEscola = escoladao.getAll();
   	<button type="submit" class="btn btn-primary ">Salvar</button>
     <a href="anoletivocon.jsp" class="btn btn-danger">Cancelar</a>
   </div>
-  
+  <%} %>
 </form>
 </body>
 </html>
