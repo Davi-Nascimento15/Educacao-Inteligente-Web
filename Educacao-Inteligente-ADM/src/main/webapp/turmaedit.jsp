@@ -62,12 +62,12 @@
 
  <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Nome</label>
-    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=turma.getNome()%>">
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=turma.getNome()%>" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label>Ano</label>
-    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name="ano" value="<%=turma.getAno()%>"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4">
+    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name="ano" value="<%=turma.getAno()%>"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4" required>
   </div>
   
  <%

@@ -113,14 +113,14 @@ if(usuario.getTipo().name().equals("Professor")){
 
   <div class="form-group row col-md-3 offset-md-1 pt-3">
     <label >Nota</label>
-    <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= "nota" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+    <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5"  name= "nota" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"  required>
   </div>
   
 <%if(usuario.getTipo().name().equals("SuperUsuario")){ %>
   <%LocalDate data = LocalDate.now(); %>
   <div class="form-group row col-md-3 offset-md-1">
     <label >Ano Letivo</label>
-    <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= "anoletivo" value="<%=data.getYear()%>">
+    <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= "anoletivo" value="<%=data.getYear()%>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"  required>
   </div>
 <%} %> 
     <div class="row form-select col-md-3 offset-md-1">

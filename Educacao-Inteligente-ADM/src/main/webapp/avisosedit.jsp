@@ -79,17 +79,17 @@
   
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Descrição</label>
-    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição do aviso" name= "descricao" value="<%=aviso.getDescricao()%>">
+    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição do aviso" name= "descricao" value="<%=aviso.getDescricao()%>" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Observação</label>
-    <input type="text" class="form-control" aria-describedby="Observacao" placeholder="Insira observações do aviso" name= "observacao" value="<%=aviso.getObservacao()%>">
+    <input type="text" class="form-control" aria-describedby="Observacao" placeholder="Insira observações do aviso" name= "observacao" value="<%=aviso.getObservacao()%>" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label>Data de Entrega</label>
-    <input type="date" class="form-control" aria-describedby="Data" placeholder="Insira a data" name="dataentrega" value="<%=aviso.getDataEntrega()%>">
+    <input type="date" class="form-control" aria-describedby="Data" placeholder="Insira a data" name="dataentrega" value="<%=aviso.getDataEntrega()%>" required>
   </div>
 
 <%

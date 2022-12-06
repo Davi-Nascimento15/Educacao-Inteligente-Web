@@ -135,12 +135,12 @@ if(usuario.getTipo().name().equals("Professor")){
 
   <div class="form-group row col-md-3 offset-md-1 pt-3">
     <label >Nota</label>
-    <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= "nota" value="<%=nota.getNota()%>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+    <input type="text" class="form-control" aria-describedby="Nota" placeholder="Ex.: 7.5" name= "nota" value="<%=nota.getNota()%>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Ano Letivo</label>
-    <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= "anoletivo" value="<%=nota.getAnoLetivo()%>">
+    <input type="text" class="form-control" aria-describedby="AnoLetivo" placeholder="Ex.: 2022" name= "anoletivo" value="<%=nota.getAnoLetivo()%>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
   </div>
   
 <%

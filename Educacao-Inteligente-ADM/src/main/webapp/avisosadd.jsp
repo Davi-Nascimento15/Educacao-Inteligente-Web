@@ -81,17 +81,17 @@
 
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Descrição</label>
-    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição do aviso" name= "descricao">
+    <input type="text" class="form-control" aria-describedby="Descricao" placeholder="Insira a descrição do aviso" name= "descricao" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label>Observação</label>
-    <input type="text" class="form-control" aria-describedby="Observacao" placeholder="Insira observações do aviso" name= "observacao">
+    <input type="text" class="form-control" aria-describedby="Observacao" placeholder="Insira observações do aviso" name= "observacao" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label>Data de Entrega</label>
-    <input type="date" class="form-control" aria-describedby="Data" placeholder="Insira a data" name= "dataentrega">
+    <input type="date" class="form-control" aria-describedby="Data" placeholder="Insira a data" name= "dataentrega" required>
   </div>
 
 <%

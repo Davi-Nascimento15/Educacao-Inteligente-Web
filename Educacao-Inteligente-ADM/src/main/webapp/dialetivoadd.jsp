@@ -57,27 +57,27 @@
   <%LocalDate data = LocalDate.now(); %>
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label >Ano Letivo</label>
-    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Ex.: 2022" name= "ano" value="<%=data.getYear()%>">
+    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Ex.: 2022" name= "ano" value="<%=data.getYear()%>" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Inicio Primeiro Semestre</label>
-    <input type="date" class="form-control" aria-describedby="Inicio Primeiro Semestre" placeholder="Data Inicio 1º Semetre" name= "datainicioprimeirosemestre">
+    <input type="date" class="form-control" aria-describedby="Inicio Primeiro Semestre" placeholder="Data Inicio 1º Semetre" name= "datainicioprimeirosemestre" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Final Primeiro Semestre</label>
-    <input type="date" class="form-control" aria-describedby="Final Primeiro Semestre" placeholder="Data Final 1º Semetre" name= "datafinalprimeirosemestre">
+    <input type="date" class="form-control" aria-describedby="Final Primeiro Semestre" placeholder="Data Final 1º Semetre" name= "datafinalprimeirosemestre" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Inicio Segundo Semestre</label>
-    <input type="date" class="form-control" aria-describedby="Inicio Segundo Semestre" placeholder="Data Inicio 1º Semetre" name= "datainiciosegundosemestre">
+    <input type="date" class="form-control" aria-describedby="Inicio Segundo Semestre" placeholder="Data Inicio 1º Semetre" name= "datainiciosegundosemestre" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Final Segundo Semestre</label>
-    <input type="date" class="form-control" aria-describedby="Final Segundo Semestre" placeholder="Data Final 1º Semetre" name= "datafinalsegundosemestre">
+    <input type="date" class="form-control" aria-describedby="Final Segundo Semestre" placeholder="Data Final 1º Semetre" name= "datafinalsegundosemestre" required>
   </div>
   
   <%

@@ -62,12 +62,12 @@
 
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Título</label>
-    <input type="text" class="form-control" aria-describedby="Titulo" placeholder="Insira o titulo" name= "titulo" value="<%=noticia.getTitulo()%>">
+    <input type="text" class="form-control" aria-describedby="Titulo" placeholder="Insira o titulo" name= "titulo" maxlength="255" value="<%=noticia.getTitulo()%>" required>
   </div>
   
   <div class="form-group row col-md-8 offset-md-1 pt-3">
     <label for="exampleFormControlTextarea1">Descrição</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name= "descricao"> <%=noticia.getDescricao()%> </textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name= "descricao" maxlength="2048" required> <%=noticia.getDescricao()%> </textarea>
   </div> 
   
 <%

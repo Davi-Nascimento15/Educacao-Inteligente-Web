@@ -41,7 +41,7 @@ public class ControllerAluno extends HttpServlet {
            
 			Aluno aluno = alunoDao.get(idAluno);
             
-			aluno.setMatricula(Integer.parseInt(request.getParameter("matricula")));
+			aluno.setMatricula(request.getParameter("matricula"));
 			aluno.setNome(request.getParameter("nome"));
 			aluno.setNomeMae(request.getParameter("nomemae"));
 			aluno.setTelefone(request.getParameter("telefone"));
@@ -64,7 +64,7 @@ public class ControllerAluno extends HttpServlet {
 		{	
 			Aluno aluno = new Aluno();
 			
-			aluno.setMatricula(Integer.parseInt(request.getParameter("matricula")));
+			aluno.setMatricula(request.getParameter("matricula"));
 			aluno.setNome(request.getParameter("nome"));
 			aluno.setNomeMae(request.getParameter("nomemae"));
 			aluno.setTelefone(request.getParameter("telefone"));

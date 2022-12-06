@@ -103,27 +103,27 @@
   <input type="hidden" name="AnoDiaLetivo" value="<%=request.getParameter("Ano") %>">
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Ano Letivo</label>
-    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name= "ano" value="<%=request.getParameter("Ano")%>">
+    <input type="number" class="form-control" aria-describedby="Ano" placeholder="Insira o ano" name= "ano" value="<%=request.getParameter("Ano")%>" readonly>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Inicio Primeiro Semestre</label>
-    <input type="date" class="form-control" aria-describedby="Inicio Primeiro Semestre" placeholder="Data Inicio 1º Semetre" name= "datainicioprimeirosemestre" value="<%=inicioPrimeiro%>">
+    <input type="date" class="form-control" aria-describedby="Inicio Primeiro Semestre" placeholder="Data Inicio 1º Semetre" name= "datainicioprimeirosemestre" value="<%=inicioPrimeiro%>" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Final Primeiro Semestre</label>
-    <input type="date" class="form-control" aria-describedby="Final Primeiro Semestre" placeholder="Data Final 1º Semetre" name= "datafinalprimeirosemestre" value="<%=finalPrimeiro%>">
+    <input type="date" class="form-control" aria-describedby="Final Primeiro Semestre" placeholder="Data Final 1º Semetre" name= "datafinalprimeirosemestre" value="<%=finalPrimeiro%>" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Inicio Segundo Semestre</label>
-    <input type="date" class="form-control" aria-describedby="Inicio Segundo Semestre" placeholder="Data Inicio 1º Semetre" name= "datainiciosegundosemestre" value="<%=inicioSegundo%>">
+    <input type="date" class="form-control" aria-describedby="Inicio Segundo Semestre" placeholder="Data Inicio 1º Semetre" name= "datainiciosegundosemestre" value="<%=inicioSegundo%>" required>
   </div>
   
   <div class="form-group row col-md-3 offset-md-1">
     <label >Final Segundo Semestre</label>
-    <input type="date" class="form-control" aria-describedby="Final Segundo Semestre" placeholder="Data Final 1º Semetre" name= "datafinalsegundosemestre" value="<%=finalsegundo%>">
+    <input type="date" class="form-control" aria-describedby="Final Segundo Semestre" placeholder="Data Final 1º Semetre" name= "datafinalsegundosemestre" value="<%=finalsegundo%>" required>
   </div>
   
   <%

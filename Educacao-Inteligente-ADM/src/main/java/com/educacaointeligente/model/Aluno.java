@@ -23,7 +23,7 @@ public class Aluno {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     int idaluno;
 	@NotNull
-	int matricula;
+	String matricula;
 	@NotNull
 	@OrderBy("nome DESC")
     String nome;
@@ -53,7 +53,7 @@ public class Aluno {
 		super();
 	}
 
-	public Aluno(int idaluno, int matricula, String nome, String nomeMae, String endereco, String telefone, Turno turno,
+	public Aluno(int idaluno, String matricula, String nome, String nomeMae, String endereco, String telefone, Turno turno,
 			Ano ano, Usuario usuario, Turma turma, Escola escola, List<Presenca> presenca, List<Nota> nota) {
 		super();
 		this.idaluno = idaluno;
@@ -81,12 +81,12 @@ public class Aluno {
 	}
 
 
-	public int getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
 
 
-	public void setMatricula(int matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 

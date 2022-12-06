@@ -63,17 +63,17 @@
   	
   	<div class="form-group row col-md-3 offset-md-1 pt-5">
       <label>Matrícula</label>
-    	<input type="number" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "matricula" value="<%=usuario.getIdmatricula()%>">
+    	<input type="text" class="form-control" aria-describedby="Matricula" placeholder="Insira a matrícula" name= "matricula" value="<%=usuario.getIdmatricula()%>" maxlength="8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" readonly required>
     </div>
     
     <div class="form-group row col-md-3 offset-md-1">
       <label >Nome</label>
-       <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=usuario.getNome()%>">
+       <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" value="<%=usuario.getNome()%>" required>
     </div>
     
     <div class="form-group row col-md-3 offset-md-1">
       <label>Senha</label>
-      <input type="password" class="form-control"  placeholder="Insira a senha" name= "senha" value="<%=usuario.getSenha()%>">
+      <input type="password" class="form-control"  placeholder="Insira a senha" name= "senha" value="<%=usuario.getSenha()%>" required>
     </div> 
 
 <%

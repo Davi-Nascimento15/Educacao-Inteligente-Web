@@ -61,13 +61,13 @@ Adicionar Novo Professor
   
   <div class="form-group row col-md-3 offset-md-1 pt-5">
     <label>Nome</label>
-    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome">
+    <input type="text" class="form-control" aria-describedby="Nome" placeholder="Insira o nome" name= "nome" required>
   </div>
     
   <%LocalDate data = LocalDate.now(); %>
   <div class="form-group row col-md-3 offset-md-1">
     <label >Ano Letivo</label>
-    <input type="text" class="form-control" aria-describedby="Ano" placeholder="Ex.: 2022" name= "ano" value="<%=data.getYear()%>"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4">
+    <input type="text" class="form-control" aria-describedby="Ano" placeholder="Ex.: 2022" name= "ano" value="<%=data.getYear()%>"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4" required>
   </div>
   
  <%

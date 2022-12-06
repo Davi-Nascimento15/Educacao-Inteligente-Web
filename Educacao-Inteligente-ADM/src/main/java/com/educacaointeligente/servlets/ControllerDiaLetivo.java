@@ -50,8 +50,73 @@ public class ControllerDiaLetivo extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	    DiaLetivoDao diaLetivoDao = new DiaLetivoDao();
-			
-		if(!(request.getParameter("AnoDiaLetivo")==null)) {
+	    boolean y= false;
+	    y = request.getParameter("ano")!=""?false:true;
+	    y = request.getParameter("datainicioprimeirosemestre")!=null?false:true;
+	    y = request.getParameter("datafinalprimeirosemestre")!=null?false:true;
+	    y = request.getParameter("datainiciosegundosemestre")!=null?false:true;
+	    y = request.getParameter("datafinalsegundosemestre")!=null?false:true;
+	    
+	    if(y==false)
+	    {
+  
+	    SimpleDateFormat formata = new SimpleDateFormat("yyyy-MM-dd");
+	    Date ini_primeiro = new Date();
+	    try {
+			ini_primeiro = formata.parse(request.getParameter("datainicioprimeirosemestre"));
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+	    Date fin_primeiro = new Date();
+	    try {
+			fin_primeiro = formata.parse(request.getParameter("datafinalprimeirosemestre"));
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+	    Date ini_segundo = new Date();
+	    try {
+	    	ini_segundo = formata.parse(request.getParameter("datainiciosegundosemestre"));
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+	    Date fin_segundo = new Date();
+	    try {
+	    	fin_segundo = formata.parse(request.getParameter("datafinalsegundosemestre"));
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		boolean x = false;
+		
+		if(ini_primeiro.after(fin_primeiro) || fin_primeiro.after(ini_segundo))
+			x=true;
+		if(ini_segundo.after(fin_segundo))
+			x=true;
+		
+		Date zz= new Date();
+		
+		try {
+			zz = formata.parse(request.getParameter("ano")+"-01-01/");
+		} catch (ParseException e2) {
+			e2.printStackTrace();
+		}
+		
+		List<DiaLetivo> lista = diaLetivoDao.getAllWhereAnoEscola(Integer.parseInt(request.getParameter("ano")), Integer.parseInt(request.getParameter("EscolaID")));
+  	    if(!lista.isEmpty()&& request.getParameter("AnoDiaLetivo")==null) 
+  	    	x=true;
+  	    
+		if(ini_primeiro.getYear()!=zz.getYear())
+			x = true;
+		if(ini_segundo.getYear()!=zz.getYear())
+			x = true;
+		if(fin_primeiro.getYear()!=zz.getYear())
+			x = true;
+		if(fin_segundo.getYear()!=zz.getYear())
+			x = true;
+	
+	    if(x==false) {
+	    	
+	      if(!(request.getParameter("AnoDiaLetivo")==null)) {  
+	    	  
 			List<DiaLetivo> listano = diaLetivoDao.getAllWhereAno(Integer.parseInt(request.getParameter("AnoDiaLetivo")));
 			EscolaDao escoladao = new EscolaDao();
 			Escola escola = escoladao.get(Integer.parseInt(request.getParameter("EscolaID")));
@@ -389,6 +454,12 @@ public class ControllerDiaLetivo extends HttpServlet {
 			}
 		}
 		response.sendRedirect("anoletivocon.jsp?");
+	   }else {
+		   response.sendRedirect("dialetivoErrors.jsp?");  
+	   }
+	  }else {
+		   response.sendRedirect("dialetivoErrors.jsp?");  
+	   }
 	}
 	
 	static int Feriados(String ano,String data) {
